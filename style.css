@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+}
+
+.buttons {
+    background-color: rgb(96, 219, 162);
+}
+
+.buttons:hover {
+    background-color: rgb(203, 77, 219) !important;
+}
+
+
+/*------------------------MENU STARTOWE---------------------------*/
+#start_menu {
+    /*background-color: rgb(0, 0, 0);*/
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#game_start {
+    background-color: rgb(96, 219, 162);
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#options {
+    background-color: rgb(96, 219, 162);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#authors {
+    background-color: rgb(96, 219, 162);
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*------------------------END SCREEN---------------------------*/
+#end_screen {
+    /* background-color: rgb(0, 0, 0); */
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#restart {
+    background-color: rgb(96, 219, 162);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#return_to_menu {
+    background-color: rgb(96, 219, 162);
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*------------------------AUTORZY---------------------------*/
+#authors_screen {
+    /* background-color: rgb(0, 0, 0); */
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#authors_text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 100px;
+    font-size: 20px;
+}
+
+#return_from_authors {
+    background-color: rgb(96, 219, 162);
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*------------------------OPCJE PRZESZKÓD---------------------------*/
+#options_menu {
+    /* background-color: rgb(0, 0, 0); */
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#laser_toggle {
+    background-color: rgb(96, 219, 162);
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#points_toggle {
+    background-color: rgb(96, 219, 162);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#gravity_toggle {
+    background-color: rgb(96, 219, 162);
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#return_from_options {
+    background-color: rgb(96, 219, 162);
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*------------------------IKONKI GŁOŚNOŚCI---------------------------*/
+#sound_div {
+    /* background-color: rgb(212, 198, 113); */
+    height: 50px;
+    width: 50px;
+    color: white;
+    position: absolute;
+    top: 75px;
+    left: 70px;
+    transform: translate(-50%, -50%);
+}
+
+#jump_sound_div {
+    /* background-color: rgb(212, 198, 113); */
+    height: 50px;
+    width: 50px;
+    color: white;
+    position: absolute;
+    top: 125px;
+    left: 70px;
+    transform: translate(-50%, -50%);
+}
