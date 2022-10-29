@@ -35,6 +35,7 @@ function preload() {
     sound_1 = loadImage('images/sound_1.png');
     sound_2 = loadImage('images/sound_2.png');
 
+    game_background = loadImage('images/background.png');
     game_background_0 = loadImage('images/background_0.png');
     game_background_1 = loadImage('images/background_1.png');
 
@@ -164,12 +165,15 @@ function setup() {
     player = new Player;
     laser = new Laser();
     objects.push(new Collision_object());
+    background = new Image_rendering(game_background, 1);
     background_0 = new Image_rendering(game_background_0, 2);
     background_1 = new Image_rendering(game_background_1, 4);
 }
 
 
 function draw() {
+    background.move_background();
+    background.render_image();
     background_0.move_background();
     background_0.render_image();
     background_1.move_background();
