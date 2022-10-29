@@ -164,8 +164,8 @@ function setup() {
     player = new Player;
     laser = new Laser();
     objects.push(new Collision_object());
-    background_0 = new Image_rendering(game_background_0,2);
-    background_1 = new Image_rendering(game_background_1,4);
+    background_0 = new Image_rendering(game_background_0, 2);
+    background_1 = new Image_rendering(game_background_1, 4);
 }
 
 
@@ -263,6 +263,11 @@ function keyPressed() {
         jump_sound.play();
         player.gainHeight();
     }
+}
+function mouseClicked() {
+    jump_sound.stop();
+    jump_sound.play();
+    player.gainHeight();
 }
 
 function windowResized() {

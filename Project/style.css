@@ -10,6 +10,9 @@
     background-color: rgb(203, 77, 219) !important;
 }
 
+.disable-dbl-tap-zoom {
+    touch-action: manipulation;
+}
 
 /*------------------------MENU STARTOWE---------------------------*/
 #start_menu {
