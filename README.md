@@ -4,6 +4,7 @@
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#to-do">To do</a></li>
     <li><a href="#built-with">Built with</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -16,7 +17,7 @@
 Online Flappy Bird type game with global leaderboard. In this type of game you play as a bird trying to dodge obstacles. The further you go, the more points you get. Try to survive as long as possible.
 
 <!-- ROADMAP -->
-## Roadmap:
+## Roadmap
 - [x] Learning HTML and creating 1st version of homepage
 - [x] Learning CSS and creating styles for the webpage
 - [x] Learning JavaScript and creating first sketch of the game
@@ -27,8 +28,17 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 - [ ] Implementing dynamic background (changed by earning more points, constantly moving behind player to give impression of speed)
 - [ ] Creating final graphics, sprites and finalizing project
 
+<!-- TO DO -->
+## To do
+- [ ] Leaderboards
+- [ ] Final moving background (parallax effect)
+- [ ] Final images
+- [ ] Final sound
+- [ ] Button design
+- [ ] The final layout (divs and font)
+
 <!-- BUILT WITH -->
-## Built with:
+## Built with
 [![p5][p5js]][p5-url]
 
 <!-- ACKNOWLEDGMENTS -->
