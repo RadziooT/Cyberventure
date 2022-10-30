@@ -11,6 +11,35 @@ var frames_per_obstacle = 160;
 
 var start_menu_div, end_screen_div, authors_div, options_div, sound_div; //divs responsible for different windows of game
 
+//TESTING DATA FOR LEADERBOARD
+dbData =
+[
+    {
+        "name": "Radzio",
+        "score": 2
+    },
+    {
+        "name": "Mati",
+        "score": 314
+    },
+    {
+        "name": "Boliver",
+        "score": 69
+    },
+    {
+        "name": "Pabloskyy",
+        "score": "Dota"
+    },
+    {
+        "name": "Kulson",
+        "score": "asud"
+    },
+    {
+        "name": "Wyrzo",
+        "score": "ej"
+    },
+]
+
 var soundtrack_volume_state;
 var jump_volume_state;
 var soundtrack;
@@ -159,6 +188,44 @@ function setup() {
     jump_sound_div.id('jump_sound_div')
     jump_volume_state = 0;
     jump_sound_div.mousePressed(toggle_jump_sound);
+
+    //------------------------------------------------------------------------------------------------------------------------------
+    //--------------------------------------CREATING LEADERBOARD--------------------------------------------------------------------
+    leaderboard_div = createDiv();
+    leaderboard_div.parent('canvas_sketch');
+    leaderboard_div.id('leaderboard_screen');
+    leaderboard_div.size(0.15 * displayWidth, displayHeight);
+    leaderboard_div.html('<h1 id="leaderboard_title">Highest scores</h1>')
+    
+    all_scores_div = createDiv();
+    all_scores_div.parent('leaderboard_screen');
+    all_scores_div.id('all_scores');
+
+    score_name_div = createDiv();
+    score_name_div.parent('all_scores');
+    score_name_div.id('score_name');
+
+    score_value_div = createDiv();
+    score_value_div.parent('all_scores');
+    score_value_div.id('score_value');
+
+
+    //Values will be gained from table through possibly php current table is just template value
+    //Personal best will be gained maybe through Window.localStorage
+    //Updating score should be changed
+    for (i = 0; i < dbData.length; i++)
+    {
+        score_name_div.html('<span class="dbRecord">Name: ' + dbData[i]["name"] + '<br></span>', true);
+        score_value_div.html('<span class="dbRecord">Score: ' + dbData[i]["score"] + '<br></span>', true);
+    }
+
+    score_name_div.html('<br><span class="dbRecord">Current Score:<br>' + score + '<br></span>', true);
+    score_value_div.html('<br><span class="dbRecord">Personal Best:<br>' + 29 + '<br></span>', true);
+    //scores_value_div = createDiv();
+    //scores_value_div.parent('leaderboard_screen');
+    //scores_value_div.addClass('scores');
+    //scores_value_div.id('score_values');
+
 
     //------------------------------------------------------------------------------------------------------------------------------
     //----------------------GENERATING OBJECTS--------------------------------------------------------------------------------------

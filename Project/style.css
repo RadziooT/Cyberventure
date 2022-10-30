@@ -165,3 +165,41 @@
     left: 70px;
     transform: translate(-50%, -50%);
 }
+
+/*-------------------------LEADERBOARD--------------------------------*/
+#leaderboard_screen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    border: 4px solid black;
+    height: 50px;
+    width: 50px;
+}
+
+#leaderboard_title {
+    width: 100%;
+    height: 10%;
+    font-size: 30px;
+    border: 4px solid red;
+    font-weight: 900;
+}
+
+#all_scores {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 90%;
+    border: 4px solid pink;
+}
+
+#score_name, #score_value {
+    text-align: center;
+    width: 50%;
+    height: 50%;
+}
+
+.dbRecord {
+    width: 100%
+}
