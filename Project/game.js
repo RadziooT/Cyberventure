@@ -1,3 +1,7 @@
+if(localStorage.getItem('PersonalBest') == null)
+    localStorage.setItem('PersonalBest', 0);
+
+var bestscore = localStorage.getItem('PersonalBest');
 var player;
 var counter = 0;
 var gameRunning = false;
@@ -80,6 +84,7 @@ function preload() {
 function setup() {
     var myCanvas = createCanvas(displayWidth, displayHeight);
     myCanvas.parent('canvas_sketch');
+    
     //-----------------------------------------------------------------------------------------------------------------------
     //-------------CREATING MAIN MENU WITH BUTTONS---------------------------------------------------------------------------
     start_menu_div = createDiv();
@@ -209,23 +214,7 @@ function setup() {
     score_value_div.parent('all_scores');
     score_value_div.id('score_value');
 
-
-    //Values will be gained from table through possibly php current table is just template value
-    //Personal best will be gained maybe through Window.localStorage
-    //Updating score should be changed
-    for (i = 0; i < dbData.length; i++)
-    {
-        score_name_div.html('<span class="dbRecord">Name: ' + dbData[i]["name"] + '<br></span>', true);
-        score_value_div.html('<span class="dbRecord">Score: ' + dbData[i]["score"] + '<br></span>', true);
-    }
-
-    score_name_div.html('<br><span class="dbRecord">Current Score:<br>' + score + '<br></span>', true);
-    score_value_div.html('<br><span class="dbRecord">Personal Best:<br>' + 29 + '<br></span>', true);
-    //scores_value_div = createDiv();
-    //scores_value_div.parent('leaderboard_screen');
-    //scores_value_div.addClass('scores');
-    //scores_value_div.id('score_values');
-
+    draw_leaderboard(dbData);
 
     //------------------------------------------------------------------------------------------------------------------------------
     //----------------------GENERATING OBJECTS--------------------------------------------------------------------------------------
@@ -237,7 +226,6 @@ function setup() {
     background_1 = new Image_rendering(game_background_1, 4);
 }
 
-
 function draw() {
     background.move_background();
     background.render_image();
@@ -246,10 +234,8 @@ function draw() {
     background_1.move_background();
     background_1.render_image();
 
-
     if (gameRunning) {
         //--------------------------------------------------------------------------------------------------------------------------
-        document.getElementById('score').innerHTML = score
         player.dropHeight();
         //---------------------------------------------------------------------------------------------------------------------
         //-------------------SPAWNING NEW OBSTACLES WITH COLLECTIBLES----------------------------------------------------------
@@ -269,7 +255,7 @@ function draw() {
             objects[i].move();
 
             if (objects[i].collision_detected(player)) {
-                //game_end();
+                game_end();
             }
 
             if (obstacle_additional_points == true) {
@@ -277,7 +263,6 @@ function draw() {
                     if (objects[i].has_pickup) {
                         objects[i].set_pickup_state(false);
                         score += 5;
-                        document.getElementById('score').innerHTML = score;
 
                         if (obstacle_gravity == true)
                             player.pull_down = !player.pull_down;
@@ -292,7 +277,6 @@ function draw() {
                     score++;
                     objects[i].point_given = true;
                 }
-                document.getElementById('score').innerHTML = score;
             }
 
             if (objects[i].get_x() < -(width / 2 + objects[i].width))
@@ -309,16 +293,17 @@ function draw() {
             laser.count_down();
 
             if (laser.collision_laser(player)) {
-                //game_end();
+                game_end();
             }
         }
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
+        draw_leaderboard(dbData);
         player.render();
         updatePixels();
 
         if (player.collision_border()) {
-            //game_end();
+            game_end();
         }
     }
 
@@ -343,6 +328,20 @@ function mouseClicked() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+}
+
+function draw_leaderboard(dbData) {
+    score_name_div.html('');
+    score_value_div.html('');
+
+    for (i = 0; i < dbData.length; i++)
+    {
+        score_name_div.html('<span class="dbRecord">Name: ' + dbData[i]["name"] + '<br></span>', true);
+        score_value_div.html('<span class="dbRecord">Score: ' + dbData[i]["score"] + '<br></span>', true);
+    }
+
+    score_name_div.html('<br><span class="current_score">Current Score:<br>' + score + '<br></span>', true);
+    score_value_div.html('<br><span class="dbRecord">Personal Best:<br>' + bestscore + '<br></span>', true);
 }
 
 function toggle_jump_sound() {
@@ -499,6 +498,10 @@ function game_end() {
     gameRunning = false;
     end_sound.stop();
     end_sound.play();
+    if(score > localStorage.getItem('PersonalBest')){
+        localStorage.setItem('PersonalBest', score)
+        bestscore = score;
+    }
     end_screen_div.show();
 }
 
