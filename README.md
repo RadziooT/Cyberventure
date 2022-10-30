@@ -30,7 +30,7 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 
 <!-- TO DO -->
 ## To do
-- [ ] Leaderboards
+- [ ] Final leaderboard design
 - [ ] Final moving background (parallax effect)
 - [ ] Final images
 - [ ] Final sound
