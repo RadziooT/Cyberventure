@@ -7,7 +7,6 @@ class Player {
         this.gravity = 3; //determines how fast does the player fall
         this.momentum = 0;//determines how long the jump lasts as well as speeds up falling down
         this.step = 0.3;
-        this.pull_down = true;//chagnes gravity pull if true then pulls down
         this.max_momentum = 10;
         this.max_jump = 15;
     }
@@ -16,7 +15,8 @@ class Player {
         this.player_y = height / 2;
         this.player_x = width / 10;
         this.momentum = 0;
-        this.pull_down = true;
+        this.gravity = 3;
+        this.step = 0.3;
     }
 
     render() {
@@ -25,23 +25,14 @@ class Player {
 
     //Force responsible for pushing player to the borders of the screen
     dropHeight() {
-        if (this.pull_down) {
-            if (abs(this.momentum) > this.max_momentum)
-                this.momentum = this.max_momentum * Math.sign(this.momentum);
-            else {
-                this.momentum += this.step;
-                this.player_y += this.momentum;
-            }
-        } else {
-            if (abs(this.momentum) > this.max_momentum)
-                this.momentum = this.max_momentum * Math.sign(this.momentum);
-            else {
-                this.momentum += this.step;
-                this.player_y -= this.momentum;
-            }
+        if (abs(this.momentum) > this.max_momentum)
+            this.momentum = this.max_momentum * Math.sign(this.momentum);
+        else {
+            this.momentum += this.step;
+            this.player_y += this.momentum;
         }
     }
-    //TODO simplify dropHeight
+
     //Jumping mechanic
     gainHeight() {
         if (abs(this.momentum) > this.max_jump)

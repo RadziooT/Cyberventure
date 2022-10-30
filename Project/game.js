@@ -138,8 +138,11 @@ function draw() {
                         objects[i].set_pickup_state(false);
                         score += 5;
 
-                        if (obstacle_gravity == true)
-                            player.pull_down = !player.pull_down;
+                        if (obstacle_gravity == true) {
+                            player.gravity = -player.gravity;
+                            player.momentum = 0;
+                            player.step = -player.step;
+                        }
                     }
                 }
             }
@@ -368,7 +371,6 @@ function start() {
 }
 
 function game_end() {
-    player.pull_down = true;
     gameRunning = false;
     end_sound.stop();
     end_sound.play();
