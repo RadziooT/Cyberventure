@@ -272,14 +272,14 @@ function draw() {
 
             //------------------------------------------------------------------------------------------------------------------------------
             //--------------DETECTING GETTING SCORE AND DELETING USED OBSTACLES-------------------------------------------------------------
-            if (objects[i].get_x() + objects[i].width / 2 < player.player_x + player.player_size) {
+            if (objects[i].object_x + objects[i].width / 2 < player.player_x + player.player_size) {
                 if (objects[i].point_given == false) {
                     score++;
                     objects[i].point_given = true;
                 }
             }
 
-            if (objects[i].get_x() < -(width / 2 + objects[i].width))
+            if (objects[i].object_x < -(width / 2 + objects[i].width))
                 objects.shift();
         }
 

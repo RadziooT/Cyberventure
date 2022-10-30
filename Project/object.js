@@ -10,11 +10,6 @@ class Collision_object {
         this.point_given = false;
     }
 
-    //Returning current position of object
-    get_x() {
-        return this.object_x;
-    }
-
     //Stopping render of pickup if collected
     set_pickup_state(val) {
         if (this.has_pickup == true || this.has_pickup == false)
