@@ -41,7 +41,7 @@ class Player {
             }
         }
     }
-
+    //TODO simplify dropHeight
     //Jumping mechanic
     gainHeight() {
         if (abs(this.momentum) > this.max_jump)
@@ -52,9 +52,9 @@ class Player {
 
     //Collsision with top/bottow of the screen
     collision_border() {
-        if (this.player_y <= 0 || this.player_y + this.player_size >= height) {
+        if (this.player_y <= 0 || this.player_y + this.player_size >= height)
             return true;
-        } else
+        else
             return false;
     }
 }

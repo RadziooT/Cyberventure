@@ -1,4 +1,4 @@
-if(localStorage.getItem('PersonalBest') == null)
+if (localStorage.getItem('PersonalBest') == null)
     localStorage.setItem('PersonalBest', 0);
 
 var bestscore = localStorage.getItem('PersonalBest');
@@ -8,41 +8,41 @@ var gameRunning = false;
 var objects = [];
 var score = 0;
 var laser;
-var pickup_intensity = 1;
-var laser_intensity = 5;
-var laser_timer = 400;
-var frames_per_obstacle = 160;
+const pickup_intensity = 1;
+const laser_intensity = 5;
+const laser_timer = 400;
+const frames_per_obstacle = 160;
 
 var start_menu_div, end_screen_div, authors_div, options_div, sound_div; //divs responsible for different windows of game
 
 //TESTING DATA FOR LEADERBOARD
 dbData =
-[
-    {
-        "name": "Radzio",
-        "score": 2
-    },
-    {
-        "name": "Mati",
-        "score": 314
-    },
-    {
-        "name": "Boliver",
-        "score": 69
-    },
-    {
-        "name": "Pabloskyy",
-        "score": "Dota"
-    },
-    {
-        "name": "Kulson",
-        "score": "asud"
-    },
-    {
-        "name": "Wyrzo",
-        "score": "ej"
-    },
-]
+    [
+        {
+            "name": "Radzio",
+            "score": 2
+        },
+        {
+            "name": "Mati",
+            "score": 314
+        },
+        {
+            "name": "Boliver",
+            "score": 69
+        },
+        {
+            "name": "Pabloskyy",
+            "score": "Dota"
+        },
+        {
+            "name": "Kulson",
+            "score": "asud"
+        },
+        {
+            "name": "Wyrzo",
+            "score": "ej"
+        },
+    ]
 
 var soundtrack_volume_state;
 var jump_volume_state;
@@ -84,7 +84,7 @@ function preload() {
 function setup() {
     var myCanvas = createCanvas(displayWidth, displayHeight);
     myCanvas.parent('canvas_sketch');
-    
+
     //-----------------------------------------------------------------------------------------------------------------------
     //-------------CREATING MAIN MENU WITH BUTTONS---------------------------------------------------------------------------
     start_menu_div = createDiv();
@@ -201,7 +201,7 @@ function setup() {
     leaderboard_div.id('leaderboard_screen');
     leaderboard_div.size(0.15 * displayWidth, displayHeight);
     leaderboard_div.html('<h1 id="leaderboard_title">Highest scores</h1>')
-    
+
     all_scores_div = createDiv();
     all_scores_div.parent('leaderboard_screen');
     all_scores_div.id('all_scores');
@@ -219,8 +219,8 @@ function setup() {
     //------------------------------------------------------------------------------------------------------------------------------
     //----------------------GENERATING OBJECTS--------------------------------------------------------------------------------------
     player = new Player;
-    laser = new Laser();
-    objects.push(new Collision_object());
+    laser = new Laser;
+    objects.push(new Collision_object);
     background = new Image_rendering(game_background, 1);
     background_0 = new Image_rendering(game_background_0, 2);
     background_1 = new Image_rendering(game_background_1, 4);
@@ -334,8 +334,7 @@ function draw_leaderboard(dbData) {
     score_name_div.html('');
     score_value_div.html('');
 
-    for (i = 0; i < dbData.length; i++)
-    {
+    for (i = 0; i < dbData.length; i++) {
         score_name_div.html('<span class="dbRecord">Name: ' + dbData[i]["name"] + '<br></span>', true);
         score_value_div.html('<span class="dbRecord">Score: ' + dbData[i]["score"] + '<br></span>', true);
     }
@@ -495,10 +494,11 @@ function start() {
 }
 
 function game_end() {
+    player.pull_down = true;
     gameRunning = false;
     end_sound.stop();
     end_sound.play();
-    if(score > localStorage.getItem('PersonalBest')){
+    if (score > localStorage.getItem('PersonalBest')) {
         localStorage.setItem('PersonalBest', score)
         bestscore = score;
     }
