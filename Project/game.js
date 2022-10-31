@@ -69,9 +69,10 @@ function preload() {
     sound_1 = loadImage('images/sound_1.png');
     sound_2 = loadImage('images/sound_2.png');
 
-    game_background = loadImage('images/background.png');
-    game_background_0 = loadImage('images/background_0.png');
-    game_background_1 = loadImage('images/background_1.png');
+    game_background_s = loadImage('images/4k/s.png');
+    game_background_b1 = loadImage('images/4k/b1.png');
+    game_background_c1 = loadImage('images/4k/c1.png');
+    game_background_f1 = loadImage('images/4k/f1.png');
 
     jump_sound = createAudio('sounds/jump_sound.mp3');
     jump_sound.volume(0);
@@ -95,18 +96,22 @@ function setup() {
     player = new Player;
     laser = new Laser;
     objects.push(new Collision_object);
-    background = new Image_rendering(game_background, 1);
-    background_0 = new Image_rendering(game_background_0, 2);
-    background_1 = new Image_rendering(game_background_1, 4);
+    background_s = new Image_rendering(game_background_s, 1);
+    background_b1 = new Image_rendering(game_background_b1, 1.5);
+    background_c1 = new Image_rendering(game_background_c1, 2);
+    background_f1 = new Image_rendering(game_background_f1, 2.5);
+
 }
 
 function draw() {
-    background.move_background();
-    background.render_image();
-    background_0.move_background();
-    background_0.render_image();
-    background_1.move_background();
-    background_1.render_image();
+    background_s.move_background();
+    background_s.render_image();
+    background_b1.move_background();
+    background_b1.render_image();
+    background_c1.move_background();
+    background_c1.render_image();
+    background_f1.move_background();
+    background_f1.render_image();
 
     if (gameRunning) {
         //--------------------------------------------------------------------------------------------------------------------------
