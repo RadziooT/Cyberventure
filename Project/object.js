@@ -18,12 +18,15 @@ class Collision_object {
 
     //Collision with obstacles
     collision_detected(player) {
-        if ((player.player_x + player.player_size >= this.object_x && player.player_x <= this.object_x + this.width)
-            && (player.player_y <= this.hole_center - this.hole_size / 2
-                || player.player_y + player.player_size >= this.hole_center + this.hole_size / 2)) {
+        if (!(player.player_x + player.player_size >= this.object_x))
+            return false;
+        if (!(player.player_x <= this.object_x + this.width))
+            return false;
+        if (!(player.player_y <= this.hole_center - this.hole_size / 2
+            || player.player_y + player.player_size >= this.hole_center + this.hole_size / 2))
+            return false;
+        else
             return true;
-        }
-        return false;
     }
 
     //Collision with pickups
