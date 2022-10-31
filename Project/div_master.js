@@ -1,3 +1,5 @@
+const scale = 0.35;
+
 function div_create_all() {
     div_main_menu();
     div_end_screen();
@@ -12,7 +14,7 @@ function div_main_menu() {
     start_menu_div = createDiv();
     start_menu_div.parent('canvas_sketch');
     start_menu_div.id('start_menu');
-    start_menu_div.size(0.35 * displayWidth, displayHeight);
+    start_menu_div.size(scale * displayWidth, displayHeight);
 
     button_play = createButton('Start game');
     button_play.parent('start_menu');
@@ -39,7 +41,7 @@ function div_end_screen() {
     end_screen_div = createDiv();
     end_screen_div.parent('canvas_sketch');
     end_screen_div.id('end_screen');
-    end_screen_div.size(0.35 * displayWidth, displayHeight);
+    end_screen_div.size(scale * displayWidth, displayHeight);
     end_screen_div.hide();
 
     button_restart = createButton('Restart');
@@ -60,7 +62,7 @@ function div_menu_screen() {
     options_div = createDiv();
     options_div.parent('canvas_sketch');
     options_div.id('options_menu');
-    options_div.size(0.35 * displayWidth, displayHeight);
+    options_div.size(scale * displayWidth, displayHeight);
     options_div.hide();
 
     button_laser = createButton('Laser');
@@ -93,7 +95,7 @@ function div_authors_screen() {
     authors_div = createDiv();
     authors_div.parent('canvas_sketch');
     authors_div.id('authors_screen');
-    authors_div.size(0.35 * displayWidth, displayHeight);
+    authors_div.size(scale * displayWidth, displayHeight);
     authors_div.hide();
 
     text_div = createDiv('Authors:<br>Mateusz Siedliski & Radosław Tchórzewski');
