@@ -31,11 +31,16 @@ class Collision_object {
 
     //Collision with pickups
     collision_pickup(player) {
-        if ((player.player_x + player.player_size >= this.object_x + this.width / 2 - this.hole_size / 4 && player.player_x <= this.object_x + this.width / 2 + this.hole_size / 2)
-            && (player.player_y + player.player_size >= this.hole_center - this.hole_size / 4 && player.player_y <= this.hole_center + this.hole_size / 4)) {
+        if (!(player.player_x + player.player_size >= this.object_x + this.width / 2 - this.hole_size / 4))
+            return false;
+        if (!(player.player_x <= this.object_x + this.width / 2 + this.hole_size / 2))
+            return false;
+        if (!(player.player_y + player.player_size >= this.hole_center - this.hole_size / 4))
+            return false;
+        if (!(player.player_y <= this.hole_center + this.hole_size / 4))
+            return false;
+        else
             return true;
-        }
-        return false;
     }
 
     //Creating visual representation of obstacles
