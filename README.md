@@ -6,6 +6,7 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#to-do">To do</a></li>
     <li><a href="#built-with">Built with</a></li>
+    <li><a href="#graphics">Graphics</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -41,6 +42,10 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 ## Built with
 [![p5][p5js]][p5-url]
 
+<!-- GRAPHICS -->
+## Graphics
+[![blender][blender]][blender-url] [![affinity][affinity]][affinity-url]
+
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 * [Krystian Czekalski](https://www.udemy.com/course/bootcamp-programistyczny/)
@@ -53,3 +58,7 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [p5js]: https://img.shields.io/badge/p5.js-ED225D?style=for-the-badge&logo=p5.js&logoColor=FFFFFF
 [p5-url]: https://p5js.org
+[blender]: https://img.shields.io/badge/Blender-EA7600?style=for-the-badge&logo=blender&logoColor=FFFFFF
+[blender-url]: https://blender.org
+[affinity]: https://img.shields.io/badge/affinity_photo-7e4dd2?style=for-the-badge&logo=affinity&logoColor=f087ff
+[affinity-url]: https://affinity.serif.com/photo/
