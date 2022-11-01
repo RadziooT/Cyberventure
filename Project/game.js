@@ -84,7 +84,7 @@ function preload() {
 }
 
 function setup() {
-    var myCanvas = createCanvas(displayWidth, displayHeight);
+    var myCanvas = createCanvas(windowWidth, windowHeight);
     myCanvas.parent('canvas_sketch');
 
     div_create_all();
