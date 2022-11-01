@@ -75,13 +75,11 @@ function div_menu_screen() {
     button_laser.mousePressed(laser_pressed);
     button_laser.id("laser_toggle");
     //button_laser.addClass("buttons");
-    button_laser.html("<div class='toggle' id='switch'><div class='toggle-text-off'>OFF</div><div class='glow-comp'></div>", true);
-    button_laser.html("<div class='toggle-button'></div><div class='toggle-text-on'>ON</div></div>", true);
 
-
-
-
-
+    button_laser.addClass("animated-button11");
+    button_laser.addClass("animated-button12");
+    button_laser.toggleClass("animated-button2");
+    button_laser.html("<span></span><span></span><span></span><span></span>Laser");
 
     button_points = createButton('Additional points');
     button_points.parent('options_menu');

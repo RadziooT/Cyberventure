@@ -351,6 +351,8 @@ function go_to_options() {
 }
 
 function laser_pressed() {
+    button_laser.toggleClass("animated-button11");
+    button_laser.toggleClass("animated-button12");
     obstacle_laser = !obstacle_laser;
 }
 
