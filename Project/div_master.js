@@ -20,7 +20,10 @@ function div_main_menu() {
     button_play.parent('start_menu');
     button_play.mousePressed(game_start);
     button_play.id("game_start");
-    button_play.addClass("buttons");
+    //button_play.addClass("buttons");
+    button_play.addClass("animated-button11");
+    //button_play.html("<a href=# class=animated-button1><span></span><span></span><span></span><span></span>Button</a>");
+    button_play.html("<span></span><span></span><span></span><span></span>Start game");
 
     button_options = createButton('Options');
     button_options.parent('start_menu');
@@ -57,7 +60,7 @@ function div_end_screen() {
     button_return_to_menu.addClass("buttons");
 }
 //-----------------------------------------------------------------------------------------------------------------------
-//-------------CREATING MENU SCREEN WITH BUTTONS-------------------------------------------------------------------------
+//-------------CREATING OPTIONS SCREEN WITH BUTTONS-------------------------------------------------------------------------
 function div_menu_screen() {
     options_div = createDiv();
     options_div.parent('canvas_sketch');

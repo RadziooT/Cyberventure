@@ -3,14 +3,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-}
-
-.buttons {
-    background-color: rgb(96, 219, 162);
-}
-
-.buttons:hover {
-    background-color: rgb(203, 77, 219) !important;
+    box-sizing: border-box;
 }
 
 .disable-dbl-tap-zoom {
@@ -19,7 +12,6 @@
 
 /*------------------------MENU STARTOWE---------------------------*/
 #start_menu {
-    /*background-color: rgb(0, 0, 0);*/
     color: white;
     position: absolute;
     top: 50%;
@@ -28,7 +20,6 @@
 }
 
 #game_start {
-    background-color: rgb(96, 219, 162);
     position: absolute;
     top: 30%;
     left: 50%;
@@ -36,7 +27,6 @@
 }
 
 #options {
-    background-color: rgb(96, 219, 162);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -44,7 +34,6 @@
 }
 
 #authors {
-    background-color: rgb(96, 219, 162);
     position: absolute;
     top: 70%;
     left: 50%;
