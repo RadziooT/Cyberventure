@@ -36,6 +36,8 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 - [ ] Final images
 - [ ] Final sound
 - [ ] Button design
+- [ ] Swap option buttons for switches
+- [ ] Add area for name input
 - [ ] The final layout (divs and font)
 
 <!-- BUILT WITH -->
