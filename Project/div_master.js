@@ -75,20 +75,24 @@ function div_menu_screen() {
     button_laser.mousePressed(laser_pressed);
     button_laser.id("laser_toggle");
     //button_laser.addClass("buttons");
-    button_laser.html("<div class='toggle' id='switch'><div class='toggle-text-off'>OFF</div><div class='glow-comp'></div>", true);
-    button_laser.html("<div class='toggle-button'></div><div class='toggle-text-on'>ON</div></div>", true);
 
     button_points = createButton('Additional points');
     button_points.parent('options_menu');
     button_points.mousePressed(points_pressed);
     button_points.id("points_toggle");
-    button_points.addClass("buttons");
+    button_points.addClass("animated-button12");
+    button_points.addClass("animated-button2");
+    button_points.toggleClass("animated-button2");
+    button_points.html("<span></span><span></span><span></span><span></span><h5>Additional Points</h5>");
 
     button_gravity = createButton('Swapping gravity');
     button_gravity.parent('options_menu');
     button_gravity.mousePressed(gravity_pressed);
     button_gravity.id("gravity_toggle");
-    button_gravity.addClass("buttons");
+    button_gravity.addClass("animated-button12");
+    button_gravity.addClass("animated-button2");
+    button_gravity.toggleClass("animated-button2");
+    button_gravity.html("<span></span><span></span><span></span><span></span><h5>Gravity switching</h5>");
 
     button_return_to_menu = createButton('Main menu');
     button_return_to_menu.parent('options_menu');

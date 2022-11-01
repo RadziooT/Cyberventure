@@ -351,14 +351,20 @@ function go_to_options() {
 }
 
 function laser_pressed() {
+    button_laser.toggleClass("animated-button2");
+    button_laser.toggleClass("animated-button12");
     obstacle_laser = !obstacle_laser;
 }
 
 function points_pressed() {
+    button_points.toggleClass("animated-button2");
+    button_points.toggleClass("animated-button12");
     obstacle_additional_points = !obstacle_additional_points;
 }
 
 function gravity_pressed() {
+    button_gravity.toggleClass("animated-button2");
+    button_gravity.toggleClass("animated-button12");
     obstacle_gravity = !obstacle_gravity;
 }
 
