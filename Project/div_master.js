@@ -20,22 +20,22 @@ function div_main_menu() {
     button_play.parent('start_menu');
     button_play.mousePressed(game_start);
     button_play.id("game_start");
-    button_play.addClass("animated-button11");
-    button_play.html("<span></span><span></span><span></span><span></span>Start game");
+    button_play.addClass("cyber-button");
+    button_play.html("Start game");
 
     button_options = createButton('Options');
     button_options.parent('start_menu');
     button_options.mousePressed(go_to_options);
     button_options.id("options");
-    button_options.addClass("animated-button11");
-    button_options.html("<span></span><span></span><span></span><span></span>Options");
+    button_options.addClass("cyber-button");
+    button_options.html("Options");
 
     button_authors = createButton('Authors');
     button_authors.parent('start_menu');
     button_authors.mousePressed(go_to_authors);
     button_authors.id("authors");
-    button_authors.addClass("animated-button11");
-    button_authors.html("<span></span><span></span><span></span><span></span>Authors");
+    button_authors.addClass("cyber-button");
+    button_authors.html("Authors");
 }
 
 //-----------------------------------------------------------------------------------------------------------------------
@@ -51,15 +51,15 @@ function div_end_screen() {
     button_restart.parent('end_screen');
     button_restart.mousePressed(game_reset);
     button_restart.id("restart");
-    button_restart.addClass("animated-button11");
-    button_restart.html("<span></span><span></span><span></span><span></span>Restart");
+    button_restart.addClass("cyber-button");
+    button_restart.html("Restart");
 
     button_return_to_menu = createButton('Main menu');
     button_return_to_menu.parent('end_screen');
     button_return_to_menu.mousePressed(return_to_menu);
     button_return_to_menu.id("return_to_menu");
-    button_return_to_menu.addClass("animated-button11");
-    button_return_to_menu.html("<span></span><span></span><span></span><span></span>Main menu");
+    button_return_to_menu.addClass("cyber-button");
+    button_return_to_menu.html("Main menu");
 }
 //-----------------------------------------------------------------------------------------------------------------------
 //-------------CREATING OPTIONS SCREEN WITH BUTTONS-------------------------------------------------------------------------
@@ -78,11 +78,6 @@ function div_menu_screen() {
     button_laser.html("<div class='toggle' id='switch'><div class='toggle-text-off'>OFF</div><div class='glow-comp'></div>", true);
     button_laser.html("<div class='toggle-button'></div><div class='toggle-text-on'>ON</div></div>", true);
 
-
-
-
-
-
     button_points = createButton('Additional points');
     button_points.parent('options_menu');
     button_points.mousePressed(points_pressed);
@@ -99,8 +94,8 @@ function div_menu_screen() {
     button_return_to_menu.parent('options_menu');
     button_return_to_menu.mousePressed(return_to_menu);
     button_return_to_menu.id("return_from_options");
-    button_return_to_menu.addClass("animated-button11");
-    button_return_to_menu.html("<span></span><span></span><span></span><span></span>Main menu");
+    button_return_to_menu.addClass("cyber-button");
+    button_return_to_menu.html("Main menu");
 }
 //-----------------------------------------------------------------------------------------------------------------------
 //-----------CREATING AUTHORS SCREEN WITH BUTTONS------------------------------------------------------------------------
@@ -119,8 +114,8 @@ function div_authors_screen() {
     button_return_from_authors.parent('authors_screen');
     button_return_from_authors.mousePressed(return_to_menu);
     button_return_from_authors.id("return_from_authors");
-    button_return_from_authors.addClass("animated-button11");
-    button_return_from_authors.html("<span></span><span></span><span></span><span></span>Main menu");
+    button_return_from_authors.addClass("cyber-button");
+    button_return_from_authors.html("Main menu");
 }
 //------------------------------------------------------------------------------------------------------------------------------
 //-------------------CREATING SOUND BUTTONS-------------------------------------------------------------------------------------

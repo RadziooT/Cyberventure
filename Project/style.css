@@ -50,7 +50,6 @@
 }
 
 #restart {
-    background-color: rgb(96, 219, 162);
     position: absolute;
     top: 40%;
     left: 50%;
@@ -58,7 +57,6 @@
 }
 
 #return_to_menu {
-    background-color: rgb(96, 219, 162);
     position: absolute;
     top: 60%;
     left: 50%;
@@ -85,7 +83,6 @@
 }
 
 #return_from_authors {
-    background-color: rgb(96, 219, 162);
     position: absolute;
     top: 60%;
     left: 50%;
@@ -103,7 +100,6 @@
 }
 
 #laser_toggle {
-    background-color: rgb(96, 219, 162);
     position: absolute;
     top: 20%;
     left: 50%;
@@ -111,7 +107,6 @@
 }
 
 #points_toggle {
-    background-color: rgb(96, 219, 162);
     position: absolute;
     top: 40%;
     left: 50%;
@@ -119,7 +114,6 @@
 }
 
 #gravity_toggle {
-    background-color: rgb(96, 219, 162);
     position: absolute;
     top: 60%;
     left: 50%;
@@ -127,7 +121,6 @@
 }
 
 #return_from_options {
-    background-color: rgb(96, 219, 162);
     position: absolute;
     top: 80%;
     left: 50%;
