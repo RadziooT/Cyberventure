@@ -83,7 +83,7 @@ function div_menu_screen() {
     button_points.addClass("animated-button12");
     button_points.addClass("animated-button2");
     button_points.toggleClass("animated-button2");
-    button_points.html("<span></span><span></span><span></span><span></span><h5>Additional Points</h5>");
+    button_points.html("Additional Points");
 
     button_gravity = createButton('Swapping gravity');
     button_gravity.parent('options_menu');
@@ -92,7 +92,7 @@ function div_menu_screen() {
     button_gravity.addClass("animated-button12");
     button_gravity.addClass("animated-button2");
     button_gravity.toggleClass("animated-button2");
-    button_gravity.html("<span></span><span></span><span></span><span></span><h5>Gravity switching</h5>");
+    button_gravity.html("Gravity switching");
 
     button_return_to_menu = createButton('Main menu');
     button_return_to_menu.parent('options_menu');
