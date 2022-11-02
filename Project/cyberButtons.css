@@ -47,6 +47,16 @@
     overflow: hidden;
     width: 350px;
     height: 54.5px;
+    background: repeating-linear-gradient(to bottom,
+            transparent 0%,
+            var(--red-scanline) 1px,
+            var(--red-scanline) 3px,
+            var(--red-scanline) 5px,
+            var(--red-scanline) 4px,
+            transparent 0.5%),
+        repeating-linear-gradient(to left,
+            var(--black-scanline) 100%,
+            var(--black-scanline) 100%);
     clip-path: polygon(350px 0px, 350px 29px, 322px 57px, 0px 57px, 0px 0px);
 
     /* font */
