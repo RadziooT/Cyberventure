@@ -313,70 +313,9 @@ function render_sound(i) {
     image(img, 50, 50, 50, 50);
 }
 
-//-----------------------------------------------------------------------------------------------------------------------
-//-------------------NAVIGATING WITH BUTTONS-------------------------------------------------------------------------------
-function game_start() {
-    score = 0;
-    counter = 0;
-    objects = [];
-    laser.stop_timer();
-    player.reset_player();
-    hide_all_divs();
-    start();
-}
-
-function game_reset() {
-    score = 0;
-    counter = 0;
-    objects = [];
-    laser.stop_timer();
-    player.reset_player();
-    hide_all_divs();
-    start();
-}
-
-function return_to_menu() {
-    hide_all_divs();
-    start_menu_div.show();
-}
-
-function go_to_authors() {
-    hide_all_divs();
-    authors_div.show();
-}
-
-function go_to_options() {
-    hide_all_divs();
-    options_div.show();
-}
-
-function laser_pressed() {
-    obstacle_laser = !obstacle_laser;
-    button_laser.toggleClass("cyber-button-clicked");
-}
-
-function points_pressed() {
-    if (obstacle_gravity)
-        gravity_pressed();
-    obstacle_additional_points = !obstacle_additional_points;
-    button_points.toggleClass("cyber-button-clicked");
-}
-
-function gravity_pressed() {
-    if (!obstacle_additional_points)
-        points_pressed();
-    obstacle_gravity = !obstacle_gravity;
-    button_gravity.toggleClass("cyber-button-clicked");
-}
 
 //-----------------------------------------------------------------------------------------------------------------------
 //-------------------USED IN OTHER FUNCTIONS-----------------------------------------------------------------------------
-function hide_all_divs() {
-    start_menu_div.hide();
-    end_screen_div.hide();
-    authors_div.hide();
-    options_div.hide();
-}
 
 function start() {
     gameRunning = true;
