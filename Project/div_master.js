@@ -47,6 +47,12 @@ function div_end_screen() {
     end_screen_div.size(scale * displayWidth, displayHeight);
     end_screen_div.hide();
 
+    submit_div = createDiv();
+    submit_div.parent('end_screen');
+    submit_div.id('submit_div');
+    submit_div.size(scale / 2 * displayWidth, scale / 2 * displayHeight);
+    submit_div.html('<h2>You scored ' + score + ' points </h2><br><h3>Type your nickname to submit your score</h3><br>');
+
     button_restart = createButton('Restart');
     button_restart.parent('end_screen');
     button_restart.mousePressed(game_reset);
@@ -174,6 +180,23 @@ function game_reset() {
     player.reset_player();
     hide_all_divs();
     start();
+}
+
+//TODO add connection with database to send score
+function send_score() {
+    console.log('siema');
+    input.value('');
+}
+
+function end_screen_update() {
+    submit_div.html('<h2>You scored ' + score + ' points </h2><br><h3>Type your nickname to submit your score</h3><br>');
+    input = createInput();
+    input.parent('submit_div');
+    input.id('send_score_input');
+    button = createButton('Submit');
+    button.parent('submit_div');
+    button.id('send_score_button');
+    button.mousePressed(send_score);
 }
 
 function return_to_menu() {

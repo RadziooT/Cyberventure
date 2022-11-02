@@ -322,6 +322,7 @@ function start() {
 }
 
 function game_end() {
+    end_screen_update();
     gameRunning = false;
     end_sound.stop();
     end_sound.play();

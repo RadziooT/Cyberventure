@@ -213,3 +213,55 @@
 #bestscore {
     line-height: 1.2;
 }
+
+#submit_div {
+
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    top: 15%;
+    color: var(--red);
+    text-shadow: 0px 0px 3px var(--red-glow);
+
+    text-align: center;
+    height: 500px;
+    width: 50px;
+    border: 4px solid var(--blue);
+    background: repeating-linear-gradient(to bottom,
+            transparent 0%,
+            var(--red-scanline) 1px,
+            var(--red-scanline) 3px,
+            var(--red-scanline) 5px,
+            var(--red-scanline) 4px,
+            transparent 0.5%),
+        repeating-linear-gradient(to left,
+            var(--black-scanline) 100%,
+            var(--black-scanline) 100%);
+    font-size: medium;
+}
+
+#send_score_input {
+    color: var(--purple);
+    text-shadow: 0px 0px 3px var(--red-glow);
+    border: 2px dotted var(--purple);
+
+    background: repeating-linear-gradient(to bottom,
+            transparent 0%,
+            var(--black-scanline) 1px,
+            var(--black-scanline) 3px,
+            var(--black-scanline) 5px,
+            var(--black-scanline) 4px,
+            transparent 0.5%),
+        repeating-linear-gradient(to left,
+            var(--red-scanline) 100%,
+            var(--red-scanline) 100%);
+}
+
+#send_score_input:focus {
+    color: var(--purple-glow);
+    outline: var(--purple-glow);
+}
+
+#send_score_button {
+    background-color: cyan;
+}
