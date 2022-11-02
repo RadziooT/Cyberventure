@@ -213,16 +213,16 @@ function windowResized() {
 }
 
 function draw_leaderboard(dbData) {
-    score_name_div.html('');
-    score_value_div.html('');
+    score_name_div.html('<br><span class="dbRecord">Name:<br></span>');
+    score_value_div.html('<br><span class="dbRecord">Score:<br></span>');
 
     for (i = 0; i < dbData.length; i++) {
-        score_name_div.html('<span class="dbRecord">Name: ' + dbData[i]["name"] + '<br></span>', true);
-        score_value_div.html('<span class="dbRecord">Score: ' + dbData[i]["score"] + '<br></span>', true);
+        score_name_div.html('<span class="dbRecord">' + dbData[i]["name"] + '<br></span>', true);
+        score_value_div.html('<span class="dbRecord">' + dbData[i]["score"] + '<br></span>', true);
     }
 
-    score_name_div.html('<br><span class="current_score">Current Score:<br>' + score + '<br></span>', true);
-    score_value_div.html('<br><span class="dbRecord">Personal Best:<br>' + bestscore + '<br></span>', true);
+    score_name_div.html('<br><span class="dbRecord" id="score">Current Score:<br>' + score + '<br></span>', true);
+    score_value_div.html('<br><span class="dbRecord" id="bestscore">Personal Best:<br>' + bestscore + '<br></span>', true);
 }
 
 function toggle_jump_sound() {
