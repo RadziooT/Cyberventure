@@ -93,3 +93,17 @@
     transition: color 0.23s linear;
     transition: border-color 0.23s linear;
 }
+
+.cyber-button-clicked::after,
+.cyber-button-clicked {
+    color: var(--yellow);
+
+    border-color: var(--red);
+    /* Border */
+    border-style: solid;
+    border-width: 2px;
+    transition: color 0.23s linear;
+    transition: border-color 0.23s linear;
+
+    clip-path: polygon(350px 0px, 350px 29px, 322px 57px, 0px 57px, 0px 0px);
+}

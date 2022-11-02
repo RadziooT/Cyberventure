@@ -70,28 +70,24 @@ function div_menu_screen() {
     options_div.size(scale * displayWidth, displayHeight);
     options_div.hide();
 
-    button_laser = createButton('');
+    button_laser = createButton('Laser');
     button_laser.parent('options_menu');
     button_laser.mousePressed(laser_pressed);
     button_laser.id("laser_toggle");
-    //button_laser.addClass("buttons");
+    button_laser.addClass("cyber-button");
 
     button_points = createButton('Additional points');
     button_points.parent('options_menu');
     button_points.mousePressed(points_pressed);
     button_points.id("points_toggle");
-    button_points.addClass("animated-button12");
-    button_points.addClass("animated-button2");
-    button_points.toggleClass("animated-button2");
+    button_points.addClass("cyber-button");
     button_points.html("Additional Points");
 
     button_gravity = createButton('Swapping gravity');
     button_gravity.parent('options_menu');
     button_gravity.mousePressed(gravity_pressed);
     button_gravity.id("gravity_toggle");
-    button_gravity.addClass("animated-button12");
-    button_gravity.addClass("animated-button2");
-    button_gravity.toggleClass("animated-button2");
+    button_gravity.addClass("cyber-button");
     button_gravity.html("Gravity switching");
 
     button_return_to_menu = createButton('Main menu');

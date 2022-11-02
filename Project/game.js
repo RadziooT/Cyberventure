@@ -351,21 +351,22 @@ function go_to_options() {
 }
 
 function laser_pressed() {
-    button_laser.toggleClass("animated-button2");
-    button_laser.toggleClass("animated-button12");
     obstacle_laser = !obstacle_laser;
+    button_laser.toggleClass("cyber-button-clicked");
 }
 
 function points_pressed() {
-    button_points.toggleClass("animated-button2");
-    button_points.toggleClass("animated-button12");
+    if (obstacle_gravity)
+        gravity_pressed();
     obstacle_additional_points = !obstacle_additional_points;
+    button_points.toggleClass("cyber-button-clicked");
 }
 
 function gravity_pressed() {
-    button_gravity.toggleClass("animated-button2");
-    button_gravity.toggleClass("animated-button12");
+    if (!obstacle_additional_points)
+        points_pressed();
     obstacle_gravity = !obstacle_gravity;
+    button_gravity.toggleClass("cyber-button-clicked");
 }
 
 //-----------------------------------------------------------------------------------------------------------------------
