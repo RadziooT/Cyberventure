@@ -171,6 +171,7 @@
         repeating-linear-gradient(to left,
             var(--black-scanline) 100%,
             var(--black-scanline) 100%);
+    font-size: medium;
 }
 
 #leaderboard_title {
