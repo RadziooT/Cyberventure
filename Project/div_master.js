@@ -112,7 +112,7 @@ function div_authors_screen() {
     authors_div.size(scale * displayWidth, displayHeight);
     authors_div.hide();
 
-    text_div = createDiv('Authors:<br>Mateusz Siedliski & Radosław Tchórzewski');
+    text_div = createDiv('Authors:<br><br>Mateusz Siedliski<br>&<br>Radosław Tchórzewski');
     text_div.parent('authors_screen');
     text_div.id('authors_text');
 

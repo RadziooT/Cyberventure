@@ -265,3 +265,23 @@
 #send_score_button {
     background-color: cyan;
 }
+
+#authors_text {
+    color: var(--purple-glow);
+    text-shadow: 0px 0px 3px var(--red-glow);
+    border: 2px dotted var(--purple);
+    text-align: center;
+    padding: 30px;
+    padding-top: 15px;
+    background: repeating-linear-gradient(to bottom,
+            transparent 0%,
+            var(--black-scanline) 1px,
+            var(--black-scanline) 3px,
+            var(--black-scanline) 5px,
+            var(--black-scanline) 4px,
+            transparent 0.5%),
+        repeating-linear-gradient(to left,
+            var(--red-scanline) 100%,
+            var(--red-scanline) 100%);
+    background-color: rgba(159, 95, 218, 0.555);
+}
