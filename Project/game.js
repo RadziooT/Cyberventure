@@ -14,6 +14,23 @@ const pickup_intensity = 1;
 const laser_intensity = 5;
 const laser_timer = 400;
 const frames_per_obstacle = 160;
+let loaded = [];
+loaded[0] = false;
+loaded[1] = false;
+loaded[2] = false;
+loaded[3] = false;
+loaded[4] = false;
+loaded[5] = false;
+loaded[6] = false;
+loaded[7] = false;
+loaded[8] = false;
+loaded[9] = false;
+loaded[10] = false;
+loaded[11] = false;
+loaded[12] = false;
+loaded[13] = false;
+var x = document.getElementById("canvas_sketch");
+let loaded2 = false;
 
 
 var start_menu_div, end_screen_div, authors_div, options_div, sound_div; //divs responsible for different windows of game
@@ -60,24 +77,6 @@ var obstacle_laser = false;
 var obstacle_additional_points = false;
 
 function preload() {
-    player_img = loadImage('images/player.png');
-    collectible = loadImage('images/collectible.png');
-    obstacle = loadImage('images/obstacle.png');
-
-    laser_1 = loadImage('images/laser_1.png');
-    laser_2 = loadImage('images/laser_2.png');
-    laser_3 = loadImage('images/laser_3.png');
-    laser_4 = loadImage('images/laser_4.png');
-
-    sound_0 = loadImage('images/sound_0.png');
-    sound_1 = loadImage('images/sound_1.png');
-    sound_2 = loadImage('images/sound_2.png');
-
-    game_background_s = loadImage('images/480p/s.png');
-    game_background_b1 = loadImage('images/480p/b1.png');
-    game_background_c1 = loadImage('images/480p/c1.png');
-    game_background_f1 = loadImage('images/480p/f1.png');
-
     jump_sound = createAudio('sounds/jump_sound.mp3');
     jump_sound.volume(0);
     end_sound = createAudio('sounds/end_sound.mp3');
@@ -89,11 +88,71 @@ function preload() {
 function setup() {
     var myCanvas = createCanvas(windowWidth, windowHeight);
     myCanvas.parent('canvas_sketch');
+
+    player_img = loadImage(
+        'images/player.png',
+        () => loaded[0] = true
+    );
+    collectible = loadImage(
+        'images/collectible.png',
+        () => loaded[1] = true
+    );
+    obstacle = loadImage(
+        'images/obstacle.png',
+        () => loaded[2] = true
+    );
+
+    laser_1 = loadImage(
+        'images/laser_1.png',
+        () => loaded[3] = true
+    );
+    laser_2 = loadImage(
+        'images/laser_2.png',
+        () => loaded[4] = true
+    );
+    laser_3 = loadImage(
+        'images/laser_3.png',
+        () => loaded[5] = true
+    );
+    laser_4 = loadImage(
+        'images/laser_4.png',
+        () => loaded[6] = true
+    );
+
+    sound_0 = loadImage(
+        'images/sound_0.png',
+        () => loaded[7] = true
+    );
+    sound_1 = loadImage(
+        'images/sound_1.png',
+        () => loaded[8] = true
+    );
+    sound_2 = loadImage(
+        'images/sound_2.png',
+        () => loaded[9] = true
+    );
+
+    game_background_s = loadImage(
+        'images/4k/s.png',
+        () => loaded[10] = true
+    );
+    game_background_b1 = loadImage(
+        'images/4k/b1.png',
+        () => loaded[11] = true
+    );
+    game_background_c1 = loadImage(
+        'images/4k/c1.png',
+        () => loaded[12] = true
+    );
+    game_background_f1 = loadImage(
+        'images/4k/f1.png',
+        () => loaded[13] = true
+    );
+
     obstacle_distance = width / 5;
     obstacle_amount = 8;
     frameRate(60);
 
-    div_create_all();
 
     //----------------------GENERATING OBJECTS--------------------------------------------
     player = new Player;
@@ -106,13 +165,20 @@ function setup() {
 }
 
 function draw() {
-    makeBackground();
+    if (!loaded.every(element => element === true)) {
+    } else {
+        if (!loaded2) {
+            div_create_all();
+            loaded2 = true;
+        }
+        makeBackground();
 
-    if (gameRunning)
-        gameloop();
+        if (gameRunning)
+            gameloop();
 
-    render_sound(soundtrack_volume_state);
-    render_jump_sound(jump_volume_state);
+        render_sound(soundtrack_volume_state);
+        render_jump_sound(jump_volume_state);
+    }
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
