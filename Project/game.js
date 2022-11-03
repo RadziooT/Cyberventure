@@ -8,10 +8,13 @@ var gameRunning = false;
 var objects = [];
 var score = 0;
 var laser;
+var obstacle_distance;
+var obstacle_amount;
 const pickup_intensity = 1;
 const laser_intensity = 5;
 const laser_timer = 400;
 const frames_per_obstacle = 160;
+
 
 var start_menu_div, end_screen_div, authors_div, options_div, sound_div; //divs responsible for different windows of game
 
@@ -50,6 +53,7 @@ var soundtrack;
 var never_played = 1;//made to get rid of annoying blocking of autoplay
 var jump_sound, end_sound;
 
+
 //-----------------------------------Responsible for customizing game experience by user-----------------------------------
 var obstacle_gravity = false;
 var obstacle_laser = false;
@@ -86,105 +90,30 @@ function preload() {
 function setup() {
     var myCanvas = createCanvas(windowWidth, windowHeight);
     myCanvas.parent('canvas_sketch');
+    obstacle_distance = width / 5;
+    obstacle_amount = 8;
+    frameRate(60);
 
     div_create_all();
-
-    draw_leaderboard(dbData);
 
     //------------------------------------------------------------------------------------------------------------------------------
     //----------------------GENERATING OBJECTS--------------------------------------------------------------------------------------
     player = new Player;
     laser = new Laser;
-    objects.push(new Collision_object);
+
     background_s = new Image_rendering(game_background_s, 1);
     background_b1 = new Image_rendering(game_background_b1, 1.5);
     background_c1 = new Image_rendering(game_background_c1, 2);
     background_f1 = new Image_rendering(game_background_f1, 2.5);
-
 }
 
 function draw() {
     makeBackground();
 
     if (gameRunning) {
-        player.dropHeight();
-        //---------------------------------------------------------------------------------------------------------------------
-        //-------------------SPAWNING NEW OBSTACLES WITH COLLECTIBLES----------------------------------------------------------
-        if (frameCount % frames_per_obstacle == 0) {
-            counter++;
-            objects.push(new Collision_object());
-            delete_obstacle_value = -(width / 2 + objects[0].width);
-            if (counter == pickup_intensity && obstacle_additional_points == true) {
-                counter = 0;
-                objects[objects.length - 1].set_pickup_state(true);
-            }
-        }
-
-        //-----------------------------------------------------------------------------------------------------------------------------
-        //-------------------COLLISION WITH OBSTACLES WITH COLLECTIBLES----------------------------------------------------------------
-        obstacles_length = objects.length;
-        for (var i = 0; i < obstacles_length; i++) {
-            objects[i].render();
-            objects[i].move();
-        }
-
-
-        console.log(objects.length);
-        i = 0;
-        if (objects[i].collision_detected(player)) {
-            game_end();
-        }
-
-        if (obstacle_additional_points == true) {
-            if (objects[i].collision_pickup(player)) {
-                if (objects[i].has_pickup) {
-                    objects[i].set_pickup_state(false);
-                    score += 5;
-
-                    if (obstacle_gravity == true) {
-                        player.gravity = -player.gravity;
-                        player.momentum = 0;
-                        player.step = -player.step;
-                    }
-                }
-            }
-        }
-
-        //------------------------------------------------------------------------------------------------------------------------------
-        //--------------DETECTING GETTING SCORE AND DELETING USED OBSTACLES-------------------------------------------------------------
-        if (objects[i].object_x + objects[i].width / 2 < player.player_x) {
-            if (objects[i].point_given == false) {
-                score++;
-                objects[i].point_given = true;
-            }
-        }
-
-        if (objects[i].object_x < delete_obstacle_value)
-            objects.shift();
+        gameloop();
     }
-
-    //-----------------------------------------------------------------------------------------------------------------------
-    //--------------------------LASER MECHANIC-------------------------------------------------------------------------------
-    if (obstacle_laser == true) {
-        if (score % laser_intensity == 1 && laser.firing == false)
-            laser.start_laser(laser_timer);
-
-        laser.render();
-        laser.count_down();
-
-        if (laser.collision_laser(player))
-            game_end();
-    }
-
-    //------------------------------------------------------------------------------------------------------------------------------------------------------
-    player.render();
-
-    if (player.collision_border()) {
-        game_end();
-    }
-
-    render_sound(soundtrack_volume_state);
-    render_jump_sound(jump_volume_state);
+    console.log(frameRate());
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -204,19 +133,6 @@ function mouseClicked() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-}
-
-function draw_leaderboard(dbData) {
-    score_name_div.html('<br><span class="dbRecord">Name:<br></span>');
-    score_value_div.html('<br><span class="dbRecord">Score:<br></span>');
-
-    for (i = 0; i < dbData.length; i++) {
-        score_name_div.html('<span class="dbRecord">' + dbData[i]["name"] + '<br></span>', true);
-        score_value_div.html('<span class="dbRecord">' + dbData[i]["score"] + '<br></span>', true);
-    }
-
-    score_name_div.html('<br><span class="dbRecord" id="score">Current Score:<br>' + score + '<br></span>', true);
-    score_value_div.html('<br><span class="dbRecord" id="bestscore">Personal Best:<br>' + bestscore + '<br></span>', true);
 }
 
 function toggle_jump_sound() {
@@ -310,11 +226,6 @@ function render_sound(i) {
 
 //-----------------------------------------------------------------------------------------------------------------------
 //-------------------USED IN OTHER FUNCTIONS-----------------------------------------------------------------------------
-
-function start() {
-    gameRunning = true;
-}
-
 function game_end() {
     draw_leaderboard(dbData);
     end_screen_update();
@@ -328,43 +239,39 @@ function game_end() {
     end_screen_div.show();
 }
 
-function change_game_state() {
-    gameRunning = !gameRunning;
-}
-
 function gameloop() {
     player.dropHeight();
+
     //---------------------------------------------------------------------------------------------------------------------
     //-------------------SPAWNING NEW OBSTACLES WITH COLLECTIBLES----------------------------------------------------------
-    if (frameCount % frames_per_obstacle == 0) {
-        counter++;
-        objects.push(new Collision_object());
-        delete_obstacle_value = -(width / 2 + objects[0].width);
-        if (counter == pickup_intensity && obstacle_additional_points == true) {
-            counter = 0;
-            objects[objects.length - 1].set_pickup_state(true);
-        }
-    }
+    obstacles_length = objects.length;
+    delete_obstacle_value = -(width / 2 + objects[0].width);
+
+    //if (frameCount % frames_per_obstacle == 0) {
+    //    counter++;
+    //    objects.push(new Collision_object(objects[objects.length - 1].object_x + width / 10));
+    //    if (counter == pickup_intensity && obstacle_additional_points == true) {
+    //        counter = 0;
+    //        objects[objects.length - 1].has_pickup = true;
+    //    }
+    //}
 
     //-----------------------------------------------------------------------------------------------------------------------------
     //-------------------COLLISION WITH OBSTACLES WITH COLLECTIBLES----------------------------------------------------------------
-    obstacles_length = objects.length;
-    for (var i = 0; i < obstacles_length; i++) {
+    for (let i = 0; i < obstacles_length; i++) {
         objects[i].render();
         objects[i].move();
     }
 
-
-
-    for (var i = 0; i < 1; i++) {
+    for (let i = 0; i < 3; i++) {
         if (objects[i].collision_detected(player)) {
-            game_end();
+            //game_end();
         }
 
         if (obstacle_additional_points == true) {
             if (objects[i].collision_pickup(player)) {
                 if (objects[i].has_pickup) {
-                    objects[i].set_pickup_state(false);
+                    objects[i].has_pickup = false;
                     score += 5;
 
                     if (obstacle_gravity == true) {
@@ -384,9 +291,15 @@ function gameloop() {
                 objects[i].point_given = true;
             }
         }
+    }
 
-        if (objects[i].object_x < delete_obstacle_value)
-            objects.shift();
+    if (objects[0].object_x < -2 * obstacle_distance) {
+        objects.shift();
+        objects.push(new Collision_object(objects[objects.length - 1].object_x + obstacle_distance));
+        if (counter == pickup_intensity && obstacle_additional_points == true) {
+            counter = 0;
+            objects[objects.length - 1].has_pickup = true;
+        }
     }
 
     //-----------------------------------------------------------------------------------------------------------------------
@@ -398,16 +311,16 @@ function gameloop() {
         laser.render();
         laser.count_down();
 
-        if (laser.collision_laser(player))
-            game_end();
+        //if (laser.collision_laser(player))
+        //    game_end();
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     player.render();
 
-    if (player.collision_border()) {
-        game_end();
-    }
+    //if (player.collision_border()) {
+    //    game_end();
+    //}
 }
 
 function makeBackground() {

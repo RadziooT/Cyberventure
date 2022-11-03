@@ -158,31 +158,51 @@ function div_leaderboard() {
     score_value_div = createDiv();
     score_value_div.parent('all_scores');
     score_value_div.id('score_value');
+    draw_leaderboard(dbData)
+}
+
+function draw_leaderboard(dbData) {
+    score_name_div.html('<br><span class="dbRecord">Name:<br></span>');
+    score_value_div.html('<br><span class="dbRecord">Score:<br></span>');
+
+    for (i = 0; i < dbData.length; i++) {
+        score_name_div.html('<span class="dbRecord">' + dbData[i]["name"] + '<br></span>', true);
+        score_value_div.html('<span class="dbRecord">' + dbData[i]["score"] + '<br></span>', true);
+    }
+
+    score_name_div.html('<br><span class="dbRecord" id="score">Current Score:<br>' + score + '<br></span>', true);
+    score_value_div.html('<br><span class="dbRecord" id="bestscore">Personal Best:<br>' + bestscore + '<br></span>', true);
 }
 
 //-----------------------------------------------------------------------------------------------------------------------
 //-------------------NAVIGATING WITH BUTTONS-------------------------------------------------------------------------------
 function game_start() {
+
     score = 0;
     counter = 0;
-    objects = [];
-    objects.push(new Collision_object());
+    spawn_obstacles(obstacle_distance);
     laser.stop_timer();
     player.reset_player();
     hide_all_divs();
-    start();
+    gameRunning = true;
 }
 
 function game_reset() {
     score = 0;
     counter = 0;
-    objects = [];
+    spawn_obstacles(obstacle_distance);
     laser.stop_timer();
     player.reset_player();
     hide_all_divs();
-    start();
+    gameRunning = true;
 }
 
+function spawn_obstacles(distance) {
+    let first_obstacle = width / 4 * 3;
+    objects = [];
+    for (var i = 0; i < obstacle_amount; i++)
+        objects.push(new Collision_object(first_obstacle + i * distance));
+}
 //TODO add connection with database to send score
 function send_score() {
     console.log('siema');
