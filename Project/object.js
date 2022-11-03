@@ -16,6 +16,7 @@ class Collision_object {
             this.has_pickup = val;
     }
 
+    // TODO -----------------------------------------------------------------------------------------------------
     //Collision with obstacles
     collision_detected(player) {
         if (!(player.player_x + player.player_size >= this.object_x))

@@ -218,6 +218,7 @@ function go_to_options() {
 function laser_pressed() {
     obstacle_laser = !obstacle_laser;
     button_laser.toggleClass("glitch");
+    button_laser.toggleClass("cyber-button-clicked");
 }
 
 function points_pressed() {
@@ -225,6 +226,7 @@ function points_pressed() {
         gravity_pressed();
     obstacle_additional_points = !obstacle_additional_points;
     button_points.toggleClass("glitch");
+    button_points.toggleClass("cyber-button-clicked");
 }
 
 function gravity_pressed() {
@@ -232,6 +234,7 @@ function gravity_pressed() {
         points_pressed();
     obstacle_gravity = !obstacle_gravity;
     button_gravity.toggleClass("glitch");
+    button_gravity.toggleClass("cyber-button-clicked");
 }
 
 function hide_all_divs() {
