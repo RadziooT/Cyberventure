@@ -69,10 +69,10 @@ function preload() {
     sound_1 = loadImage('images/sound_1.png');
     sound_2 = loadImage('images/sound_2.png');
 
-    game_background_s = loadImage('images/4k/s.png');
-    game_background_b1 = loadImage('images/4k/b1.png');
-    game_background_c1 = loadImage('images/4k/c1.png');
-    game_background_f1 = loadImage('images/4k/f1.png');
+    game_background_s = loadImage('images/720p/s.png');
+    game_background_b1 = loadImage('images/720p/b1.png');
+    game_background_c1 = loadImage('images/720p/c1.png');
+    game_background_f1 = loadImage('images/720p/f1.png');
 
     jump_sound = createAudio('sounds/jump_sound.mp3');
     jump_sound.volume(0);
