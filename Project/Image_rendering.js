@@ -1,16 +1,10 @@
 class Image_rendering {
-    constructor(img,speed) {
+    constructor(img, speed) {
         this.x1 = -width;
         this.x2 = 0;
         this.x3 = width;
         this.speed = speed;
         this.img = img;
-    }
-
-    render_image() {
-        image(this.img, this.x1, 0, width, height);
-        image(this.img, this.x2, 0, width, height);
-        image(this.img, this.x3, 0, width, height);
     }
 
     move_background() {
@@ -26,5 +20,9 @@ class Image_rendering {
 
         if (this.x3 <= -width)
             this.x3 = width;
+
+        image(this.img, this.x1, 0, width, height);
+        image(this.img, this.x2, 0, width, height);
+        image(this.img, this.x3, 0, width, height);
     }
 }

@@ -1,19 +1,13 @@
 class Collision_object {
-    constructor() {
+    constructor(x_coordinate) {
         this.hole_size = Math.floor(Math.random() * 0.1 * height) + 0.25 * height;//Here you can tune in hole size
         //this.hole_size = 400;
         this.hole_center = Math.floor(Math.random() * 0.85 * height) + 0.1 * height;
         this.has_pickup = false;
         this.speed = 3;
         this.width = 0.03 * width;
-        this.object_x = width;
+        this.object_x = x_coordinate;
         this.point_given = false;
-    }
-
-    //Stopping render of pickup if collected
-    set_pickup_state(val) {
-        if (this.has_pickup == true || this.has_pickup == false)
-            this.has_pickup = val;
     }
 
     // TODO -----------------------------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-const scale = 0.35;
+const divs_scale = 0.35;
 
 function div_create_all() {
     div_main_menu();
@@ -14,7 +14,7 @@ function div_main_menu() {
     start_menu_div = createDiv();
     start_menu_div.parent('canvas_sketch');
     start_menu_div.id('start_menu');
-    start_menu_div.size(scale * displayWidth, displayHeight);
+    start_menu_div.size(divs_scale * displayWidth, displayHeight);
 
     button_play = createButton('Start game');
     button_play.parent('start_menu');
@@ -44,13 +44,13 @@ function div_end_screen() {
     end_screen_div = createDiv();
     end_screen_div.parent('canvas_sketch');
     end_screen_div.id('end_screen');
-    end_screen_div.size(scale * displayWidth, displayHeight);
+    end_screen_div.size(divs_scale * displayWidth, displayHeight);
     end_screen_div.hide();
 
     submit_div = createDiv();
     submit_div.parent('end_screen');
     submit_div.id('submit_div');
-    submit_div.size(scale / 2 * displayWidth, scale / 2 * displayHeight);
+    submit_div.size(divs_scale / 2 * displayWidth, divs_scale / 2 * displayHeight);
     submit_div.html('<h2>You scored ' + score + ' points </h2><br><h3>Type your nickname to submit your score</h3><br>');
 
     button_restart = createButton('Restart');
@@ -73,7 +73,7 @@ function div_menu_screen() {
     options_div = createDiv();
     options_div.parent('canvas_sketch');
     options_div.id('options_menu');
-    options_div.size(scale * displayWidth, displayHeight);
+    options_div.size(divs_scale * displayWidth, displayHeight);
     options_div.hide();
 
     button_laser = createButton('Laser');
@@ -109,7 +109,7 @@ function div_authors_screen() {
     authors_div = createDiv();
     authors_div.parent('canvas_sketch');
     authors_div.id('authors_screen');
-    authors_div.size(scale * displayWidth, displayHeight);
+    authors_div.size(divs_scale * displayWidth, displayHeight);
     authors_div.hide();
 
     text_div = createDiv('Authors:<br><br>Mateusz Siedliski<br>&<br>Radosław Tchórzewski');
@@ -158,6 +158,20 @@ function div_leaderboard() {
     score_value_div = createDiv();
     score_value_div.parent('all_scores');
     score_value_div.id('score_value');
+    draw_leaderboard(dbData)
+}
+
+function draw_leaderboard(dbData) {
+    score_name_div.html('<br><span class="dbRecord">Name:<br></span>');
+    score_value_div.html('<br><span class="dbRecord">Score:<br></span>');
+
+    for (i = 0; i < dbData.length; i++) {
+        score_name_div.html('<span class="dbRecord">' + dbData[i]["name"] + '<br></span>', true);
+        score_value_div.html('<span class="dbRecord">' + dbData[i]["score"] + '<br></span>', true);
+    }
+
+    score_name_div.html('<br><span class="dbRecord" id="score">Current Score:<br>' + score + '<br></span>', true);
+    score_value_div.html('<br><span class="dbRecord" id="bestscore">Personal Best:<br>' + bestscore + '<br></span>', true);
 }
 
 //-----------------------------------------------------------------------------------------------------------------------
@@ -165,23 +179,29 @@ function div_leaderboard() {
 function game_start() {
     score = 0;
     counter = 0;
-    objects = [];
+    spawn_obstacles(obstacle_distance);
     laser.stop_timer();
     player.reset_player();
     hide_all_divs();
-    start();
+    gameRunning = true;
 }
 
 function game_reset() {
     score = 0;
     counter = 0;
-    objects = [];
+    spawn_obstacles(obstacle_distance);
     laser.stop_timer();
     player.reset_player();
     hide_all_divs();
-    start();
+    gameRunning = true;
 }
 
+function spawn_obstacles(distance) {
+    let first_obstacle = width / 4 * 3;
+    objects = [];
+    for (var i = 0; i < obstacle_amount; i++)
+        objects.push(new Collision_object(first_obstacle + i * distance));
+}
 //TODO add connection with database to send score
 function send_score() {
     console.log('siema');

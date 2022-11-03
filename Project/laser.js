@@ -52,7 +52,7 @@ class Laser {
                 image(laser_4, 0, this.center_y - this.size / 2, width, this.size);
             }
 
-            ////3rd part of laser
+            //3rd part of laser
             if (this.timer > this.timer_part && this.timer <= 2 * this.timer_part) {
                 image(laser_3, 0, this.center_y - this.size / 2, width, this.size);
             }
