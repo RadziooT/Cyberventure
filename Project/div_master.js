@@ -166,6 +166,7 @@ function game_start() {
     score = 0;
     counter = 0;
     objects = [];
+    objects.push(new Collision_object());
     laser.stop_timer();
     player.reset_player();
     hide_all_divs();

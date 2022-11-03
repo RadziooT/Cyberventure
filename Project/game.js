@@ -104,23 +104,16 @@ function setup() {
 }
 
 function draw() {
-    background_s.move_background();
-    background_s.render_image();
-    background_b1.move_background();
-    background_b1.render_image();
-    background_c1.move_background();
-    background_c1.render_image();
-    background_f1.move_background();
-    background_f1.render_image();
+    makeBackground();
 
     if (gameRunning) {
-        //--------------------------------------------------------------------------------------------------------------------------
         player.dropHeight();
         //---------------------------------------------------------------------------------------------------------------------
         //-------------------SPAWNING NEW OBSTACLES WITH COLLECTIBLES----------------------------------------------------------
         if (frameCount % frames_per_obstacle == 0) {
             counter++;
             objects.push(new Collision_object());
+            delete_obstacle_value = -(width / 2 + objects[0].width);
             if (counter == pickup_intensity && obstacle_additional_points == true) {
                 counter = 0;
                 objects[objects.length - 1].set_pickup_state(true);
@@ -129,63 +122,65 @@ function draw() {
 
         //-----------------------------------------------------------------------------------------------------------------------------
         //-------------------COLLISION WITH OBSTACLES WITH COLLECTIBLES----------------------------------------------------------------
-        for (var i = 0; i < objects.length; i++) {
+        obstacles_length = objects.length;
+        for (var i = 0; i < obstacles_length; i++) {
             objects[i].render();
             objects[i].move();
+        }
 
-            if (objects[i].collision_detected(player)) {
-                game_end();
-            }
 
-            if (obstacle_additional_points == true) {
-                if (objects[i].collision_pickup(player)) {
-                    if (objects[i].has_pickup) {
-                        objects[i].set_pickup_state(false);
-                        score += 5;
+        console.log(objects.length);
+        i = 0;
+        if (objects[i].collision_detected(player)) {
+            game_end();
+        }
 
-                        if (obstacle_gravity == true) {
-                            player.gravity = -player.gravity;
-                            player.momentum = 0;
-                            player.step = -player.step;
-                        }
+        if (obstacle_additional_points == true) {
+            if (objects[i].collision_pickup(player)) {
+                if (objects[i].has_pickup) {
+                    objects[i].set_pickup_state(false);
+                    score += 5;
+
+                    if (obstacle_gravity == true) {
+                        player.gravity = -player.gravity;
+                        player.momentum = 0;
+                        player.step = -player.step;
                     }
                 }
             }
-
-            //------------------------------------------------------------------------------------------------------------------------------
-            //--------------DETECTING GETTING SCORE AND DELETING USED OBSTACLES-------------------------------------------------------------
-            if (objects[i].object_x + objects[i].width / 2 < player.player_x + player.player_size) {
-                if (objects[i].point_given == false) {
-                    score++;
-                    objects[i].point_given = true;
-                }
-            }
-
-            if (objects[i].object_x < -(width / 2 + objects[i].width))
-                objects.shift();
         }
 
-        //-----------------------------------------------------------------------------------------------------------------------
-        //--------------------------LASER MECHANIC-------------------------------------------------------------------------------
-        if (obstacle_laser == true) {
-            if (score % laser_intensity == 0 && laser.firing == false && score != 0)
-                laser.start_laser(laser_timer);
-
-            laser.render();
-            laser.count_down();
-
-            if (laser.collision_laser(player)) {
-                game_end();
+        //------------------------------------------------------------------------------------------------------------------------------
+        //--------------DETECTING GETTING SCORE AND DELETING USED OBSTACLES-------------------------------------------------------------
+        if (objects[i].object_x + objects[i].width / 2 < player.player_x) {
+            if (objects[i].point_given == false) {
+                score++;
+                objects[i].point_given = true;
             }
         }
 
-        //------------------------------------------------------------------------------------------------------------------------------------------------------
-        player.render();
-        updatePixels();
+        if (objects[i].object_x < delete_obstacle_value)
+            objects.shift();
+    }
 
-        if (player.collision_border()) {
+    //-----------------------------------------------------------------------------------------------------------------------
+    //--------------------------LASER MECHANIC-------------------------------------------------------------------------------
+    if (obstacle_laser == true) {
+        if (score % laser_intensity == 1 && laser.firing == false)
+            laser.start_laser(laser_timer);
+
+        laser.render();
+        laser.count_down();
+
+        if (laser.collision_laser(player))
             game_end();
-        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    player.render();
+
+    if (player.collision_border()) {
+        game_end();
     }
 
     render_sound(soundtrack_volume_state);
@@ -335,4 +330,93 @@ function game_end() {
 
 function change_game_state() {
     gameRunning = !gameRunning;
+}
+
+function gameloop() {
+    player.dropHeight();
+    //---------------------------------------------------------------------------------------------------------------------
+    //-------------------SPAWNING NEW OBSTACLES WITH COLLECTIBLES----------------------------------------------------------
+    if (frameCount % frames_per_obstacle == 0) {
+        counter++;
+        objects.push(new Collision_object());
+        delete_obstacle_value = -(width / 2 + objects[0].width);
+        if (counter == pickup_intensity && obstacle_additional_points == true) {
+            counter = 0;
+            objects[objects.length - 1].set_pickup_state(true);
+        }
+    }
+
+    //-----------------------------------------------------------------------------------------------------------------------------
+    //-------------------COLLISION WITH OBSTACLES WITH COLLECTIBLES----------------------------------------------------------------
+    obstacles_length = objects.length;
+    for (var i = 0; i < obstacles_length; i++) {
+        objects[i].render();
+        objects[i].move();
+    }
+
+
+
+    for (var i = 0; i < 1; i++) {
+        if (objects[i].collision_detected(player)) {
+            game_end();
+        }
+
+        if (obstacle_additional_points == true) {
+            if (objects[i].collision_pickup(player)) {
+                if (objects[i].has_pickup) {
+                    objects[i].set_pickup_state(false);
+                    score += 5;
+
+                    if (obstacle_gravity == true) {
+                        player.gravity = -player.gravity;
+                        player.momentum = 0;
+                        player.step = -player.step;
+                    }
+                }
+            }
+        }
+
+        //------------------------------------------------------------------------------------------------------------------------------
+        //--------------DETECTING GETTING SCORE AND DELETING USED OBSTACLES-------------------------------------------------------------
+        if (objects[i].object_x + objects[i].width / 2 < player.player_x) {
+            if (objects[i].point_given == false) {
+                score++;
+                objects[i].point_given = true;
+            }
+        }
+
+        if (objects[i].object_x < delete_obstacle_value)
+            objects.shift();
+    }
+
+    //-----------------------------------------------------------------------------------------------------------------------
+    //--------------------------LASER MECHANIC-------------------------------------------------------------------------------
+    if (obstacle_laser == true) {
+        if (score % laser_intensity == 1 && laser.firing == false)
+            laser.start_laser(laser_timer);
+
+        laser.render();
+        laser.count_down();
+
+        if (laser.collision_laser(player))
+            game_end();
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    player.render();
+
+    if (player.collision_border()) {
+        game_end();
+    }
+}
+
+function makeBackground() {
+    background_s.move_background();
+    background_s.render_image();
+    background_b1.move_background();
+    background_b1.render_image();
+    background_c1.move_background();
+    background_c1.render_image();
+    background_f1.move_background();
+    background_f1.render_image();
 }
