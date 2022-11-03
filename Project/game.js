@@ -15,20 +15,11 @@ const laser_intensity = 5;
 const laser_timer = 400;
 const frames_per_obstacle = 160;
 let loaded = [];
-loaded[0] = false;
-loaded[1] = false;
-loaded[2] = false;
-loaded[3] = false;
-loaded[4] = false;
-loaded[5] = false;
-loaded[6] = false;
-loaded[7] = false;
-loaded[8] = false;
-loaded[9] = false;
-loaded[10] = false;
-loaded[11] = false;
-loaded[12] = false;
-loaded[13] = false;
+
+for (let index = 0; index <= 13; index++) {
+    loaded[index] = false;
+}
+
 var x = document.getElementById("canvas_sketch");
 let loaded2 = false;
 
