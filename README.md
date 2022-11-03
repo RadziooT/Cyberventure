@@ -32,11 +32,12 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 <!-- TO DO -->
 ## To do
 - [x] Final leaderboard design
-- [ ] Optimizing game physics (collision)
+- [x] Optimizing game physics (collision)
 - [ ] Final moving background (parallax effect)
 - [ ] Final images
 - [ ] Final sound
 - [ ] Css for name input
+- [ ] Volume switch design
 - [ ] The final layout (divs and font)
 
 <!-- BUILT WITH -->
