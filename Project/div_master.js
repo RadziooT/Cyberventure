@@ -190,6 +190,7 @@ function send_score() {
 
 function end_screen_update() {
     submit_div.html('<h2>You scored ' + score + ' points </h2><br><h3>Type your nickname to submit your score</h3><br>');
+    submit_div.addClass('glitch');
     input = createInput();
     input.parent('submit_div');
     input.id('send_score_input');
@@ -216,21 +217,21 @@ function go_to_options() {
 
 function laser_pressed() {
     obstacle_laser = !obstacle_laser;
-    button_laser.toggleClass("cyber-button-clicked");
+    button_laser.toggleClass("glitch");
 }
 
 function points_pressed() {
     if (obstacle_gravity)
         gravity_pressed();
     obstacle_additional_points = !obstacle_additional_points;
-    button_points.toggleClass("cyber-button-clicked");
+    button_points.toggleClass("glitch");
 }
 
 function gravity_pressed() {
     if (!obstacle_additional_points)
         points_pressed();
     obstacle_gravity = !obstacle_gravity;
-    button_gravity.toggleClass("cyber-button-clicked");
+    button_gravity.toggleClass("glitch");
 }
 
 function hide_all_divs() {
