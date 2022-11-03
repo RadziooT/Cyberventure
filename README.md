@@ -32,16 +32,16 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 <!-- TO DO -->
 ## To do
 - [x] Final leaderboard design
-- [ ] Optimizing game physics (collision)
+- [x] Optimizing game physics (collision)
 - [ ] Final moving background (parallax effect)
 - [ ] Final images
 - [ ] Final sound
-- [ ] Css for name input
+- [ ] CSS for name input
 - [ ] The final layout (divs and font)
 
 <!-- BUILT WITH -->
 ## Built with
-[![p5][p5js]][p5-url]
+[![p5][p5js]][p5-url] [![fa][fa]][fa-url]
 
 <!-- GRAPHICS -->
 ## Graphics
@@ -65,3 +65,5 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 [blender-url]: https://blender.org
 [affinity]: https://img.shields.io/badge/affinity_photo-7e4dd2?style=for-the-badge&logo=affinity&logoColor=f087ff
 [affinity-url]: https://affinity.serif.com/photo/
+[fa]: https://img.shields.io/badge/font_awesome-193154?style=for-the-badge&logo=font-awesome&logoColor=528dd7
+[fa-url]: https://fontawesome.com/
