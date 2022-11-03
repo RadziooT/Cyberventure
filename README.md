@@ -31,7 +31,7 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 
 <!-- TO DO -->
 ## To do
-- [ ] Final leaderboard design
+- [x] Final leaderboard design
 - [ ] Final moving background (parallax effect)
 - [ ] Final images
 - [ ] Final sound
@@ -53,6 +53,7 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 * [Programming with Mosh](https://www.youtube.com/watch?v=7S_tz1z_5bA&ab_channel=ProgrammingwithMosh)
 * [freeCodeCamp.org](https://www.youtube.com/watch?v=OK_JCtrrv-c&ab_channel=freeCodeCamp.org)
 * [Web Dev Michael](https://www.youtube.com/watch?v=Wmb-V87tmqI)
+* [Kevin Powell](https://www.youtube.com/watch?v=7Xyg8Ja7dyY)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
