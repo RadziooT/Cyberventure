@@ -129,10 +129,6 @@
 
 /*------------------------IKONKI GŁOŚNOŚCI---------------------------*/
 #sound_div {
-    /* background-color: rgb(212, 198, 113); */
-    height: 50px;
-    width: 50px;
-    color: white;
     position: absolute;
     top: 75px;
     left: 70px;
@@ -140,12 +136,8 @@
 }
 
 #jump_sound_div {
-    /* background-color: rgb(212, 198, 113); */
-    height: 50px;
-    width: 50px;
-    color: white;
     position: absolute;
-    top: 125px;
+    top: 200px;
     left: 70px;
     transform: translate(-50%, -50%);
 }

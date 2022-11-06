@@ -111,8 +111,9 @@ function draw() {
     if (gameRunning)
         gameloop();
 
-    render_sound(soundtrack_volume_state);
-    render_jump_sound(jump_volume_state);
+    //render_sound(soundtrack_volume_state);
+    //render_jump_sound(jump_volume_state);
+
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -135,6 +136,7 @@ function windowResized() {
 }
 
 function toggle_jump_sound() {
+    jump_sound_div.toggleClass('sound-mute');
     switch (jump_volume_state) {
         case 0:
             jump_volume_state = 1;
@@ -174,11 +176,12 @@ function render_jump_sound(i) {
             jump_img = sound_0;
             break;
     }
-    image(jump_img, 50, 100, 50, 50);
 }
 
 function toggleSound() {
     never_played = 0;
+    sound_div.toggleClass('sound-mute');
+
     switch (soundtrack_volume_state) {
         case 0:
             soundtrack_volume_state = 1;

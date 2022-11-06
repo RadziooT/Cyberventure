@@ -131,12 +131,17 @@ function div_sound_screen() {
     sound_div.id('sound_div')
     soundtrack_volume_state = 0;
     sound_div.mousePressed(toggleSound);
+    sound_div.html('<div class="sound"><div class="sound--icon fa fa-volume-off"></div><div class="sound--wave sound--wave_one"></div>', true);
+    sound_div.html('<div class="sound--wave sound--wave_two"></div></div>', true);
 
     jump_sound_div = createDiv();
     jump_sound_div.parent('canvas_sketch');
     jump_sound_div.id('jump_sound_div')
     jump_volume_state = 0;
     jump_sound_div.mousePressed(toggle_jump_sound);
+    jump_sound_div.html('<div class="sound"><div class="sound--icon fa fa-volume-off"></div><div class="sound--wave sound--wave_one"></div>', true);
+    jump_sound_div.html('<div class="sound--wave sound--wave_two"></div></div>', true);
+
 }
 //------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------CREATING LEADERBOARD--------------------------------------------------------------------
