@@ -15,7 +15,6 @@ const laser_intensity = 5;
 const laser_timer = 400;
 const frames_per_obstacle = 160;
 
-
 var start_menu_div, end_screen_div, authors_div, options_div, sound_div; //divs responsible for different windows of game
 
 //TESTING DATA FOR LEADERBOARD
@@ -53,7 +52,6 @@ var soundtrack;
 var never_played = 1;//made to get rid of annoying blocking of autoplay
 var jump_sound, end_sound;
 
-
 //-----------------------------------Responsible for customizing game experience by user-----------------------------------
 var obstacle_gravity = false;
 var obstacle_laser = false;
@@ -68,10 +66,6 @@ function preload() {
     laser_2 = loadImage('images/laser_2.png');
     laser_3 = loadImage('images/laser_3.png');
     laser_4 = loadImage('images/laser_4.png');
-
-    sound_0 = loadImage('images/sound_0.png');
-    sound_1 = loadImage('images/sound_1.png');
-    sound_2 = loadImage('images/sound_2.png');
 
     game_background_s = loadImage('images/480p/s.png');
     game_background_b1 = loadImage('images/480p/b1.png');
@@ -111,8 +105,6 @@ function draw() {
     if (gameRunning)
         gameloop();
 
-    render_sound(soundtrack_volume_state);
-    render_jump_sound(jump_volume_state);
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -132,94 +124,6 @@ function mouseClicked() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-}
-
-function toggle_jump_sound() {
-    switch (jump_volume_state) {
-        case 0:
-            jump_volume_state = 1;
-            jump_sound.volume(0.5);
-            end_sound.volume(0.5);
-            break;
-        case 1:
-            jump_volume_state = 2;
-            jump_sound.volume(1);
-            end_sound.volume(1);
-            break;
-        case 2:
-            jump_volume_state = 0;
-            jump_sound.volume(0);
-            end_sound.volume(0);
-            break;
-        default:
-            jump_volume_state = 0;
-            jump_sound.volume(0);
-            end_sound.volume(0);
-            break;
-    }
-}
-
-function render_jump_sound(i) {
-    switch (i) {
-        case 0:
-            jump_img = sound_0;
-            break;
-        case 1:
-            jump_img = sound_1;
-            break;
-        case 2:
-            jump_img = sound_2;
-            break;
-        default:
-            jump_img = sound_0;
-            break;
-    }
-    image(jump_img, 50, 100, 50, 50);
-}
-
-function toggleSound() {
-    never_played = 0;
-    switch (soundtrack_volume_state) {
-        case 0:
-            soundtrack_volume_state = 1;
-            soundtrack.volume(0.5);
-            break;
-        case 1:
-            soundtrack_volume_state = 2;
-            soundtrack.volume(1);
-            break;
-        case 2:
-            soundtrack_volume_state = 0;
-            soundtrack.volume(0);
-            break;
-        default:
-            soundtrack_volume_state = 0;
-            soundtrack.volume(0);
-            break;
-    }
-}
-
-function render_sound(i) {
-    switch (i) {
-        case 0:
-            img = sound_0;
-            break;
-        case 1:
-            img = sound_1;
-            break;
-        case 2:
-            img = sound_2;
-            break;
-        default:
-            img = sound_0;
-            break;
-    }
-    if (never_played == 1) {
-        image(sound_0, 50, 50, 50, 50);
-    }
-    if (never_played == 0)
-        soundtrack.play();
-    image(img, 50, 50, 50, 50);
 }
 
 //-------------------MAIN FUNCTIONS---------------------------------------
