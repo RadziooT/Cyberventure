@@ -133,6 +133,7 @@ function div_sound_screen() {
     sound_div.mousePressed(toggleSound);
     sound_div.html('<div class="sound"><div class="sound--icon fa fa-volume-off"></div><div class="sound--wave sound--wave_one"></div>', true);
     sound_div.html('<div class="sound--wave sound--wave_two"></div></div>', true);
+    sound_div.toggleClass('sound-mute');
 
     jump_sound_div = createDiv();
     jump_sound_div.parent('canvas_sketch');
@@ -141,6 +142,7 @@ function div_sound_screen() {
     jump_sound_div.mousePressed(toggle_jump_sound);
     jump_sound_div.html('<div class="sound"><div class="sound--icon fa fa-volume-off"></div><div class="sound--wave sound--wave_one"></div>', true);
     jump_sound_div.html('<div class="sound--wave sound--wave_two"></div></div>', true);
+    jump_sound_div.toggleClass('sound-mute');
 
 }
 //------------------------------------------------------------------------------------------------------------------------------
@@ -177,6 +179,49 @@ function draw_leaderboard(dbData) {
 
     score_name_div.html('<br><span class="dbRecord" id="score">Current Score:<br>' + score + '<br></span>', true);
     score_value_div.html('<br><span class="dbRecord" id="bestscore">Personal Best:<br>' + bestscore + '<br></span>', true);
+}
+
+function toggle_jump_sound() {
+    jump_sound_div.toggleClass('sound-mute');
+    switch (jump_volume_state) {
+        case 0:
+            jump_volume_state = 1;
+            jump_sound.volume(1);
+            end_sound.volume(1);
+            break;
+        case 1:
+            jump_volume_state = 0;
+            jump_sound.volume(0);
+            end_sound.volume(0);
+            break;
+        default:
+            jump_volume_state = 0;
+            jump_sound.volume(0);
+            end_sound.volume(0);
+            break;
+    }
+}
+
+function toggleSound() {
+    never_played = 0;
+    if (never_played == 0)
+        soundtrack.play();
+    sound_div.toggleClass('sound-mute');
+
+    switch (soundtrack_volume_state) {
+        case 0:
+            soundtrack_volume_state = 1;
+            soundtrack.volume(1);
+            break;
+        case 1:
+            soundtrack_volume_state = 0;
+            soundtrack.volume(0);
+            break;
+        default:
+            soundtrack_volume_state = 0;
+            soundtrack.volume(0);
+            break;
+    }
 }
 
 //-----------------------------------------------------------------------------------------------------------------------
