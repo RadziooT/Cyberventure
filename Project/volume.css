@@ -1,0 +1,68 @@
+:root {
+  --red: rgba(211, 87, 91, 0.81);
+  --red-glow: rgba(211, 87, 91, 0.91);
+  --red-scanline: rgba(204, 94, 98, 0.2);
+  --black-scanline: rgba(1, 1, 1, 0.9);
+  --black-hover-background: rgba(0, 0, 0, 0.25);
+  --blue: #61e4fa;
+  --yellow: #f7f500;
+  --text-shadow: rgb(0, 208, 255);
+  --purple: rgba(215, 94, 226, 0.76);
+  --purple-glow: rgba(215, 94, 226, 0.918);
+}
+
+.sound {
+  width: 75px;
+  height: 75px;
+  font-size: 75px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.sound--icon {
+  color: var(--red-glow);
+  width: 75%;
+  height: 100%;
+  line-height: 100%;
+  display: block;
+  margin: auto;
+}
+
+.sound--wave {
+  position: absolute;
+  border: 4px solid transparent;
+  border-right: 4px solid #333;
+  border-radius: 50%;
+  transition: all 200ms;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.sound--wave_one {
+  width: 50%;
+  height: 50%;
+}
+
+.sound--wave_two {
+  width: 75%;
+  height: 75%;
+}
+
+.sound-mute .sound--wave {
+  border-radius: 0;
+  width: 50%;
+  height: 50%;
+  border-width: 0 4px 0 0;
+}
+
+.sound-mute .sound--wave_one {
+  transform: rotate(45deg) translate3d(0, -50%, 0);
+}
+
+.sound-mute .sound--wave_two {
+  transform: rotate(-45deg) translate3d(0, 50%, 0);
+}

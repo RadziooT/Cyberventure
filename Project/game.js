@@ -105,9 +105,6 @@ function draw() {
     if (gameRunning)
         gameloop();
 
-    render_sound(soundtrack_volume_state);
-    render_jump_sound(jump_volume_state);
-}
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -127,94 +124,6 @@ function mouseClicked() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-}
-
-function toggle_jump_sound() {
-    switch (jump_volume_state) {
-        case 0:
-            jump_volume_state = 1;
-            jump_sound.volume(0.5);
-            end_sound.volume(0.5);
-            break;
-        case 1:
-            jump_volume_state = 2;
-            jump_sound.volume(1);
-            end_sound.volume(1);
-            break;
-        case 2:
-            jump_volume_state = 0;
-            jump_sound.volume(0);
-            end_sound.volume(0);
-            break;
-        default:
-            jump_volume_state = 0;
-            jump_sound.volume(0);
-            end_sound.volume(0);
-            break;
-    }
-}
-
-function render_jump_sound(i) {
-    switch (i) {
-        case 0:
-            jump_img = sound_0;
-            break;
-        case 1:
-            jump_img = sound_1;
-            break;
-        case 2:
-            jump_img = sound_2;
-            break;
-        default:
-            jump_img = sound_0;
-            break;
-    }
-    image(jump_img, 50, 100, 50, 50);
-}
-
-function toggleSound() {
-    never_played = 0;
-    switch (soundtrack_volume_state) {
-        case 0:
-            soundtrack_volume_state = 1;
-            soundtrack.volume(0.5);
-            break;
-        case 1:
-            soundtrack_volume_state = 2;
-            soundtrack.volume(1);
-            break;
-        case 2:
-            soundtrack_volume_state = 0;
-            soundtrack.volume(0);
-            break;
-        default:
-            soundtrack_volume_state = 0;
-            soundtrack.volume(0);
-            break;
-    }
-}
-
-function render_sound(i) {
-    switch (i) {
-        case 0:
-            img = sound_0;
-            break;
-        case 1:
-            img = sound_1;
-            break;
-        case 2:
-            img = sound_2;
-            break;
-        default:
-            img = sound_0;
-            break;
-    }
-    if (never_played == 1) {
-        image(sound_0, 50, 50, 50, 50);
-    }
-    if (never_played == 0)
-        soundtrack.play();
-    image(img, 50, 50, 50, 50);
 }
 
 //-------------------MAIN FUNCTIONS---------------------------------------
