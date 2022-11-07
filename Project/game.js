@@ -213,7 +213,7 @@ function gameloop() {
 
     for (let i = 0; i < 3; i++) {
         if (objects[i].collision_detected(player)) {
-            //game_end();
+            game_end();
         }
 
         if (obstacle_additional_points == true) {
@@ -265,9 +265,9 @@ function gameloop() {
     player.render();
     document.getElementById('score').innerHTML = 'Current Score:<br>' + score;
 
-    //if (player.collision_border()) {
-    //    game_end();
-    //}
+    if (player.collision_border()) {
+        game_end();
+    }
 }
 
 function makeBackground() {
