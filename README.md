@@ -36,8 +36,7 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 - [ ] Final moving background (parallax effect)
 - [ ] Final images
 - [ ] Final sound
-- [ ] Css for name input
-- [ ] Volume switch design
+- [ ] CSS for name input
 - [ ] The final layout (divs and font)
 
 <!-- BUILT WITH -->
