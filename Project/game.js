@@ -128,13 +128,13 @@ function windowResized() {
 
 //-------------------MAIN FUNCTIONS---------------------------------------
 function game_end() {
+    gameRunning = false;
     if (score > localStorage.getItem('PersonalBest')) {
         localStorage.setItem('PersonalBest', score)
         bestscore = score;
     }
     draw_leaderboard(dbData);
     end_screen_update();
-    gameRunning = false;
     end_sound.stop();
     end_sound.play();
     end_screen_div.show();

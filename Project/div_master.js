@@ -253,15 +253,50 @@ function spawn_obstacles(distance) {
         objects.push(new Collision_object(first_obstacle + i * distance));
 }
 //TODO add connection with database to send score
+
 function send_score() {
+    const fd = new FormData();
+    temp = document.getElementById('send_score_input').value;
+    console.log(document.getElementById('send_score_input').value);
+    fd.append("Name", temp);
+    fd.append("Score", score);
+    $.ajax({
+        type: "POST",
+        url: "./send_score.php",
+        processData: false,
+        contentType: false,
+        data: fd,
+        dataType: "JSON",
+    })
+    //input.value('');
+    console.log(temp);
     console.log('siema');
-    input.value('');
+}
+
+var test;
+
+function get_top() {
+
+    let tmp;
+    $.ajax({
+        type: "GET",
+        url: "./get_score.php",
+        processData: false,
+        contentType: false,
+        success: function (msg) {
+            tmp = msg;
+        }
+    })
+
+    // tmp = <? php echo $result;?>;
+    console.log(test);
+    return test;
 }
 
 function end_screen_update() {
     submit_div.html('<h2>You scored ' + score + ' points </h2><br><h3>Type your nickname to submit your score</h3><br>');
     submit_div.addClass('glitch');
-    input = createInput();
+    input = createInput('');
     input.parent('submit_div');
     input.id('send_score_input');
     button = createButton('Submit');
