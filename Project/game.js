@@ -90,8 +90,11 @@ function setup() {
 
     game_background_s = loadImage('images/4k/s.png', () => loaded++);
     game_background_b1 = loadImage('images/4k/b1.png', () => loaded++);
+    game_background_b2 = loadImage('images/4k/b2.png', () => loaded++);
     game_background_c1 = loadImage('images/4k/c1.png', () => loaded++);
+    game_background_c2 = loadImage('images/4k/c2.png', () => loaded++);
     game_background_f1 = loadImage('images/4k/f1.png', () => loaded++);
+    game_background_f2 = loadImage('images/4k/f2.png', () => loaded++);
 
     obstacle_distance = width / 5;
     obstacle_amount = 8;
@@ -103,13 +106,25 @@ function setup() {
     laser = new Laser;
 
     background_s = new Image_rendering(game_background_s, 1);
-    background_b1 = new Image_rendering(game_background_b1, 1.5);
-    background_c1 = new Image_rendering(game_background_c1, 2);
-    background_f1 = new Image_rendering(game_background_f1, 2.5);
+
+    if (Math.round(Math.random()))
+        background_b1 = new Image_rendering(game_background_b1, 1.5);
+    else
+        background_b1 = new Image_rendering(game_background_b2, 1.5);
+
+    if (Math.round(Math.random()))
+        background_c1 = new Image_rendering(game_background_c1, 2);
+    else
+        background_c1 = new Image_rendering(game_background_c2, 2);
+
+    if (Math.round(Math.random()))
+        background_f1 = new Image_rendering(game_background_f1, 2.5);
+    else
+        background_f1 = new Image_rendering(game_background_f2, 2.5);
 }
 
 function draw() {
-    if (loaded != 14) {
+    if (loaded != 17) {
     } else {
         if (!loaded2) {
             div_create_all();
