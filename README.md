@@ -6,7 +6,6 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#to-do">To do</a></li>
     <li><a href="#built-with">Built with</a></li>
-    <li><a href="#graphics">Graphics</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -43,9 +42,6 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 <!-- BUILT WITH -->
 ## Built with
 [![p5][p5js]][p5-url] [![fa][fa]][fa-url]
-
-<!-- GRAPHICS -->
-## Graphics
 [![blender][blender]][blender-url] [![affinity][affinity]][affinity-url]
 
 <!-- ACKNOWLEDGMENTS -->
@@ -56,6 +52,8 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 * [freeCodeCamp.org](https://www.youtube.com/watch?v=OK_JCtrrv-c&ab_channel=freeCodeCamp.org)
 * [Web Dev Michael](https://www.youtube.com/watch?v=Wmb-V87tmqI)
 * [Kevin Powell](https://www.youtube.com/watch?v=7Xyg8Ja7dyY)
+* [ambientcg](https://ambientcg.com/view?id=Facade009)
+* [kitbash3d](https://kitbash3d.com/products/mini-kit-neo-city)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
