@@ -78,65 +78,23 @@ function setup() {
     var myCanvas = createCanvas(windowWidth, windowHeight);
     myCanvas.parent('canvas_sketch');
 
-    player_img = loadImage(
-        'images/player.png',
-        () => loaded[0] = true
-    );
-    collectible = loadImage(
-        'images/collectible.png',
-        () => loaded[1] = true
-    );
-    obstacle = loadImage(
-        'images/obstacle.png',
-        () => loaded[2] = true
-    );
+    player_img = loadImage('images/player.png', () => loaded[0] = true);
+    collectible = loadImage('images/collectible.png', () => loaded[1] = true);
+    obstacle = loadImage('images/obstacle.png', () => loaded[2] = true);
 
-    laser_1 = loadImage(
-        'images/laser_1.png',
-        () => loaded[3] = true
-    );
-    laser_2 = loadImage(
-        'images/laser_2.png',
-        () => loaded[4] = true
-    );
-    laser_3 = loadImage(
-        'images/laser_3.png',
-        () => loaded[5] = true
-    );
-    laser_4 = loadImage(
-        'images/laser_4.png',
-        () => loaded[6] = true
-    );
+    laser_1 = loadImage('images/laser_1.png', () => loaded[3] = true);
+    laser_2 = loadImage('images/laser_2.png', () => loaded[4] = true);
+    laser_3 = loadImage('images/laser_3.png', () => loaded[5] = true);
+    laser_4 = loadImage('images/laser_4.png', () => loaded[6] = true);
 
-    sound_0 = loadImage(
-        'images/sound_0.png',
-        () => loaded[7] = true
-    );
-    sound_1 = loadImage(
-        'images/sound_1.png',
-        () => loaded[8] = true
-    );
-    sound_2 = loadImage(
-        'images/sound_2.png',
-        () => loaded[9] = true
-    );
+    sound_0 = loadImage('images/sound_0.png', () => loaded[7] = true);
+    sound_1 = loadImage('images/sound_1.png', () => loaded[8] = true);
+    sound_2 = loadImage('images/sound_2.png', () => loaded[9] = true);
 
-    game_background_s = loadImage(
-        'images/4k/s.png',
-        () => loaded[10] = true
-    );
-    game_background_b1 = loadImage(
-        'images/4k/b1.png',
-        () => loaded[11] = true
-    );
-    game_background_c1 = loadImage(
-        'images/4k/c1.png',
-        () => loaded[12] = true
-    );
-    game_background_f1 = loadImage(
-        'images/4k/f1.png',
-        () => loaded[13] = true
-    );
+    game_background_s = loadImage('images/4k/s.png', () => loaded[10] = true);
+    game_background_b1 = loadImage('images/4k/b1.png', () => loaded[11] = true);
+    game_background_c1 = loadImage('images/4k/c1.png', () => loaded[12] = true);
+    game_background_f1 = loadImage('images/4k/f1.png', () => loaded[13] = true);
 
     obstacle_distance = width / 5;
     obstacle_amount = 8;
