@@ -9,125 +9,9 @@
     touch-action: manipulation;
 }
 
-/*------------------------MENU STARTOWE---------------------------*/
-#start_menu {
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
-#game_start {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+/* ! Nie dotykać */
 
-#options {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#authors {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/*------------------------END SCREEN---------------------------*/
-#end_screen {
-    /* background-color: rgb(0, 0, 0); */
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#restart {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#return_to_menu {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/*------------------------AUTORZY---------------------------*/
-#authors_screen {
-    /* background-color: rgb(0, 0, 0); */
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#authors_text {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: 100px;
-    font-size: 20px;
-}
-
-#return_from_authors {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/*------------------------OPCJE PRZESZKÓD---------------------------*/
-#options_menu {
-    /* background-color: rgb(0, 0, 0); */
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#laser_toggle {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#points_toggle {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#gravity_toggle {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#return_from_options {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/*------------------------IKONKI GŁOŚNOŚCI---------------------------*/
 #sound_div {
     position: absolute;
     top: 5%;
@@ -141,6 +25,8 @@
     left: 3%;
     transform: translate(-50%, -50%);
 }
+
+/* ! Nie dotykać */
 
 /*-------------------------LEADERBOARD--------------------------------*/
 #leaderboard_screen {
@@ -276,12 +162,4 @@
             var(--red-scanline) 100%,
             var(--red-scanline) 100%);
     background-color: rgba(159, 95, 218, 0.555);
-}
-
-.splash {
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
