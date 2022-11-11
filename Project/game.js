@@ -158,6 +158,10 @@ function draw() {
     } else {
         if (!loaded2) {
             div_create_all();
+
+            const element = document.getElementById('splash');
+            element.remove();
+
             loaded2 = true;
         }
         makeBackground();
