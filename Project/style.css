@@ -10,7 +10,8 @@
 }
 
 
-/*------------------------IKONKI GŁOŚNOŚCI---------------------------*/
+/* ! Nie dotykać */
+
 #sound_div {
     position: absolute;
     top: 5%;
@@ -24,6 +25,8 @@
     left: 3%;
     transform: translate(-50%, -50%);
 }
+
+/* ! Nie dotykać */
 
 /*-------------------------LEADERBOARD--------------------------------*/
 #leaderboard_screen {
