@@ -173,8 +173,8 @@ function draw_leaderboard(dbData) {
     score_value_div.html('<br><span class="dbRecord">Score:<br></span>');
 
     for (i = 0; i < dbData.length; i++) {
-        score_name_div.html('<span class="dbRecord">' + dbData[i]["name"] + '<br></span>', true);
-        score_value_div.html('<span class="dbRecord">' + dbData[i]["score"] + '<br></span>', true);
+        score_name_div.html('<span class="dbRecord">' + dbData[i]["Name"] + '<br></span>', true);
+        score_value_div.html('<span class="dbRecord">' + dbData[i]["Score"] + '<br></span>', true);
     }
 
     score_name_div.html('<br><span class="dbRecord" id="score">Current Score:<br>' + score + '<br></span>', true);
@@ -227,6 +227,7 @@ function toggleSound() {
 //-----------------------------------------------------------------------------------------------------------------------
 //-------------------NAVIGATING WITH BUTTONS-------------------------------------------------------------------------------
 function game_start() {
+    get_top()
     score = 0;
     counter = 0;
     spawn_obstacles(obstacle_distance);
@@ -256,41 +257,21 @@ function spawn_obstacles(distance) {
 
 function send_score() {
     const fd = new FormData();
-    temp = document.getElementById('send_score_input').value;
-    console.log(document.getElementById('send_score_input').value);
-    fd.append("Name", temp);
+    player_name = document.getElementById('send_score_input').value;
+    fd.append("Name", player_name);
     fd.append("Score", score);
-    $.ajax({
-        type: "POST",
-        url: "./send_score.php",
-        processData: false,
-        contentType: false,
-        data: fd,
-        dataType: "JSON",
-    })
-    //input.value('');
-    console.log(temp);
-    console.log('siema');
+
+    $.post("send_score.php",
+        {
+            Name: player_name,
+            Score: score
+        });
 }
 
-var test;
-
 function get_top() {
-
-    let tmp;
-    $.ajax({
-        type: "GET",
-        url: "./get_score.php",
-        processData: false,
-        contentType: false,
-        success: function (msg) {
-            tmp = msg;
-        }
-    })
-
-    // tmp = <? php echo $result;?>;
-    console.log(test);
-    return test;
+    $.get("get_score.php", function (data) {
+        dbData = JSON.parse(data);
+    });
 }
 
 function end_screen_update() {

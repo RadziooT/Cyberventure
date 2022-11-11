@@ -17,35 +17,31 @@ const frames_per_obstacle = 160;
 
 var start_menu_div, end_screen_div, authors_div, options_div, sound_div; //divs responsible for different windows of game
 
-//TESTING DATA FOR LEADERBOARD
-dbData =
+tempdbData =
     [
         {
-            "name": "Radzio",
-            "score": 2
+            "Name": "Mati",
+            "Score": 314
         },
         {
-            "name": "Mati",
-            "score": 314
+            "Name": "Boliver",
+            "Score": 69
         },
         {
-            "name": "Boliver",
-            "score": 69
+            "Name": "Pabloskyy",
+            "Score": "Dota"
         },
         {
-            "name": "Pabloskyy",
-            "score": "Dota"
+            "Name": "Kulson",
+            "Score": "asud"
         },
         {
-            "name": "Kulson",
-            "score": "asud"
-        },
-        {
-            "name": "Wyrzo",
-            "score": "ej"
+            "Name": "Wyrzo",
+            "Score": "ej"
         },
     ]
 
+var dbData = tempdbData;
 var soundtrack_volume_state;
 var jump_volume_state;
 var soundtrack;
@@ -205,9 +201,9 @@ function gameloop() {
     player.render();
     document.getElementById('score').innerHTML = 'Current Score:<br>' + score;
 
-    //if (player.collision_border()) {
-    //    game_end();
-    //}
+    if (player.collision_border()) {
+        game_end();
+    }
 }
 
 function makeBackground() {
