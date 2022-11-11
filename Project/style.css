@@ -9,30 +9,6 @@
     touch-action: manipulation;
 }
 
-/*------------------------END SCREEN---------------------------*/
-#end_screen {
-    /* background-color: rgb(0, 0, 0); */
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#restart {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#return_to_menu {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 /*------------------------AUTORZY---------------------------*/
 #authors_screen {
     /* background-color: rgb(0, 0, 0); */
