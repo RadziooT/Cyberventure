@@ -9,36 +9,6 @@
     touch-action: manipulation;
 }
 
-/*------------------------MENU STARTOWE---------------------------*/
-#start_menu {
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#game_start {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#options {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#authors {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 /*------------------------END SCREEN---------------------------*/
 #end_screen {
     /* background-color: rgb(0, 0, 0); */
