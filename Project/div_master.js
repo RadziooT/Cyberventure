@@ -262,7 +262,6 @@ function send_score() {
     player_name = document.getElementById('send_score_input').value;
     fd.append("Name", player_name);
     fd.append("Score", score);
-    console.log(player_name);
     $.post("send_score.php",
         {
             Name: player_name,
@@ -275,8 +274,6 @@ function send_score() {
 
 function get_top() {
     $.get("get_score.php", function (data) {
-        console.log(data);
-        console.log(typeof (data));
         dbData = JSON.parse(data);
     });
 }
