@@ -68,6 +68,7 @@ function preload() {
 }
 
 function setup() {
+    get_top();
     var myCanvas = createCanvas(windowWidth, windowHeight);
     myCanvas.parent('canvas_sketch');
 
@@ -233,7 +234,7 @@ function gameloop() {
     }
 
     player.render();
-    //document.getElementById('score').innerHTML = 'Current Score:<br>' + score;
+    document.getElementById('score').innerHTML = 'Current Score:<br>' + score;
 
     if (player.collision_border()) {
         //game_end();

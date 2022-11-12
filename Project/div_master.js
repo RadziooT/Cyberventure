@@ -238,6 +238,7 @@ function game_start() {
 }
 
 function game_reset() {
+    get_top();
     score = 0;
     counter = 0;
     spawn_obstacles(obstacle_distance);
@@ -256,20 +257,26 @@ function spawn_obstacles(distance) {
 //TODO add connection with database to send score
 
 function send_score() {
+
     const fd = new FormData();
     player_name = document.getElementById('send_score_input').value;
     fd.append("Name", player_name);
     fd.append("Score", score);
-
+    console.log(player_name);
     $.post("send_score.php",
         {
             Name: player_name,
             Score: score
         });
+    get_top();
+    end_screen_div.hide();
+    start_menu_div.show();
 }
 
 function get_top() {
     $.get("get_score.php", function (data) {
+        console.log(data);
+        console.log(typeof (data));
         dbData = JSON.parse(data);
     });
 }
