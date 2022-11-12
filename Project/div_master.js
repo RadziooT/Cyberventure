@@ -66,6 +66,15 @@ function div_end_screen() {
     button_return_to_menu.id("return_to_menu");
     button_return_to_menu.addClass("cyber-button");
     button_return_to_menu.html("Main menu");
+
+    submit_div.addClass('glitch');
+    input = createInput('');
+    input.parent('submit_div');
+    input.id('send_score_input');
+    button = createButton('Submit');
+    button.parent('submit_div');
+    button.id('send_score_button');
+    button.mousePressed(send_score);
 }
 //-----------------------------------------------------------------------------------------------------------------------
 //-------------CREATING OPTIONS SCREEN WITH BUTTONS-------------------------------------------------------------------------
@@ -268,6 +277,7 @@ function send_score() {
             Score: score
         });
     get_top();
+    delete fd;
     end_screen_div.hide();
     start_menu_div.show();
 }
@@ -280,14 +290,7 @@ function get_top() {
 
 function end_screen_update() {
     submit_div.html('<h2>You scored ' + score + ' points </h2><br><h3>Type your nickname to submit your score</h3><br>');
-    submit_div.addClass('glitch');
-    input = createInput('');
-    input.parent('submit_div');
-    input.id('send_score_input');
-    button = createButton('Submit');
-    button.parent('submit_div');
-    button.id('send_score_button');
-    button.mousePressed(send_score);
+    input.html('');
 }
 
 function return_to_menu() {
