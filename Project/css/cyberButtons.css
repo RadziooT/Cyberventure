@@ -1,0 +1,121 @@
+:root {
+    --red: rgba(211, 87, 91, 0.81);
+    --red-glow: rgba(211, 87, 91, 0.91);
+    --red-scanline: rgba(204, 94, 98, 0.2);
+    --black-scanline: rgba(1, 1, 1, 0.9);
+    --black-hover-background: rgba(0, 0, 0, 0.25);
+    --blue: #61e4fa;
+    --yellow: #f7f500;
+    --text-shadow: rgb(0, 208, 255);
+    --purple: rgba(215, 94, 226, 0.76);
+    --purple-glow: rgba(215, 94, 226, 0.918);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+.start_menu {
+    display: inline-block;
+    margin-left: 150px;
+    width: 400px;
+    height: 100%;
+    background: repeating-linear-gradient(to bottom,
+            transparent 0%,
+            var(--red-scanline) 1px,
+            var(--red-scanline) 3px,
+            var(--red-scanline) 5px,
+            var(--red-scanline) 4px,
+            transparent 0.5%),
+        repeating-linear-gradient(to left,
+            var(--black-scanline) 100%,
+            var(--black-scanline) 100%);
+}
+
+.start_menu {
+    list-style-type: none;
+    padding: 0px 25px;
+}
+
+.cyber-button {
+    text-transform: uppercase;
+    cursor: pointer;
+    /* layout */
+    position: relative;
+    padding: 10px;
+    margin: 15px 0px;
+    overflow: hidden;
+    width: 350px;
+    height: 54.5px;
+    background: repeating-linear-gradient(to bottom,
+            transparent 0%,
+            var(--red-scanline) 1px,
+            var(--red-scanline) 3px,
+            var(--red-scanline) 5px,
+            var(--red-scanline) 4px,
+            transparent 0.5%),
+        repeating-linear-gradient(to left,
+            var(--black-scanline) 100%,
+            var(--black-scanline) 100%);
+    clip-path: polygon(350px 0px, 350px 29px, 322px 57px, 0px 57px, 0px 0px);
+
+    /* font */
+    color: var(--red);
+    font-size: 26px;
+    text-shadow: 0px 0px 3px var(--red-glow);
+
+    /* Border */
+    border-style: solid;
+    border-width: 2px;
+    border-color: transparent;
+    /* Animation */
+    transition: color 1s ease-out;
+    transition: border-color 1s ease-out;
+}
+
+.cyber-button::after {
+    /* Layout */
+    content: "";
+    position: absolute;
+    bottom: -17px;
+    right: -17px;
+    width: 30px;
+    height: 30px;
+    transform: rotate(45deg);
+
+    /* Border */
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+
+    /* Animation */
+    transition: color 1s ease-out;
+    transition: border-color 1s ease-out;
+}
+
+.cyber-button:hover::after,
+.cyber-button:hover {
+    color: var(--blue);
+    background: var(--black-hover-background);
+
+    border-color: var(--blue);
+
+    transition: color 0.23s linear;
+    transition: border-color 0.23s linear;
+}
+
+.cyber-button-clicked::after,
+.cyber-button-clicked {
+    color: var(--yellow);
+
+    border-color: var(--red);
+    /* Border */
+    border-style: solid;
+    border-width: 2px;
+    transition: color 0.23s linear;
+    transition: border-color 0.23s linear;
+
+    clip-path: polygon(350px 0px, 350px 29px, 322px 57px, 0px 57px, 0px 0px);
+}
