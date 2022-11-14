@@ -27,12 +27,22 @@
   line-height: 100%;
   display: block;
   margin: auto;
+
+  background: rgb(0, 0, 0);
+  background: linear-gradient(56deg, rgb(39, 28, 28) 25%, rgba(68, 8, 8, 1) 50%, rgba(110, 12, 12, 1) 75%, rgba(85, 17, 17, 1) 100%);
+
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--blue);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .sound--wave {
   position: absolute;
   border: 4px solid transparent;
-  border-right: 4px solid #333;
+  border-right: 4px solid #3ac7e0;
   border-radius: 50%;
   transition: all 200ms;
   margin: auto;
@@ -43,18 +53,18 @@
 }
 
 .sound--wave_one {
-  width: 50%;
+  width: 60%;
   height: 50%;
 }
 
 .sound--wave_two {
-  width: 75%;
+  width: 85%;
   height: 75%;
 }
 
 .sound-mute .sound--wave {
   border-radius: 0;
-  width: 50%;
+  width: 55%;
   height: 50%;
   border-width: 0 4px 0 0;
 }
