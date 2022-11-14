@@ -11,12 +11,6 @@
     --purple-glow: rgba(215, 94, 226, 0.918);
 }
 
-* {
-    box-sizing: border-box;
-}
-
-
-
 .start_menu {
     display: inline-block;
     margin-left: 150px;

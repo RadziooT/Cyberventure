@@ -1,7 +1,7 @@
-if (localStorage.getItem('PersonalBest') == null)
-    localStorage.setItem('PersonalBest', 0);
+if (sessionStorage.getItem('PersonalBest') == null)
+    sessionStorage.setItem('PersonalBest', 0);
 
-var bestscore = localStorage.getItem('PersonalBest');
+var bestscore = sessionStorage.getItem('PersonalBest');
 var player;
 var counter = 0;
 var gameRunning = false;
@@ -84,11 +84,9 @@ function setup() {
     var myCanvas = createCanvas(windowWidth, windowHeight);
     myCanvas.parent('canvas_sketch');
 
-
     obstacle_distance = width / 5;
     obstacle_amount = 8;
     frameRate(60);
-
 
     //----------------------GENERATING OBJECTS--------------------------------------------
     player = new Player;
@@ -110,7 +108,6 @@ function setup() {
         background_3 = new Image_rendering(game_background_f1, 2.5);
     else
         background_3 = new Image_rendering(game_background_f2, 2.5);
-
 }
 
 function draw() {
@@ -118,7 +115,6 @@ function draw() {
     } else {
         if (!loaded2) {
             div_create_all();
-
 
             const element = document.getElementById('splash');
             element.remove();
@@ -135,10 +131,11 @@ function draw() {
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 //-------------------DETECTING PLAYER JUMP-----------------------------------------------------------------------------------------------------------
 function mouseClicked() {
-    jump_sound.stop();
-    jump_sound.play();
-    if (gameRunning)
+    if (gameRunning) {
+        jump_sound.stop();
+        jump_sound.play();
         player.gainHeight();
+    }
 }
 
 function windowResized() {
@@ -148,8 +145,8 @@ function windowResized() {
 //-------------------MAIN FUNCTIONS---------------------------------------
 function game_end() {
     gameRunning = false;
-    if (score > localStorage.getItem('PersonalBest')) {
-        localStorage.setItem('PersonalBest', score)
+    if (score > sessionStorage.getItem('PersonalBest')) {
+        sessionStorage.setItem('PersonalBest', score)
         bestscore = score;
     }
     draw_leaderboard(dbData);

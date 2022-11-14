@@ -51,7 +51,6 @@ function div_end_screen() {
     submit_div.parent('end_screen');
     submit_div.id('submit_div');
     submit_div.size(divs_scale / 2 * displayWidth, divs_scale / 2 * displayHeight);
-    submit_div.html('<h2>You scored ' + score + ' points </h2><br><h3>Type your nickname to submit your score</h3><br>');
 
     button_restart = createButton('Restart');
     button_restart.parent('end_screen');
@@ -67,14 +66,6 @@ function div_end_screen() {
     button_return_to_menu.addClass("cyber-button");
     button_return_to_menu.html("Main menu");
 
-    submit_div.addClass('glitch');
-    input = createInput('');
-    input.parent('submit_div');
-    input.id('send_score_input');
-    button = createButton('Submit');
-    button.parent('submit_div');
-    button.id('send_score_button');
-    button.mousePressed(send_score);
 }
 //-----------------------------------------------------------------------------------------------------------------------
 //-------------CREATING OPTIONS SCREEN WITH BUTTONS-------------------------------------------------------------------------
@@ -288,7 +279,14 @@ function get_top() {
 
 function end_screen_update() {
     submit_div.html('<h2>You scored ' + score + ' points </h2><br><h3>Type your nickname to submit your score</h3><br>');
-    input.html('');
+    submit_div.addClass('glitch');
+    input = createInput('');
+    input.parent('submit_div');
+    input.id('send_score_input');
+    button = createButton('Submit');
+    button.parent('submit_div');
+    button.id('send_score_button');
+    button.mousePressed(send_score);
 }
 
 function return_to_menu() {
