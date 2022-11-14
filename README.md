@@ -33,18 +33,18 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 - [x] Final leaderboard design
 - [x] Optimizing game physics (collision)
 - [x] Final moving background (parallax effect)
+- [x] Volume switch colour/gradient effect
+- [ ] CSS for name input
+- [ ] Random background image class
 - [ ] Final images
 - [ ] Final sound
-- [ ] CSS for name input
-- [ ] Volume switch colour/gradient effect
-- [ ] PHP error handling
-- [ ] Random background image class
 - [ ] The final layout (divs and font)
 
 <!-- BUILT WITH -->
 ## Built with
 [![p5][p5js]][p5-url] [![fa][fa]][fa-url]
 [![blender][blender]][blender-url] [![affinity][affinity]][affinity-url]
+[![CSS Gradient][gradient]][gradient-url]
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
@@ -68,3 +68,5 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 [affinity-url]: https://affinity.serif.com/photo/
 [fa]: https://img.shields.io/badge/font_awesome-193154?style=for-the-badge&logo=font-awesome&logoColor=528dd7
 [fa-url]: https://fontawesome.com/
+[gradient]:https://img.shields.io/badge/CSS_Gradient-5fec7b?style=for-the-badge&logo=CSS_Gradient&logoColor=FFFFFF
+[gradient-url]:https://cssgradient.io/
