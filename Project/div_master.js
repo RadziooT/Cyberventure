@@ -263,10 +263,8 @@ function spawn_obstacles(distance) {
     for (var i = 0; i < obstacle_amount; i++)
         objects.push(new Collision_object(first_obstacle + i * distance));
 }
-//TODO add connection with database to send score
 
 function send_score() {
-
     const fd = new FormData();
     player_name = document.getElementById('send_score_input').value;
     fd.append("Name", player_name);

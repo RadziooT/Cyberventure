@@ -70,21 +70,13 @@ function preload() {
     laser_3 = loadImage('images/laser_3.png', () => loaded++);
     laser_4 = loadImage('images/laser_4.png', () => loaded++);
 
-    //sound_0 = loadImage('images/sound_0.png', () => loaded++);
-    //sound_1 = loadImage('images/sound_1.png', () => loaded++);
-    //sound_2 = loadImage('images/sound_2.png', () => loaded++);
-
-    //game_background_s = loadImage('images/4k/s.png', () => loaded++);
-    //game_background_b1 = loadImage('images/4k/b1.png', () => loaded++);
-    //game_background_b2 = loadImage('images/4k/b2.png', () => loaded++);
-    //game_background_c1 = loadImage('images/4k/c1.png', () => loaded++);
-    //game_background_c2 = loadImage('images/4k/c2.png', () => loaded++);
-    //game_background_f1 = loadImage('images/4k/f1.png', () => loaded++);
-    //game_background_f2 = loadImage('images/4k/f2.png', () => loaded++);
-
-    background_1 = loadImage('images/background.png');
-    background_2 = loadImage('images/background_0.png');
-    background_3 = loadImage('images/background_1.png');
+    game_background_s = loadImage('images/720p/s.png', () => loaded++);
+    game_background_b1 = loadImage('images/720p/b1.png', () => loaded++);
+    game_background_b2 = loadImage('images/720p/b2.png', () => loaded++);
+    game_background_c1 = loadImage('images/720p/c1.png', () => loaded++);
+    game_background_c2 = loadImage('images/720p/c2.png', () => loaded++);
+    game_background_f1 = loadImage('images/720p/f1.png', () => loaded++);
+    game_background_f2 = loadImage('images/720p/f2.png', () => loaded++);
 }
 
 function setup() {
@@ -95,36 +87,34 @@ function setup() {
 
     obstacle_distance = width / 5;
     obstacle_amount = 8;
-    //frameRate(60);
+    frameRate(60);
 
 
     //----------------------GENERATING OBJECTS--------------------------------------------
     player = new Player;
     laser = new Laser;
 
-    //background_s = new Image_rendering(game_background_s, 1);
+    background_0 = new Image_rendering(game_background_s, 1);
 
-    //if (Math.round(Math.random()))
-    //    background_b1 = new Image_rendering(game_background_b1, 1.5);
-    //else
-    //    background_b1 = new Image_rendering(game_background_b2, 1.5);
-    //
-    //if (Math.round(Math.random()))
-    //    background_c1 = new Image_rendering(game_background_c1, 2);
-    //else
-    //    background_c1 = new Image_rendering(game_background_c2, 2);
-    //
-    //if (Math.round(Math.random()))
-    //    background_f1 = new Image_rendering(game_background_f1, 2.5);
-    //else
-    //    background_f1 = new Image_rendering(game_background_f2, 2.5);
-    background_b1 = new Image_rendering(background_1, 1.5);
-    background_c1 = new Image_rendering(background_2, 2);
-    background_f1 = new Image_rendering(background_3, 2.5);
+    if (Math.round(Math.random()))
+        background_1 = new Image_rendering(game_background_b1, 1.5);
+    else
+        background_1 = new Image_rendering(game_background_b2, 1.5);
+
+    if (Math.round(Math.random()))
+        background_2 = new Image_rendering(game_background_c1, 2);
+    else
+        background_2 = new Image_rendering(game_background_c2, 2);
+
+    if (Math.round(Math.random()))
+        background_3 = new Image_rendering(game_background_f1, 2.5);
+    else
+        background_3 = new Image_rendering(game_background_f2, 2.5);
+
 }
 
 function draw() {
-    if (loaded != 7) {
+    if (loaded != 14) {
     } else {
         if (!loaded2) {
             div_create_all();
@@ -182,7 +172,7 @@ function gameloop() {
 
     for (let i = 0; i < 3; i++) {
         if (objects[i].collision_detected(player)) {
-            //game_end();
+            game_end();
         }
 
         if (obstacle_additional_points == true) {
@@ -227,21 +217,21 @@ function gameloop() {
         laser.render();
         laser.count_down();
 
-        //if (laser.collision_laser(player))
-        //    game_end();
+        if (laser.collision_laser(player))
+            game_end();
     }
 
     player.render();
     document.getElementById('score').innerHTML = 'Current Score:<br>' + score;
 
     if (player.collision_border()) {
-        //game_end();
+        game_end();
     }
 }
 
 function makeBackground() {
-    //background_s.move_background();
-    background_b1.move_background();
-    background_c1.move_background();
-    background_f1.move_background();
+    background_0.move_background();
+    background_1.move_background();
+    background_2.move_background();
+    background_3.move_background();
 }
