@@ -18,11 +18,9 @@ const frames_per_obstacle = 160;
 let loaded = 0;
 let loaded2 = false;
 
-var x = document.getElementById("canvas_sketch");
-
 var start_menu_div, end_screen_div, authors_div, options_div, sound_div; //divs responsible for different windows of game
 
-tempdbData =
+var dbData =
     [
         {
             "Name": "Mati",
@@ -46,9 +44,6 @@ tempdbData =
         },
     ]
 
-var dbData = tempdbData;
-var soundtrack_volume_state;
-var jump_volume_state;
 var soundtrack;
 var never_played = 1;//made to get rid of annoying blocking of autoplay
 var jump_sound, end_sound;
@@ -65,12 +60,6 @@ function preload() {
     end_sound.volume(0);
     soundtrack = createAudio('sounds/background_soundtrack.mp3');
     soundtrack.volume(0);
-}
-
-function setup() {
-    get_top();
-    var myCanvas = createCanvas(windowWidth, windowHeight);
-    myCanvas.parent('canvas_sketch');
 
     player_img = loadImage('images/player.png', () => loaded++);
     collectible = loadImage('images/collectible.png', () => loaded++);
@@ -81,17 +70,28 @@ function setup() {
     laser_3 = loadImage('images/laser_3.png', () => loaded++);
     laser_4 = loadImage('images/laser_4.png', () => loaded++);
 
-    sound_0 = loadImage('images/sound_0.png', () => loaded++);
-    sound_1 = loadImage('images/sound_1.png', () => loaded++);
-    sound_2 = loadImage('images/sound_2.png', () => loaded++);
+    //sound_0 = loadImage('images/sound_0.png', () => loaded++);
+    //sound_1 = loadImage('images/sound_1.png', () => loaded++);
+    //sound_2 = loadImage('images/sound_2.png', () => loaded++);
 
-    game_background_s = loadImage('images/4k/s.png', () => loaded++);
-    game_background_b1 = loadImage('images/4k/b1.png', () => loaded++);
-    game_background_b2 = loadImage('images/4k/b2.png', () => loaded++);
-    game_background_c1 = loadImage('images/4k/c1.png', () => loaded++);
-    game_background_c2 = loadImage('images/4k/c2.png', () => loaded++);
-    game_background_f1 = loadImage('images/4k/f1.png', () => loaded++);
-    game_background_f2 = loadImage('images/4k/f2.png', () => loaded++);
+    //game_background_s = loadImage('images/4k/s.png', () => loaded++);
+    //game_background_b1 = loadImage('images/4k/b1.png', () => loaded++);
+    //game_background_b2 = loadImage('images/4k/b2.png', () => loaded++);
+    //game_background_c1 = loadImage('images/4k/c1.png', () => loaded++);
+    //game_background_c2 = loadImage('images/4k/c2.png', () => loaded++);
+    //game_background_f1 = loadImage('images/4k/f1.png', () => loaded++);
+    //game_background_f2 = loadImage('images/4k/f2.png', () => loaded++);
+
+    background_1 = loadImage('images/background.png');
+    background_2 = loadImage('images/background_0.png');
+    background_3 = loadImage('images/background_1.png');
+}
+
+function setup() {
+    get_top();
+    var myCanvas = createCanvas(windowWidth, windowHeight);
+    myCanvas.parent('canvas_sketch');
+
 
     obstacle_distance = width / 5;
     obstacle_amount = 8;
@@ -102,29 +102,33 @@ function setup() {
     player = new Player;
     laser = new Laser;
 
-    background_s = new Image_rendering(game_background_s, 1);
+    //background_s = new Image_rendering(game_background_s, 1);
 
-    if (Math.round(Math.random()))
-        background_b1 = new Image_rendering(game_background_b1, 1.5);
-    else
-        background_b1 = new Image_rendering(game_background_b2, 1.5);
-
-    if (Math.round(Math.random()))
-        background_c1 = new Image_rendering(game_background_c1, 2);
-    else
-        background_c1 = new Image_rendering(game_background_c2, 2);
-
-    if (Math.round(Math.random()))
-        background_f1 = new Image_rendering(game_background_f1, 2.5);
-    else
-        background_f1 = new Image_rendering(game_background_f2, 2.5);
+    //if (Math.round(Math.random()))
+    //    background_b1 = new Image_rendering(game_background_b1, 1.5);
+    //else
+    //    background_b1 = new Image_rendering(game_background_b2, 1.5);
+    //
+    //if (Math.round(Math.random()))
+    //    background_c1 = new Image_rendering(game_background_c1, 2);
+    //else
+    //    background_c1 = new Image_rendering(game_background_c2, 2);
+    //
+    //if (Math.round(Math.random()))
+    //    background_f1 = new Image_rendering(game_background_f1, 2.5);
+    //else
+    //    background_f1 = new Image_rendering(game_background_f2, 2.5);
+    background_b1 = new Image_rendering(background_1, 1.5);
+    background_c1 = new Image_rendering(background_2, 2);
+    background_f1 = new Image_rendering(background_3, 2.5);
 }
 
 function draw() {
-    if (loaded != 17) {
+    if (loaded != 7) {
     } else {
         if (!loaded2) {
             div_create_all();
+
 
             const element = document.getElementById('splash');
             element.remove();
@@ -140,17 +144,11 @@ function draw() {
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 //-------------------DETECTING PLAYER JUMP-----------------------------------------------------------------------------------------------------------
-function keyPressed() {
-    if (key == ' ') {
-        jump_sound.stop();
-        jump_sound.play();
-        player.gainHeight();
-    }
-}
 function mouseClicked() {
     jump_sound.stop();
     jump_sound.play();
-    player.gainHeight();
+    if (gameRunning)
+        player.gainHeight();
 }
 
 function windowResized() {
@@ -242,7 +240,7 @@ function gameloop() {
 }
 
 function makeBackground() {
-    background_s.move_background();
+    //background_s.move_background();
     background_b1.move_background();
     background_c1.move_background();
     background_f1.move_background();
