@@ -22,21 +22,23 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 - [x] Learning CSS and creating styles for the webpage
 - [x] Learning JavaScript and creating first sketch of the game
 - [x] Creating game physics (collision)
-- [ ] Learning PHP and creating simple communication between website and the database for storing high scores
-- [ ] Adding Leaderboard and accounts system
-- [ ] Adding collectibles/game speed mechanic
-- [ ] Implementing dynamic background (changed by earning more points, constantly moving behind player to give impression of speed)
+- [x] Learning PHP and creating simple communication between website and the database for storing high scores
+- [x] Adding Leaderboard ~~and accounts system~~
+- [x] Adding collectibles
+- [ ] Implementing dynamic background (changing showed background by randomly selecting from set of assets)
 - [ ] Creating final graphics, sprites and finalizing project
 
 <!-- TO DO -->
 ## To do
 - [x] Final leaderboard design
 - [x] Optimizing game physics (collision)
-- [ ] Final moving background (parallax effect)
+- [x] Final moving background (parallax effect)
 - [ ] Final images
 - [ ] Final sound
 - [ ] CSS for name input
-- [ ] Volume switch design
+- [ ] Volume switch colour/gradient effect
+- [ ] PHP error handling
+- [ ] Random background image class
 - [ ] The final layout (divs and font)
 
 <!-- BUILT WITH -->
