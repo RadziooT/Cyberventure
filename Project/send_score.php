@@ -14,5 +14,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 if (empty($name)) {
-} else
+} else {
     $query = "INSERT INTO highscores(Name,Score) values('$name','$score')";
+    $result = mysqli_query($conn, $query);
+}

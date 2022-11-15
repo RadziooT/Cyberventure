@@ -266,7 +266,6 @@ function send_score() {
             Score: score
         });
     get_top();
-    delete fd;
     end_screen_div.hide();
     start_menu_div.show();
 }
