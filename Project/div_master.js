@@ -283,7 +283,7 @@ function end_screen_update() {
     input = createInput('');
     input.parent('submit_div');
     input.id('send_score_input');
-    button = createButton('Submit');
+    button = createButton('<i class="fa-solid fa-paper-plane"></i>');
     button.parent('submit_div');
     button.id('send_score_button');
     button.mousePressed(send_score);

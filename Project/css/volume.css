@@ -8,7 +8,7 @@
   --yellow: #f7f500;
   --text-shadow: rgb(0, 208, 255);
   --purple: rgba(215, 94, 226, 0.76);
-  --purple-glow: rgba(215, 94, 226, 0.918);
+  --purple-glow: rgba(230, 108, 241, 0.918);
 }
 
 .sound {
@@ -27,16 +27,12 @@
   line-height: 100%;
   display: block;
   margin: auto;
-
-  background: rgb(0, 0, 0);
   background: linear-gradient(56deg, rgb(39, 28, 28) 25%, rgba(68, 8, 8, 1) 50%, rgba(110, 12, 12, 1) 75%, rgba(85, 17, 17, 1) 100%);
-
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--blue);
-
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .sound--wave {
