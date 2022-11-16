@@ -215,7 +215,7 @@ function gameloop() {
         laser.count_down();
 
         if (laser.collision_laser(player))
-            game_end();
+            score--;
     }
 
     player.render();
