@@ -199,15 +199,12 @@ function toggleSound() {
     }
 }
 
-//-----------------------------------------------------------------------------------------------------------------------
-//-------------------NAVIGATING WITH BUTTONS-------------------------------------------------------------------------------
-
-
 function end_screen_update() {
     submit_div.html('<h2>You scored ' + score + ' points </h2><br><h3>Type your nickname to submit your score</h3><br>');
     submit_div.addClass('glitch');
     input = createInput();
     input.attribute('maxlength', 10);
+    input.attribute('autocomplete', 'off');
     input.parent('submit_div');
     input.id('send_score_input');
     button = createButton('<i class="fa-solid fa-paper-plane"></i>');
