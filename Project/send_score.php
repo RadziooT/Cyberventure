@@ -6,10 +6,8 @@ $databasename = "scores_db";
 $name = $_POST['Name'];
 $score = $_POST['Score'];
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $databasename);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

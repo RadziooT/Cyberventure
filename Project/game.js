@@ -142,19 +142,74 @@ function mouseClicked() {
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 }
+function game_start() {
+    score = 0;
+    counter = 0;
+    spawn_obstacles(obstacle_distance);
+    laser.stop_timer();
+    player.reset_player();
+    hide_all_divs();
+    gameRunning = true;
+}
 
-//-------------------MAIN FUNCTIONS---------------------------------------
+function game_reset() {
+    score = 0;
+    counter = 0;
+    spawn_obstacles(obstacle_distance);
+    laser.stop_timer();
+    player.reset_player();
+    hide_all_divs();
+    gameRunning = true;
+}
+
 function game_end() {
     gameRunning = false;
     if (score > sessionStorage.getItem('PersonalBest')) {
         sessionStorage.setItem('PersonalBest', score)
         bestscore = score;
     }
-    draw_leaderboard(dbData);
     end_screen_update();
     end_sound.stop();
     end_sound.play();
     end_screen_div.show();
+}
+
+function spawn_obstacles(distance) {
+    let first_obstacle = width / 4 * 3;
+    objects = [];
+    for (var i = 0; i < obstacle_amount; i++)
+        objects.push(new Collision_object(first_obstacle + i * distance));
+}
+
+function send_score() {
+    const fd = new FormData();
+    player_name = document.getElementById('send_score_input').value;
+    fd.append("Name", player_name);
+    fd.append("Score", score);
+    $.post("send_score.php",
+        {
+            Name: player_name,
+            Score: score
+        });
+    get_top();
+    end_screen_div.hide();
+    start_menu_div.show();
+}
+
+function get_top() {
+    $.get("get_score.php", function (data) {
+        dbData = JSON.parse(data);
+
+        if (document.getElementById("all_scores") != null)
+            draw_leaderboard(dbData);
+    });
+}
+
+function makeBackground() {
+    background_0.move_background();
+    background_1.move_background();
+    background_2.move_background();
+    background_3.move_background();
 }
 
 function gameloop() {
@@ -225,13 +280,6 @@ function gameloop() {
     if (player.collision_border()) {
         game_end();
     }
-}
-
-function makeBackground() {
-    background_0.move_background();
-    background_1.move_background();
-    background_2.move_background();
-    background_3.move_background();
 }
 
 window.onload = (event) => {

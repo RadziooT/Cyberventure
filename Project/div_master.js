@@ -201,56 +201,7 @@ function toggleSound() {
 
 //-----------------------------------------------------------------------------------------------------------------------
 //-------------------NAVIGATING WITH BUTTONS-------------------------------------------------------------------------------
-function game_start() {
-    score = 0;
-    counter = 0;
-    spawn_obstacles(obstacle_distance);
-    laser.stop_timer();
-    player.reset_player();
-    hide_all_divs();
-    gameRunning = true;
-}
 
-function game_reset() {
-    score = 0;
-    counter = 0;
-    spawn_obstacles(obstacle_distance);
-    laser.stop_timer();
-    player.reset_player();
-    hide_all_divs();
-    gameRunning = true;
-}
-
-function spawn_obstacles(distance) {
-    let first_obstacle = width / 4 * 3;
-    objects = [];
-    for (var i = 0; i < obstacle_amount; i++)
-        objects.push(new Collision_object(first_obstacle + i * distance));
-}
-
-function send_score() {
-    const fd = new FormData();
-    player_name = document.getElementById('send_score_input').value;
-    fd.append("Name", player_name);
-    fd.append("Score", score);
-    $.post("send_score.php",
-        {
-            Name: player_name,
-            Score: score
-        });
-    get_top();
-    end_screen_div.hide();
-    start_menu_div.show();
-}
-
-function get_top() {
-    $.get("get_score.php", function (data) {
-        dbData = JSON.parse(data);
-
-        if (document.getElementById("all_scores") != null)
-            draw_leaderboard(dbData);
-    });
-}
 
 function end_screen_update() {
     submit_div.html('<h2>You scored ' + score + ' points </h2><br><h3>Type your nickname to submit your score</h3><br>');
