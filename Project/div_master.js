@@ -227,7 +227,6 @@ function toggleSound() {
 //-----------------------------------------------------------------------------------------------------------------------
 //-------------------NAVIGATING WITH BUTTONS-------------------------------------------------------------------------------
 function game_start() {
-    get_top();
     score = 0;
     counter = 0;
     spawn_obstacles(obstacle_distance);
@@ -238,7 +237,6 @@ function game_start() {
 }
 
 function game_reset() {
-    get_top();
     score = 0;
     counter = 0;
     spawn_obstacles(obstacle_distance);
@@ -273,6 +271,9 @@ function send_score() {
 function get_top() {
     $.get("get_score.php", function (data) {
         dbData = JSON.parse(data);
+
+        if (document.getElementById("all_scores") != null)
+            draw_leaderboard(dbData);
     });
 }
 

@@ -23,24 +23,24 @@ var start_menu_div, end_screen_div, authors_div, options_div, sound_div; //divs 
 var dbData =
     [
         {
-            "Name": "Mati",
-            "Score": 314
+            "Name": "Player1",
+            "Score": 5
         },
         {
-            "Name": "Boliver",
-            "Score": 69
+            "Name": "Player2",
+            "Score": 4
         },
         {
-            "Name": "Pabloskyy",
-            "Score": "Dota"
+            "Name": "Player3",
+            "Score": 3
         },
         {
-            "Name": "Kulson",
-            "Score": "asud"
+            "Name": "Player4",
+            "Score": 2
         },
         {
-            "Name": "Wyrzo",
-            "Score": "ej"
+            "Name": "Player5",
+            "Score": 1
         },
     ]
 
@@ -232,3 +232,7 @@ function makeBackground() {
     background_2.move_background();
     background_3.move_background();
 }
+
+window.onload = (event) => {
+    var interval = setInterval(get_top, 60000);
+};
