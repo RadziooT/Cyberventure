@@ -47,6 +47,7 @@ var dbData =
 var soundtrack;
 var never_played = 1;//made to get rid of annoying blocking of autoplay
 var jump_sound, end_sound;
+var volume_state;
 
 //-----------------------------------Responsible for customizing game experience by user-----------------------------------
 var obstacle_gravity = false;

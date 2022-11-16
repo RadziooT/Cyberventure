@@ -75,14 +75,7 @@
 
 #sound_div {
   position: absolute;
-  top: 5%;
-  left: 3%;
-  transform: translate(-50%, -50%);
-}
-
-#jump_sound_div {
-  position: absolute;
-  top: 15%;
-  left: 3%;
+  top: 6vh;
+  left: 3vw;
   transform: translate(-50%, -50%);
 }

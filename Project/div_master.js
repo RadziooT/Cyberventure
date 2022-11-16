@@ -124,26 +124,16 @@ function div_authors_screen() {
     button_return_from_authors.html("Main menu");
 }
 //------------------------------------------------------------------------------------------------------------------------------
-//-------------------CREATING SOUND BUTTONS-------------------------------------------------------------------------------------
+//-------------------CREATING SOUND BUTTON-------------------------------------------------------------------------------------
 function div_sound_screen() {
     sound_div = createDiv();
     sound_div.parent('canvas_sketch');
     sound_div.id('sound_div')
-    soundtrack_volume_state = 0;
+    volume_state = 0;
     sound_div.mousePressed(toggleSound);
     sound_div.html('<div class="sound"><div class="sound--icon fa fa-volume-off"></div><div class="sound--wave sound--wave_one"></div>', true);
     sound_div.html('<div class="sound--wave sound--wave_two"></div></div>', true);
     sound_div.toggleClass('sound-mute');
-
-    jump_sound_div = createDiv();
-    jump_sound_div.parent('canvas_sketch');
-    jump_sound_div.id('jump_sound_div')
-    jump_volume_state = 0;
-    jump_sound_div.mousePressed(toggle_jump_sound);
-    jump_sound_div.html('<div class="sound"><div class="sound--icon fa fa-volume-off"></div><div class="sound--wave sound--wave_one"></div>', true);
-    jump_sound_div.html('<div class="sound--wave sound--wave_two"></div></div>', true);
-    jump_sound_div.toggleClass('sound-mute');
-
 }
 //------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------CREATING LEADERBOARD--------------------------------------------------------------------
@@ -181,45 +171,30 @@ function draw_leaderboard(dbData) {
     score_value_div.html('<br><span class="dbRecord" id="bestscore">Personal Best:<br>' + bestscore + '<br></span>', true);
 }
 
-function toggle_jump_sound() {
-    jump_sound_div.toggleClass('sound-mute');
-    switch (jump_volume_state) {
-        case 0:
-            jump_volume_state = 1;
-            jump_sound.volume(1);
-            end_sound.volume(1);
-            break;
-        case 1:
-            jump_volume_state = 0;
-            jump_sound.volume(0);
-            end_sound.volume(0);
-            break;
-        default:
-            jump_volume_state = 0;
-            jump_sound.volume(0);
-            end_sound.volume(0);
-            break;
-    }
-}
-
 function toggleSound() {
     never_played = 0;
     if (never_played == 0)
         soundtrack.play();
     sound_div.toggleClass('sound-mute');
 
-    switch (soundtrack_volume_state) {
+    switch (volume_state) {
         case 0:
-            soundtrack_volume_state = 1;
+            volume_state = 1;
             soundtrack.volume(1);
+            jump_sound.volume(0.5);
+            end_sound.volume(0.8);
             break;
         case 1:
-            soundtrack_volume_state = 0;
+            volume_state = 0;
             soundtrack.volume(0);
+            jump_sound.volume(0);
+            end_sound.volume(0);
             break;
         default:
-            soundtrack_volume_state = 0;
+            volume_state = 0;
             soundtrack.volume(0);
+            jump_sound.volume(0);
+            end_sound.volume(0);
             break;
     }
 }
