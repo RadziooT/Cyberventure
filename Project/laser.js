@@ -2,10 +2,12 @@ class Laser {
     constructor() {
         this.center_y = 0;
         //this.center_y = height/2;
-        this.size = 0.05 * height;
+        this.size = 0.1 * height;
         this.timer = 0;
         this.timer_part = 0;
         this.firing = false;
+        this.value = 0;
+        this.i = 0;
     }
 
     stop_timer() {
@@ -21,7 +23,17 @@ class Laser {
     start_laser(timer) {
         this.center_y = Math.floor(Math.random() * 0.85 * height) + 0.1 * height;
         this.timer = timer;
+        this.top_of_laser = this.center_y - this.size / 2;
         this.timer_part = timer / 4;
+
+        this.value = 100 / this.timer_part;
+        this.i = this.timer_part;
+
+        document.getElementById("laser_div").style.display = "inline-block";
+        document.documentElement.style.setProperty('--laser_position', this.top_of_laser + "px");
+        document.documentElement.style.setProperty('--laser_height', this.size + "px");
+        document.getElementById("laser_exclamation").style.visibility = "visible";
+
         this.firing = true;
     }
 
@@ -36,39 +48,28 @@ class Laser {
         return false;
     }
 
-    //Rendering each part of firing laser as well as stopping its firing when duration ends
     render() {
-
         if (this.timer <= 0) {
+            document.getElementById("laser_beam").style.visibility = "hidden";
+            document.getElementById("laser_exclamation").style.visibility = "hidden";
+            document.getElementById("laser_div").style.display = "none";
             this.firing = false;
-            noStroke();
-            noFill()
         }
 
-        //rendering action of firing laser
         if (this.firing == true && this.timer > 0) {
-            //final part of laser which has collision
             if (this.timer <= this.timer_part) {
-                image(laser_4, 0, this.center_y - this.size / 2, width, this.size);
+                $('#laser_beam').css({ '-webkit-mask-image': 'unset' });
+                document.getElementById("laser_beam").style.visibility = "visible";
+                document.getElementById("laser_exclamation").style.visibility = "hidden";
             }
-
-            //3rd part of laser
             if (this.timer > this.timer_part && this.timer <= 2 * this.timer_part) {
-                image(laser_3, 0, this.center_y - this.size / 2, width, this.size);
-            }
-
-            //2nd part of laser
-            if (this.timer > this.timer_part && this.timer <= 3 * this.timer_part) {
-                noStroke()
-                image(laser_2, 0, this.center_y - this.size * 3 / 10, width, this.size * 3 / 5);
-            }
-
-            //1st part of laser
-            if (this.timer > this.timer_part) {
-                noStroke()
-                image(laser_1, 0, this.center_y - this.size / 10, width, this.size / 5);
+                document.getElementById("laser_beam").style.visibility = "visible";
+                document.getElementById("laser_exclamation").style.visibility = "hidden";
+                $('#laser_beam').css({ '-webkit-mask-image': 'linear-gradient(to right, transparent ' + this.i * this.value + '%, black 100%)' });
+                this.i -= 5;
             }
         }
-
+        this.timer -= 1;
     }
+
 }

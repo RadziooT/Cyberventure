@@ -12,7 +12,7 @@ var obstacle_distance;
 var obstacle_amount;
 const pickup_intensity = 1;
 const laser_intensity = 5;
-const laser_timer = 400;
+const laser_timer = 500;
 const frames_per_obstacle = 160;
 
 let loaded = 0;
@@ -66,11 +66,6 @@ function preload() {
     collectible = loadImage('images/collectible.png', () => loaded++);
     obstacle = loadImage('images/obstacle.png', () => loaded++);
 
-    laser_1 = loadImage('images/laser_1.png', () => loaded++);
-    laser_2 = loadImage('images/laser_2.png', () => loaded++);
-    laser_3 = loadImage('images/laser_3.png', () => loaded++);
-    laser_4 = loadImage('images/laser_4.png', () => loaded++);
-
     game_background_s = loadImage('images/720p/s.png', () => loaded++);
     game_background_b1 = loadImage('images/720p/b1.png', () => loaded++);
     game_background_b2 = loadImage('images/720p/b2.png', () => loaded++);
@@ -112,7 +107,7 @@ function setup() {
 }
 
 function draw() {
-    if (loaded != 14) {
+    if (loaded != 10) {
     } else {
         if (!loaded2) {
             div_create_all();
@@ -225,7 +220,7 @@ function gameloop() {
 
     for (let i = 0; i < 3; i++) {
         if (objects[i].collision_detected(player)) {
-            game_end();
+            // game_end();
         }
 
         if (obstacle_additional_points == true) {
@@ -278,7 +273,7 @@ function gameloop() {
     document.getElementById('score').innerHTML = 'Current Score:<br>' + score;
 
     if (player.collision_border()) {
-        game_end();
+        // game_end();
     }
 }
 

@@ -1,0 +1,67 @@
+:root {
+    --laser_position: 100px;
+    --laser_height: 100px;
+}
+
+#laser_div {
+    top: var(--laser_position);
+    width: 100vw;
+    height: var(--laser_height);
+    position: absolute;
+    display: inline-block;
+    z-index: 10;
+    transform: translate(-100%, -100%);
+}
+
+#laser_exclamation {
+    visibility: hidden;
+    position: absolute;
+    font-size: var(--laser_height);
+    top: 3px;
+    right: 0;
+    color: red;
+    height: var(--laser_height);
+    animation: blinker 0.7s linear infinite;
+    z-index: 1000;
+    overflow: visible;
+}
+
+#laser_beam {
+    position: absolute;
+    display: inline-block;
+    visibility: hidden;
+    top: 0;
+    width: 100vw;
+    height: var(--laser_height);
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border: 3px solid red;
+    border-right: none;
+    background: linear-gradient(80deg, rgba(133, 6, 6, 1) 0%, rgba(227, 66, 13, 1) 33%, rgba(175, 0, 0, 1) 66%, rgba(246, 0, 0, 1) 99%);
+    background-size: 400% 400%;
+    animation: gradient 1s ease infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    25% {
+        background-position: 50% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

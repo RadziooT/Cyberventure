@@ -7,6 +7,7 @@ function div_create_all() {
     div_authors_screen();
     div_sound_screen();
     div_leaderboard();
+    laser_obstacle()
 }
 //-----------------------------------------------------------------------------------------------------------------------
 //-------------CREATING MAIN MENU WITH BUTTONS---------------------------------------------------------------------------
@@ -135,6 +136,23 @@ function div_sound_screen() {
     sound_div.html('<div class="sound--wave sound--wave_two"></div></div>', true);
     sound_div.toggleClass('sound-mute');
 }
+
+function laser_obstacle() {
+    laser_div = createDiv();
+    laser_div.parent('canvas_sketch');
+    laser_div.id('laser_div');
+    document.getElementById("laser_div").style.display = "none";
+
+    laser_beam = createDiv();
+    laser_beam.parent('laser_div');
+    laser_beam.id('laser_beam');
+    
+    laser_exclamation = createDiv();
+    laser_exclamation.parent('laser_div');
+    laser_exclamation.id('laser_exclamation');
+    laser_exclamation.html('<i class="exclamation_icon fa-solid fa-exclamation">');
+}
+
 //------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------CREATING LEADERBOARD--------------------------------------------------------------------
 function div_leaderboard() {
