@@ -34,11 +34,13 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 - [x] Optimizing game physics (collision)
 - [x] Final moving background (parallax effect)
 - [x] Volume switch colour/gradient effect
-- [ ] CSS for name input
+- [x] CSS for name input
+- [x] The final layout (divs and font)
 - [ ] Random background image class
+- [ ] Decide on laser gradient
 - [ ] Final images
 - [ ] Final sound
-- [ ] The final layout (divs and font)
+
 
 <!-- BUILT WITH -->
 ## Built with
