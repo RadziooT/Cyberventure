@@ -32,6 +32,7 @@ class Laser {
         document.getElementById("laser_div").style.display = "inline-block";
         document.documentElement.style.setProperty('--laser_position', this.top_of_laser + "px");
         document.documentElement.style.setProperty('--laser_height', this.size + "px");
+        document.documentElement.style.setProperty('--half_laser_height', this.size / 2 + "px");
         document.getElementById("laser_exclamation").style.visibility = "visible";
 
         this.firing = true;
@@ -59,17 +60,26 @@ class Laser {
         if (this.firing == true && this.timer > 0) {
             if (this.timer <= this.timer_part) {
                 $('#laser_beam').css({ '-webkit-mask-image': 'unset' });
+                // $('#laser_beam').css({ 'background': ' linear-gradient(80deg, rgba(133, 6, 6, 1) 0%, rgba(227, 66, 13, 1) 33%, rgba(175, 0, 0, 1) 66%, rgba(246, 0, 0, 1) 99%);' });
                 document.getElementById("laser_beam").style.visibility = "visible";
+                document.getElementById("laser_mask1").style.visibility = "hidden";
+                document.getElementById("laser_mask2").style.visibility = "hidden";
                 document.getElementById("laser_exclamation").style.visibility = "hidden";
             }
             if (this.timer > this.timer_part && this.timer <= 2 * this.timer_part) {
-                document.getElementById("laser_beam").style.visibility = "visible";
+                // document.getElementById("laser_beam").style.visibility = "visible";
+                document.getElementById("laser_mask1").style.visibility = "visible";
+                document.getElementById("laser_mask2").style.visibility = "visible";
                 document.getElementById("laser_exclamation").style.visibility = "hidden";
-                $('#laser_beam').css({ '-webkit-mask-image': 'linear-gradient(to right, transparent ' + this.i * this.value + '%, black 100%)' });
-                this.i -= 5;
+                document.getElementById("laser_beam").style.visibility = "hidden";
+
+                $('#laser_mask1').css({ '-webkit-mask-image': 'linear-gradient(to bottom, transparent ' + this.i * this.value + '%, black 100%)' });
+                $('#laser_mask2').css({ '-webkit-mask-image': 'linear-gradient(to top, transparent ' + this.i * this.value + '%, black 100%)' });
+                console.log(this.i * this.value);
+                this.i -= 13;
             }
         }
-        this.timer -= 1;
+        this.timer -= 3;
     }
 
 }
