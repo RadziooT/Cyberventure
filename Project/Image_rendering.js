@@ -1,28 +1,51 @@
 class Image_rendering {
-    constructor(img, speed) {
-        this.x1 = -width;
-        this.x2 = 0;
-        this.x3 = width;
+    constructor(img1, img2, img3, speed) {
+        this.x = width;
+        this.width = width;
+        this.height = height;
         this.speed = speed;
-        this.img = img;
+        this.img_array = [img1, img2, img3];
+
+        this.to_render_img1 = this.img_array[Math.floor(Math.random() * 2)];
+        this.to_render_img2 = this.img_array[Math.floor(Math.random() * 2)];
+        this.to_render_img3 = this.img_array[Math.floor(Math.random() * 2)];
+        // console.log(this.img_array[Math.floor(Math.random() * 3) + 1]);
+        this.img1 = new Image_render(this.to_render_img1, -width, this.speed);
+        this.img2 = new Image_render(this.to_render_img2, 0, this.speed);
+        this.img3 = new Image_render(this.to_render_img3, width, this.speed);
+
     }
 
     move_background() {
-        this.x1 -= this.speed;
-        this.x2 -= this.speed;
-        this.x3 -= this.speed;
+        if (this.img1.x <= -width) {
+            delete this.img1;
+            this.to_render_img1 = this.img_array[Math.floor(Math.random() * 2)];
+            this.img1 = new Image_render(this.to_render_img1, this.x, this.speed);
+        }
 
-        if (this.x1 <= -width)
-            this.x1 = width;
+        if (this.img2.x <= -width) {
+            delete this.img2;
+            this.to_render_img2 = this.img_array[Math.floor(Math.random() * 2)];
+            this.img2 = new Image_render(this.to_render_img2, this.x, this.speed);
+        }
 
-        if (this.x2 <= -width)
-            this.x2 = width;
+        if (this.img3.x <= -width) {
+            delete this.img3;
+            this.to_render_img3 = this.img_array[Math.floor(Math.random() * 2)];
+            this.img3 = new Image_render(this.to_render_img3, this.x, this.speed);
+        }
 
-        if (this.x3 <= -width)
-            this.x3 = width;
+        this.img1.move_image();
+        this.img2.move_image();
+        this.img3.move_image();
 
-        image(this.img, this.x1, 0, width, height);
-        image(this.img, this.x2, 0, width, height);
-        image(this.img, this.x3, 0, width, height);
+        console.log(this.img1.x);
+        console.log(this.img2.x);
+        console.log(this.img3.x);
+    }
+
+    reset_background() {
+        this.x = width;
+
     }
 }

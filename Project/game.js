@@ -88,22 +88,13 @@ function setup() {
     player = new Player;
     laser = new Laser;
 
-    background_0 = new Image_rendering(game_background_s, 1);
+    background_0 = new Image_rendering(game_background_s, game_background_s, game_background_s, 1);
+    // console.log(background_0);
+    background_1 = new Image_rendering(game_background_b1, game_background_b2, game_background_b1, 1.5);
 
-    if (Math.round(Math.random()))
-        background_1 = new Image_rendering(game_background_b1, 1.5);
-    else
-        background_1 = new Image_rendering(game_background_b2, 1.5);
+    background_2 = new Image_rendering(game_background_c1, game_background_c2, game_background_c1, 2);
 
-    if (Math.round(Math.random()))
-        background_2 = new Image_rendering(game_background_c1, 2);
-    else
-        background_2 = new Image_rendering(game_background_c2, 2);
-
-    if (Math.round(Math.random()))
-        background_3 = new Image_rendering(game_background_f1, 2.5);
-    else
-        background_3 = new Image_rendering(game_background_f2, 2.5);
+    background_3 = new Image_rendering(game_background_f1, game_background_f2, game_background_f1, 2.5);
 }
 
 function draw() {
@@ -136,6 +127,7 @@ function mouseClicked() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+    reset_background()
 }
 function game_start() {
     score = 0;
