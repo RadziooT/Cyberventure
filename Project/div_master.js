@@ -168,6 +168,7 @@ function div_leaderboard() {
     leaderboard_div.parent('canvas_sketch');
     leaderboard_div.id('leaderboard_screen');
     leaderboard_div.size(0.15 * displayWidth, displayHeight);
+    document.documentElement.style.setProperty('--exclamation_position', 0.15 * displayWidth + "px");
     leaderboard_div.html('<h1 id="leaderboard_title">Highest scores</h1>')
 
     all_scores_div = createDiv();

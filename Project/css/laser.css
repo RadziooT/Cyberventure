@@ -2,6 +2,7 @@
     --laser_position: 100px;
     --laser_height: 100px;
     --half_laser_height: 50px;
+    --exclamation_position: 0px;
     --masking: 0;
 }
 
@@ -20,7 +21,7 @@
     position: absolute;
     font-size: var(--laser_height);
     top: 3px;
-    right: 0;
+    right: var(--exclamation_position);
     color: red;
     height: var(--laser_height);
     animation: blinker 0.7s linear infinite;
