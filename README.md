@@ -23,9 +23,9 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 - [x] Learning JavaScript and creating first sketch of the game
 - [x] Creating game physics (collision)
 - [x] Learning PHP and creating simple communication between website and the database for storing high scores
-- [x] Adding Leaderboard ~~and accounts system~~
+- [x] Adding Leaderboard
 - [x] Adding collectibles
-- [ ] Implementing dynamic background (changing showed background by randomly selecting from set of assets)
+- [x] Implementing dynamic background (assets are choosen randomly from set of images)
 - [ ] Creating final graphics, sprites and finalizing project
 
 <!-- TO DO -->
@@ -37,9 +37,10 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 - [x] CSS for name input
 - [x] The final layout (divs and font)
 - [x] Random background image class
-- [ ] Decide on laser gradient
-- [ ] Final images
-- [ ] Final sound
+- [ ] Player falling optimization
+- [ ] Safeguard for overflowing database
+- [ ] Final verification of code
+- [ ] Final sound, images and laser gradient
 
 
 <!-- BUILT WITH -->
