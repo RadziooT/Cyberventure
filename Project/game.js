@@ -73,6 +73,10 @@ function preload() {
     game_background_c2 = loadImage('images/720p/c2.png', () => loaded++);
     game_background_f1 = loadImage('images/720p/f1.png', () => loaded++);
     game_background_f2 = loadImage('images/720p/f2.png', () => loaded++);
+
+    game_background_t1 = loadImage('images/1.jpg', () => loaded++);
+    game_background_t2 = loadImage('images/2.jpg', () => loaded++);
+    game_background_t3 = loadImage('images/3.jpg', () => loaded++);
 }
 
 function setup() {
@@ -82,23 +86,23 @@ function setup() {
 
     obstacle_distance = width / 5;
     obstacle_amount = 8;
-    frameRate(60);
+    frameRate(200);
 
     //----------------------GENERATING OBJECTS--------------------------------------------
     player = new Player;
     laser = new Laser;
 
     background_0 = new Image_rendering(game_background_s, game_background_s, game_background_s, 1);
-    // console.log(background_0);
+
     background_1 = new Image_rendering(game_background_b1, game_background_b2, game_background_b1, 1.5);
 
     background_2 = new Image_rendering(game_background_c1, game_background_c2, game_background_c1, 2);
 
-    background_3 = new Image_rendering(game_background_f1, game_background_f2, game_background_f1, 2.5);
+    background_3 = new Image_rendering(game_background_t1, game_background_t2, game_background_t3, 2.5);
 }
 
 function draw() {
-    if (loaded != 10) {
+    if (loaded != 13) {
     } else {
         if (!loaded2) {
             div_create_all();
