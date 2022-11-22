@@ -38,14 +38,13 @@ class Image_rendering {
         this.img1.move_image();
         this.img2.move_image();
         this.img3.move_image();
-
-        // console.log(this.img1.x);
-        // console.log(this.img2.x);
-        // console.log(this.img3.x);
     }
 
     reset_background() {
         this.x = width;
-
+        //Reset position of all images
+        this.img1.x = -width;
+        this.img2.x = 0;
+        this.img3.x = width;
     }
 }

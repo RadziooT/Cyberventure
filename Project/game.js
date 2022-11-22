@@ -131,7 +131,10 @@ function mouseClicked() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    reset_background()
+    background_0.reset_background();
+    background_1.reset_background();
+    background_2.reset_background();
+    background_3.reset_background();
 }
 function game_start() {
     score = 0;
