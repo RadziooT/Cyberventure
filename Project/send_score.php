@@ -3,6 +3,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $databasename = "scores_db";
+
 $name = $_POST['Name'];
 $score = $_POST['Score'];
 

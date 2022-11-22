@@ -7,6 +7,6 @@ class Image_render {
 
     move_image() {
         this.x -= this.speed;
-        image(this.img, this.x, 0, window.innerWidth, window.innerHeight);
+        image(this.img, this.x, 0, width, height);
     }
 }

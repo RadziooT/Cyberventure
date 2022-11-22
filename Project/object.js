@@ -1,7 +1,6 @@
 class Collision_object {
     constructor(x_coordinate) {
         this.hole_size = Math.floor(Math.random() * 0.1 * height) + 0.25 * height;//Here you can tune in hole size
-        //this.hole_size = 400;
         this.hole_center = Math.floor(Math.random() * 0.85 * height) + 0.1 * height;
         this.has_pickup = false;
         this.speed = 3;

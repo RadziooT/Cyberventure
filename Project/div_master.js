@@ -148,13 +148,6 @@ function laser_obstacle() {
     laser_beam.id('laser_beam');
     laser_beam.addClass('masking_laser');
 
-    laser_mask1 = createDiv();
-    laser_mask1.parent('laser_beam');
-    laser_mask1.id('laser_mask1');
-    laser_mask2 = createDiv();
-    laser_mask2.parent('laser_beam');
-    laser_mask2.id('laser_mask2');
-
     laser_exclamation = createDiv();
     laser_exclamation.parent('laser_div');
     laser_exclamation.id('laser_exclamation');
