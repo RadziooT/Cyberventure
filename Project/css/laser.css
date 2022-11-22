@@ -2,7 +2,6 @@
     --laser_position: 100px;
     --laser_height: 100px;
     --half_laser_height: 50px;
-    --exclamation_position: 0px;
     --masking: 0;
 }
 
@@ -21,11 +20,10 @@
     position: absolute;
     font-size: var(--laser_height);
     top: 3px;
-    right: var(--exclamation_position);
+    left: 2vw;
     color: red;
     height: var(--laser_height);
     animation: blinker 0.7s linear infinite;
-    z-index: 1000;
     overflow: visible;
 }
 
@@ -36,10 +34,11 @@
     top: 0;
     width: 100vw;
     height: var(--laser_height);
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    border: 3px solid red;
+    /* border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px; */
+    border: 3px solid rgba(133, 6, 6, 1);
     border-right: none;
+    border-left: none;
     background: linear-gradient(80deg, rgba(133, 6, 6, 1) 0%, rgba(227, 66, 13, 1) 33%, rgba(175, 0, 0, 1) 66%, rgba(246, 0, 0, 1) 99%);
     background-size: 400% 400%;
     animation: gradient 1s ease infinite;

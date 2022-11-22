@@ -78,4 +78,5 @@
   top: 6vh;
   left: 3vw;
   transform: translate(-50%, -50%);
+  z-index: 20;
 }

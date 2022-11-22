@@ -8,6 +8,7 @@
     text-align: center;
     height: 50px;
     width: 50px;
+    z-index: 20;
     background: repeating-linear-gradient(to bottom,
             transparent 0%,
             var(--red-scanline) 1px,
