@@ -34,43 +34,9 @@
     top: 0;
     width: 100vw;
     height: var(--laser_height);
-    /* border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px; */
-    border: 3px solid rgba(133, 6, 6, 1);
+    border: 3px solid rgb(158, 19, 19);
     border-right: none;
     border-left: none;
-    background: linear-gradient(80deg, rgba(133, 6, 6, 1) 0%, rgba(227, 66, 13, 1) 33%, rgba(175, 0, 0, 1) 66%, rgba(246, 0, 0, 1) 99%);
-    background-size: 400% 400%;
-    animation: gradient 1s ease infinite;
-}
-
-#laser_mask1 {
-    position: absolute;
-    display: inline-block;
-    visibility: hidden;
-    top: 0;
-    width: 100vw;
-    height: var(--half_laser_height);
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    border: 3px solid red;
-    border-right: none;
-    background: linear-gradient(80deg, rgba(133, 6, 6, 1) 0%, rgba(227, 66, 13, 1) 33%, rgba(175, 0, 0, 1) 66%, rgba(246, 0, 0, 1) 99%);
-    background-size: 400% 400%;
-    animation: gradient 1s ease infinite;
-}
-
-#laser_mask2 {
-    position: absolute;
-    display: inline-block;
-    visibility: hidden;
-    bottom: 0;
-    width: 100vw;
-    height: var(--half_laser_height);
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    border: 3px solid red;
-    border-right: none;
     background: linear-gradient(80deg, rgba(133, 6, 6, 1) 0%, rgba(227, 66, 13, 1) 33%, rgba(175, 0, 0, 1) 66%, rgba(246, 0, 0, 1) 99%);
     background-size: 400% 400%;
     animation: gradient 1s ease infinite;

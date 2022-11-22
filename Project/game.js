@@ -12,7 +12,7 @@ var obstacle_distance;
 var obstacle_amount;
 const pickup_intensity = 1;
 const laser_intensity = 5;
-const laser_timer = 1000;
+const laser_timer = 666;
 const frames_per_obstacle = 160;
 
 let loaded = 0;
@@ -255,7 +255,6 @@ function gameloop() {
             laser.start_laser(laser_timer);
 
         laser.render();
-        laser.count_down();
 
         if (laser.collision_laser(player))
             if (score > 0)
