@@ -36,7 +36,7 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 - [x] Volume switch colour/gradient effect
 - [x] CSS for name input
 - [x] The final layout (divs and font)
-- [ ] Random background image class
+- [x] Random background image class
 - [ ] Decide on laser gradient
 - [ ] Final images
 - [ ] Final sound
