@@ -89,11 +89,8 @@ function setup() {
     laser = new Laser;
 
     background_0 = new Image_rendering(game_background_s, game_background_s, game_background_s, 1);
-    // console.log(background_0);
     background_1 = new Image_rendering(game_background_b1, game_background_b2, game_background_b1, 1.5);
-
     background_2 = new Image_rendering(game_background_c1, game_background_c2, game_background_c1, 2);
-
     background_3 = new Image_rendering(game_background_f1, game_background_f2, game_background_f1, 2.5);
 }
 
@@ -127,7 +124,10 @@ function mouseClicked() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    reset_background()
+    background_0.reset_background();
+    background_1.reset_background();
+    background_2.reset_background();
+    background_3.reset_background();
 }
 function game_start() {
     score = 0;
