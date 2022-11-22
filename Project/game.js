@@ -258,7 +258,8 @@ function gameloop() {
         laser.count_down();
 
         if (laser.collision_laser(player))
-            score--;
+            if (score > 0)
+                score--;
     }
 
     player.render();
