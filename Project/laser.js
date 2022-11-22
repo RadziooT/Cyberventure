@@ -52,7 +52,6 @@ class Laser {
                 $('#laser_beam').css({ '-webkit-mask-image': 'unset' });
                 document.getElementById("laser_beam").style.visibility = "visible";
                 document.getElementById("laser_exclamation").style.visibility = "hidden";
-
             }
             if (this.timer > this.timer_part && this.timer <= 2 * this.timer_part) {
                 document.getElementById("laser_exclamation").style.visibility = "hidden";

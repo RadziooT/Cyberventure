@@ -11,7 +11,7 @@ var laser;
 var obstacle_distance;
 var obstacle_amount;
 const pickup_intensity = 1;
-const laser_intensity = 5;
+const laser_intensity = 10;
 const laser_timer = 666;
 const frames_per_obstacle = 160;
 
