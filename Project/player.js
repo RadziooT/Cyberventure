@@ -27,10 +27,9 @@ class Player {
     dropHeight() {
         if (abs(this.momentum) > this.max_momentum)
             this.momentum = this.max_momentum * Math.sign(this.momentum);
-        else {
-            this.momentum += this.step;
-            this.player_y += this.momentum;
-        }
+
+        this.momentum += this.step;
+        this.player_y += this.momentum;
     }
 
     //Jumping mechanic
