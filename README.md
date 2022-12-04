@@ -37,7 +37,7 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 - [x] CSS for name input
 - [x] The final layout (divs and font)
 - [x] Random background image class
-- [ ] Player falling optimization
+- [x] Player falling optimization
 - [ ] Safeguard for overflowing database
 - [ ] Final verification of code
 - [ ] Final sound, images and laser gradient
