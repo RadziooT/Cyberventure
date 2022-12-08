@@ -39,8 +39,8 @@ class Collision_object {
 
     //Creating visual representation of obstacles
     render() {
-        image(obstacle, this.object_x, 0, this.width, this.hole_center - this.hole_size / 2);
-        image(obstacle, this.object_x, this.hole_center + this.hole_size / 2, this.width, height - this.hole_center + this.hole_size / 2);
+        image(obstacleTOP, this.object_x, 0, this.width, this.hole_center - this.hole_size / 2);
+        image(obstacleBOT, this.object_x, this.hole_center + this.hole_size / 2, this.width, height - this.hole_center + this.hole_size / 2);
 
         if (this.has_pickup) {
             image(collectible, this.object_x + this.width / 2 - this.hole_size / 4, this.hole_center - this.hole_size / 4, this.hole_size / 2, this.hole_size / 2);

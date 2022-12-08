@@ -1,7 +1,7 @@
 class Player {
     constructor() {
         this.player_center = height / 2;
-        this.player_size = 0.03 * height;
+        this.player_size = 0.05 * height;
         this.player_y = this.player_center - this.player_size / 2;
         this.player_x = 0.1 * width - this.player_size / 2;
         this.gravity = 3; //determines how fast does the player fall

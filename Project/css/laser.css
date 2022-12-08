@@ -27,10 +27,10 @@
     top: 0;
     width: 100vw;
     height: var(--laser_height);
-    border: 3px solid rgb(158, 19, 19);
+    border: 3px solid rgb(84, 19, 158);
     border-right: none;
     border-left: none;
-    background: linear-gradient(80deg, rgba(133, 6, 6, 1) 0%, rgba(227, 66, 13, 1) 33%, rgba(175, 0, 0, 1) 66%, rgba(246, 0, 0, 1) 99%);
+    background: linear-gradient(80deg, rgb(133, 6, 116) 0%, rgb(227, 13, 198) 33%, rgb(120, 0, 175) 66%, rgb(246, 0, 213) 99%);
     background-size: 400% 400%;
     animation: gradient 1s ease infinite;
 }
