@@ -2,15 +2,19 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="#built-with">Built wiath</a></li>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#to-do">To do</a></li>
-    <li><a href="#built-with">Built with</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
-
+<!-- BUILT WITH -->
+## Built with
+[![p5][p5js]][p5-url] [![fa][fa]][fa-url]
+[![blender][blender]][blender-url] [![affinity][affinity]][affinity-url]
+[![CSS Gradient][gradient]][gradient-url] [![midjourney][midjourney]][midjourney-url]
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -43,13 +47,6 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 - [ ] Final sound
 - [ ] Final laser gradient
 - [ ] Safeguard for overflowing database
-
-
-<!-- BUILT WITH -->
-## Built with
-[![p5][p5js]][p5-url] [![fa][fa]][fa-url]
-[![blender][blender]][blender-url] [![affinity][affinity]][affinity-url]
-[![CSS Gradient][gradient]][gradient-url] [![midjourney][midjourney]][midjourney-url]
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
