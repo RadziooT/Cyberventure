@@ -27,12 +27,12 @@
     top: 0;
     width: 100vw;
     height: var(--laser_height);
-    border: 3px solid rgb(84, 19, 158);
+    border: 3px solid rgba(213, 13, 212, 1);
     border-right: none;
     border-left: none;
-    background: linear-gradient(80deg, rgb(133, 6, 116) 0%, rgb(227, 13, 198) 33%, rgb(120, 0, 175) 66%, rgb(246, 0, 213) 99%);
+    background: linear-gradient(90deg, rgba(175, 0, 112, 1) 0%, rgba(213, 13, 121, 1) 25%, rgba(213, 13, 212, 1) 50%, rgba(213, 13, 121, 1) 75%, rgba(175, 0, 112, 1) 100%);
     background-size: 400% 400%;
-    animation: gradient 1s ease infinite;
+    animation: gradient 0.5s ease infinite;
 }
 
 @keyframes blinker {
