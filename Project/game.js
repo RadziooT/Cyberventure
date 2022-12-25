@@ -10,7 +10,7 @@ var score = 0;
 var laser;
 var obstacle_distance;
 var obstacle_amount;
-const pickup_intensity = 1;
+const pickup_intensity = 5;
 const laser_intensity = 10;
 const laser_timer = 666;
 const frames_per_obstacle = 160;
@@ -177,8 +177,15 @@ function game_end() {
 function spawn_obstacles(distance) {
     let first_obstacle = width / 4 * 3;
     objects = [];
-    for (var i = 0; i < obstacle_amount; i++)
+    counter = 0;
+    for (var i = 0; i < obstacle_amount; i++) {
         objects.push(new Collision_object(first_obstacle + i * distance));
+        counter++;
+        if (counter == pickup_intensity && obstacle_additional_points == true) {
+            counter = 0;
+            objects[i].has_pickup = true;
+        }
+    }
 }
 
 //-----SENDING SCORE TO DATABASE THROUGH AJAX REQUEST
