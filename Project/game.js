@@ -68,6 +68,7 @@ function preload() {
 
     game_background_s = loadImage('images/720p/s.png', () => loaded++);
 
+    //TODO add third image for backgrounds
     game_background_b1 = loadImage('images/720p/b1.png', () => loaded++);
     game_background_b2 = loadImage('images/720p/b2.png', () => loaded++);
     game_background_b3 = loadImage('images/720p/b2.png', () => loaded++);
@@ -94,9 +95,9 @@ function setup() {
     laser = new Laser;
 
     background_0 = new Image_rendering(game_background_s, game_background_s, game_background_s, 1);
-    background_1 = new Image_rendering(game_background_c1, game_background_c2, game_background_c2, 1.5);
-    background_2 = new Image_rendering(game_background_b1, game_background_b2, game_background_b2, 2);
-    background_3 = new Image_rendering(game_background_f1, game_background_f2, game_background_f2, 2.5);
+    background_1 = new Image_rendering(game_background_c1, game_background_c2, game_background_c3, 1.5);
+    background_2 = new Image_rendering(game_background_b1, game_background_b2, game_background_b3, 2);
+    background_3 = new Image_rendering(game_background_f1, game_background_f2, game_background_f3, 2.5);
 }
 
 function draw() {
