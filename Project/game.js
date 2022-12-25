@@ -69,17 +69,17 @@ function preload() {
     game_background_s = loadImage('images/720p/s.png', () => loaded++);
 
     //TODO add third image for backgrounds
-    game_background_b1 = loadImage('images/720p/b1.png', () => loaded++);
-    game_background_b2 = loadImage('images/720p/b2.png', () => loaded++);
-    game_background_b3 = loadImage('images/720p/b2.png', () => loaded++);
+    game_background_b1 = loadImage('images/background/b1.png', () => loaded++);
+    game_background_b2 = loadImage('images/background/b2.png', () => loaded++);
+    game_background_b3 = loadImage('images/background/b2.png', () => loaded++);
 
-    game_background_c1 = loadImage('images/720p/c1.png', () => loaded++);
-    game_background_c2 = loadImage('images/720p/c2.png', () => loaded++);
-    game_background_c3 = loadImage('images/720p/c2.png', () => loaded++);
+    game_background_c1 = loadImage('images/background/c1.png', () => loaded++);
+    game_background_c2 = loadImage('images/background/c2.png', () => loaded++);
+    game_background_c3 = loadImage('images/background/c2.png', () => loaded++);
 
-    game_background_f1 = loadImage('images/720p/f1.png', () => loaded++);
-    game_background_f2 = loadImage('images/720p/f2.png', () => loaded++);
-    game_background_f3 = loadImage('images/720p/f2.png', () => loaded++);
+    game_background_f1 = loadImage('images/background/f1.png', () => loaded++);
+    game_background_f2 = loadImage('images/background/f2.png', () => loaded++);
+    game_background_f3 = loadImage('images/background/f2.png', () => loaded++);
 }
 
 function setup() {
