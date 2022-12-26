@@ -199,7 +199,7 @@ function toggleSound() {
     switch (volume_state) {
         case 0:
             volume_state = 1;
-            soundtrack.volume(1);
+            soundtrack.volume(0.7);
             jump_sound.volume(0.5);
             end_sound.volume(0.8);
             break;

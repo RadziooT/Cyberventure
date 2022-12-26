@@ -66,7 +66,7 @@ function preload() {
     obstacleBOT = loadImage('images/obstacle.png', () => loaded++);
     obstacleTOP = loadImage('images/obstacle_F.png', () => loaded++);
 
-    game_background_s = loadImage('images/720p/s.png', () => loaded++);
+    game_background_s = loadImage('images/background/s.png', () => loaded++);
 
     //TODO add third image for backgrounds
     game_background_b1 = loadImage('images/background/b1.png', () => loaded++);
