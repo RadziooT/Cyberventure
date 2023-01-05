@@ -9,7 +9,6 @@ class Collision_object {
         this.point_given = false;
     }
 
-    // TODO -----------------------------------------------------------------------------------------------------
     //Collision with obstacles
     collision_detected(player) {
         if (!(player.player_x + player.player_size >= this.object_x))
