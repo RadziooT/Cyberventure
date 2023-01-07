@@ -113,7 +113,17 @@ function div_authors_screen() {
     authors_div.size(divs_scale * displayWidth, displayHeight);
     authors_div.hide();
 
-    text_div = createDiv('Authors:<br><br>Mateusz Siedliski<br>&<br>Radosław Tchórzewski');
+    text_div = createDiv('Authors:<br>');
+
+    text_div.html('<a href="https://github.com/xrevv" class="navlink"><br>Mateusz Siedliski<br></a>', true);
+    text_div.html('&', true);
+    text_div.html('<a href="https://github.com/RadziooT" class="navlink"><br>Radosław Tchórzewski<br><br></a>', true);
+
+    text_div.html('Cyberventure is a game created as a group project for Internet Technologies course for Automatic Control and Robotics major at Silesian University of Technology.<br>', true);
+    text_div.html('It is fully non profitable.<br><br>', true);
+    text_div.html('<a href="https://freesound.org/people/SoundFlakes/sounds/488362/" class="navlink">Soundtrack used in game</a>', true);
+    text_div.html('<a href="https://creativecommons.org/licenses/by/4.0/" class="navlink"><br>CC BY 4.0 License<br></a>', true);
+
     text_div.parent('authors_screen');
     text_div.id('authors_text');
 

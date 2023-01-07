@@ -68,7 +68,6 @@ function preload() {
 
     game_background_s = loadImage('images/background/s.png', () => loaded++);
 
-    //TODO add third image for backgrounds
     game_background_empty = loadImage('images/background/empty.png', () => loaded++);
 
     game_background_b1 = loadImage('images/background/b1.png', () => loaded++);

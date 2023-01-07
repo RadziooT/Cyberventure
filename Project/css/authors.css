@@ -40,3 +40,8 @@
             var(--red-scanline) 100%);
     background-color: rgba(159, 95, 218, 0.555);
 }
+
+a.navlink {
+    color: var(--purple-glow);
+    text-decoration: underline;
+}
