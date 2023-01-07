@@ -192,7 +192,7 @@ function send_score() {
     player_name = document.getElementById('send_score_input').value;
     fd.append("Name", player_name);
     fd.append("Score", score);
-    $.post("send_score.php",
+    $.post("php/send_score.php",
         {
             Name: player_name,
             Score: score
@@ -204,7 +204,7 @@ function send_score() {
 
 //-----GETTING TOP 5 PLAYER SCORES TO BE DISPLAYED ON THE SCREEN
 function get_top() {
-    $.get("get_score.php", function (data) {
+    $.get("php/get_score.php", function (data) {
         dbData = JSON.parse(data);
 
         if (document.getElementById("all_scores") != null)
