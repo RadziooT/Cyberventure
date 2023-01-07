@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$databasename = "scores_db";
+include 'db_info.php';
 
 $conn = new mysqli($servername, $username, $password, $databasename);
 
