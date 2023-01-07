@@ -59,6 +59,8 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 * [ambientcg](https://ambientcg.com/view?id=Facade009)
 * [kitbash3d](https://kitbash3d.com/products/mini-kit-neo-city)
 * [Freesounds](https://freesound.org/)
+* [Soundtrack used in game (CC BY 4.0 License)](https://freesound.org/people/SoundFlakes/sounds/488362/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
