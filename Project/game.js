@@ -69,17 +69,16 @@ function preload() {
     game_background_s = loadImage('images/background/s.png', () => loaded++);
 
     //TODO add third image for backgrounds
+    game_background_empty = loadImage('images/background/empty.png', () => loaded++);
+
     game_background_b1 = loadImage('images/background/b1.png', () => loaded++);
     game_background_b2 = loadImage('images/background/b2.png', () => loaded++);
-    game_background_b3 = loadImage('images/background/b2.png', () => loaded++);
 
     game_background_c1 = loadImage('images/background/c1.png', () => loaded++);
     game_background_c2 = loadImage('images/background/c2.png', () => loaded++);
-    game_background_c3 = loadImage('images/background/c2.png', () => loaded++);
 
     game_background_f1 = loadImage('images/background/f1.png', () => loaded++);
     game_background_f2 = loadImage('images/background/f2.png', () => loaded++);
-    game_background_f3 = loadImage('images/background/f2.png', () => loaded++);
 }
 
 function setup() {
@@ -95,13 +94,13 @@ function setup() {
     laser = new Laser;
 
     background_0 = new Image_rendering(game_background_s, game_background_s, game_background_s, 1);
-    background_1 = new Image_rendering(game_background_c1, game_background_c2, game_background_c3, 1.5);
-    background_2 = new Image_rendering(game_background_b1, game_background_b2, game_background_b3, 2);
-    background_3 = new Image_rendering(game_background_f1, game_background_f2, game_background_f3, 2.5);
+    background_1 = new Image_rendering(game_background_c1, game_background_c2, game_background_empty, 1.5);
+    background_2 = new Image_rendering(game_background_b1, game_background_b2, game_background_empty, 2);
+    background_3 = new Image_rendering(game_background_f1, game_background_f2, game_background_empty, 2.5);
 }
 
 function draw() {
-    if (loaded != 14) {
+    if (loaded != 12) {
     } else {
         if (!loaded2) {
             div_create_all();
