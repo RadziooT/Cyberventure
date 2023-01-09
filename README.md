@@ -44,9 +44,8 @@ Online Flappy Bird type game with global leaderboard. In this type of game you p
 - [x] Player falling optimization
 - [x] Final verification of code
 - [x] Final images
-- [ ] Final sound
-- [ ] Final laser gradient
-- [ ] Safeguard for overflowing database and check for records gathered from database
+- [x] Final sound
+- [x] Final laser gradient
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
