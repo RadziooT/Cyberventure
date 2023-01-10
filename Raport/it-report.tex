@@ -34,25 +34,27 @@
 
 
 \chapter{Introduction}
-When Flappy bird came out in 2013 it brought a lot of attention. There were reports of people breaking their devices thanks to the rage caused by unfair mechanics. Game concept were simple. Try to avoid obstacles by pressing the button to go up while gravity constantly pushes you down.
+When Flappy bird came out in 2013 it brought a lot of attention. There were reports of people breaking their devices thanks to the rage caused by unfair mechanics. The game concept was simple. Try to avoid obstacles moving forward by pressing the screen to go up while gravity constantly pushes you down.
 
 \par
-We decided to create a new and improved version of this game. During our project we explored new fitting and interesting graphic design. We used many languages and technologies we haven't used before, which was made possible thanks to the web developer bootcamp we took \cite{Bootcamp}. Our game contains features such as adding additional pickups, laser meant to be avoided and gravity switching. We aimed to create a feeling of fair gameplay with options that reminded us of flash games hosted on various websites. Gaining knowledge about concept of gravity used in games was vastly accelerated thanks to the usage of YouTube tutorials \cite{CodingTrain} \cite{Phpcourse} \cite{ProgrammingwithMosh}.
+We decided to create a new and improved version of this game. During our project we explored new fitting and interesting graphic designs. We used many languages and technologies we haven't used before, which was made possible thanks to the web developer bootcamp we took \cite{Bootcamp}. Our game contains features such as adding additional pickups, laser meant to be avoided and gravity switching. We aimed to create a feeling of fair gameplay with options that reminded us of flash games hosted on various websites. Gaining knowledge about which tools we have to use was vastly improved thanks to the
+YouTube's tutorials \cite{CodingTrain} \cite{Phpcourse} \cite{ProgrammingwithMosh}.
 
 
 \par
-Our game consists of two distinct parts: client side website and MySQL server responsible for providing global leaderboard. A player can see the highest score from the current session, as well as the current score for the round he’s playing. JavaScript's structure is based on p5.js library responsible for handling rendering assets and preparing each frame and jQuery which was required to communicate between client and server side. The game is hosted on Linux virtual machine to avoid costs related to external hosting.
+Our game consists of two distinct parts: client side website and server with MySQL database responsible for providing global leaderboard. A player can see top 5 scores of the best players, as well as the highest score from the current session and current score for the round he's playing. We used JavaScript's structure based on p5.js library responsible for handling rendering assets and preparing each frame. We needed jQuery library as well to communicate between client and server side. ---------The game is hosted on Linux virtual machine to avoid costs related to external hosting.--------
 
 
 \chapter{Aim and scope of the project}
 
-Although many versions of “Flappy Bird” were created, none of them seemed to change the concept enough. Our aim was to create an experience that was unique thanks to the graphic design and challenging in a fair way without producing anger. We wanted to expand on the idea of players being able to surpass highest scores to be seen globally with leaderboard.
+Although many versions of “Flappy Bird” were created, none of them seemed to change the concept enough. We aimed to create an experience that was unique thanks to the graphic design and challenging in a fair way without encouraging anger. We wanted to give players an additional sense of challenge by implementing a global leaderboard.
 
 \par
-We decided to use p5.js library as our main starting point. This decision was made due to it consisting of powerful tools for creating looping graphics and rendering images on website correctly. A second library called jQuery was chosen for its event handling, animation, and Ajax handling.
+We decided to use p5.js library as our main starting point. Furthermore, we made this decision knowing that this library contains powerful tools for creating looping graphics and rendering images on website correctly. A second library called jQuery was chosen for its event handling, animation and Ajax handling.
 
 \par
-MySQL was chosen as our database system thanks to it being free and having easy to use Linux installation, which was helpful. To prevent overfilling of database we used job scheduler called cron which was available as our hosting system is Ubuntu server version 20.04.
+-----------------
+MySQL was chosen as our database system thanks to it being free and having easy to use Linux installation, which was helpful. To prevent overfilling of database we used job scheduler called cron which was available as our hosting system is Ubuntu server version 20.04.-------------
 
 
 \chapter{Schedule}
@@ -60,8 +62,7 @@ MySQL was chosen as our database system thanks to it being free and having easy 
 \begin{enumerate}
   \item Learning HTML and creating 1st version of homepage
   \item Learning CSS and creating styles for the webpage
-  \item Learning JavaScript and creating first sketch of the game
-  \item Creating game physics (collision)
+  \item Learning JavaScript and creating first sketch of the game  \item Creating game physics (collision)
   \item Learning PHP and creating simple communication between website and the database for storing high scores
   \item Adding Leaderboard and accounts system
   \item Adding collectibles/game speed mechanic
@@ -78,8 +79,8 @@ MySQL was chosen as our database system thanks to it being free and having easy 
   \item Learning JavaScript and creating first sketch of the game 
   \item Creating game physics (collision) and implementing temporary sprites
   \item Reworking background rendering and collision to optimize code
-  \item Learning PHP and creating communication between website and the database for storing high scores. Adding user input after game is ended.
-  \item Implementing CSS animations for various elements. Finalizing button design. Reworking structure of CSS files. 
+  \item Learning PHP and creating communication between website and the database for storing players scores. Adding user input after game is ended.
+  \item Implementing CSS animations for various elements. Finalizing buttons design. Reworking structure of CSS files. 
   \item Major changes to background rendering system. Finalizing Leaderboard. Optimization of loading.
   \item Finalizing graphics with use of Midjourney AI. Adding sounds. Finalizing code structure.
 \end{enumerate}
@@ -87,7 +88,9 @@ MySQL was chosen as our database system thanks to it being free and having easy 
 
 \chapter{Software implementation}
 
-We have managed to create a game, providing each user with semi unique background rendering and smooth gameplay. Each user is prevented from inputting one score multiple times, as well as from inputting a score without name. Future expanding of project is made simple thanks to the structure of elements representing different blocks of options.
+We have managed to create a game, providing each user with semi unique background rendering and smooth gameplay. 
+Safeguards for overflowing database with empty or repeated user inputs were made.
+Our code structure dividing the game to different interactable windows allows us to expand this project easily.
 
 \par
 We decided to use an object-oriented programming approach and treat each gameplay element on the client side as a separate class.
@@ -95,10 +98,10 @@ We decided to use an object-oriented programming approach and treat each gamepla
 
 \section{Client side}
 
-Upon loading the page, the client side receives all required files. Calculating correct coordinates of elements is created on the users machine to get faster results and to reduce the load on the server.
+Upon loading the page, the client side receives all required files. Calculating correct coordinates of elements is handled on the users machine to get faster results and to reduce the load on the server.
 
 \subsection{Main gameplay loop file}
-Game.js is a file responsible for handling correct loading of assets and keeping the game running. This file provides many functions which for resetting gameplay elements to default values and communicating with database. After opening the page, this file waits for all the assets to load, and after it provides a loop based on p5.js function in which all the other objects interact.
+Game.js is a file responsible for handling correct loading of assets and keeping the game running. This file provides many functions to control gameplay elements and communicate with the database. After opening the page, this file waits for all the assets to load. After correct loading process, it provides a loop based on p5.js function in which all the other objects interact.
 
 \begin{figure}
 	\centering
@@ -107,22 +110,23 @@ Game.js is a file responsible for handling correct loading of assets and keeping
 \end{figure}
 	
 \par
-The block diagram presented in Fig. \ref{fig:block_diagram} shows the order of function calls. All three are based on p5.js library. Preload() is used to load each asset and sound used on the page. After all required images and soundtrack are loaded, a specific variable is changed to communicate with Draw() function. Setup() is called directly after preload and manages creating all the classes as well as setting frame rate and distance between obstacles. 
+The block diagram presented in Fig. \ref{fig:block_diagram} shows the order of function calls. All three are based on p5.js library. Preload() is used to load assets and sounds used on the page. After all required images and soundtracks are loaded, a specific variable is changed to communicate with Draw() function. Setup() is called directly after preload and creates all the classes as well as sets frame rate and distance between obstacles.
 
 \par
 Draw() function waits for variable from preload and setup completion. After both conditions are met, it calls custom-made functions which handle gameplay and window changes.
 
 \subsection{Collision Object}
-Collision Object class was created for the purpose of efficient handling of large number of obstacles. It consists of variables representing current state and position of pylon and pickup if this option is turned on.
+
+Collision object class handles obstacles represented in array. It consists of variables calculating current state and position of pylons and pickups if this option is turned on.
 
 \par
-This class provides methods for checking collision with player, as well as for moving and rendering an obstacle in the current frame. Those methods are called from Game.js for each object in the list, creating a way to keep many obstacles on screen at the same time.
+This class provides methods for checking collision with player, as well as for moving and rendering an obstacle in the current frame. Those methods are called from Game.js for each object in the array, creating a way to keep many obstacles on screen at the same time.
 
 \par
 Height and position of passable part of obstacle is generated randomly with rand() function, however it is customized to have different range depending on the height of the user's screen.
 
 \par
-Additional points are also handled by this class. A Special Boolean variable is used to determine if specific objects have to show bonus pickup which player can collect. Collision and rendering is handled in methods described above.
+Additional pickups are also handled by this class. A special boolean variable is used to determine if the object should contain bonus points. Collision and rendering is handled by methods described above.
 
 \begin{figure}
 	\centering
@@ -131,10 +135,10 @@ Additional points are also handled by this class. A Special Boolean variable is 
 \end{figure}
 	
 \par
-Fig. \ref{fig:collision} represents variables which are used to render and move obstacles and pickups. Computations are based on three presented values and screen size to accommodate different window sizes. If the option responsible for additional points is turned on, then pickup is placed based on hole center value. Each object contains two Boolean values responsible for giving points to the player and generating pickups.
+Fig. \ref{fig:collision} represents variables which are used to render and move obstacles. Computations are based on three presented values and screen size to accommodate different window sizes. If the option responsible for additional points is turned on, then pickup is placed based on hole center value. Each object contains two boolean values responsible for giving points to the player and generating pickups.
 
 \subsection{Handling switching between options}
-To reduce usage of additional libraries, option handling was made with just JavaScript. Each window is represented by a div containing specific buttons, inputs and additional information. A file called div\textunderscore master.js manages the structure of those divs which contain CSS property for being visible to user. After switching windows, the function is called hiding all divs which aren’t required and resetting values such as user input for the one that is shown.
+To reduce usage of additional libraries, option handling was made with just JavaScript. Each window is represented by a div containing specific buttons, inputs and additional information. A file called div\textunderscore master.js manages the structure of those divs by changing the CSS property responsible for element visibility. After switching windows, a special function is called, hiding all divs which aren’t required. Values such as user input are reset as well.
 
 \begin{figure}
 	\centering
@@ -143,13 +147,13 @@ To reduce usage of additional libraries, option handling was made with just Java
 \end{figure}
 
 \par
-Expanding this structure to handle more divs requires a future developer to edit a function called div\textunderscore create\textunderscore all() and add a new one responsible for showing the created div. Creation of this new element should be handled in the same file as well. A representation of current div structure can be seen in Fig. \ref{fig:div_handling}.
+Expanding this structure to handle more divs requires a future developer to edit a function called div\textunderscore create\textunderscore all() and add a new one responsible for handling the newly created div. Creation of this new element should be handled in the same file as well. A representation of current div structure can be seen in Fig. \ref{fig:div_handling}.
 
 \par
 Controlling all sounds volumes and gameplay customization options is handled by functions in div\textunderscore create\textunderscore all() as well. Sounds can have two states, muted (checked on by default) and playing. When a user mutes a soundtrack, the song isn’t stopped, but silenced.
 
 \subsection{Laser obstacle}
-The concept of laser element was overhauled few times during development. The final design decision was to make the laser remove one point for each frame when the player is in contact with it. Lowest score is capped at 0 to prevent negative scores. Animation of firing is made based on font awesome icons and CSS “-webkit-mask-image” property to add overlay on the base laser.
+The concept of laser element was overhauled few times during development. The final design decision was to make the laser remove one point for each frame the player touches it. The lowest score is capped at 0 to prevent negative values. Animation of firing is made based on font awesome icons and CSS “-webkit-mask-image” property to add overlay on the base laser.
 
 \begin{figure}
 	\centering
@@ -158,16 +162,16 @@ The concept of laser element was overhauled few times during development. The fi
 \end{figure}
 
 \par
-Future changes of laser style could be made by changing laser.css file, which contains specific gradient property which reflects laser look. By changing parameters in laser.js file, the future developer could edit animations speed and time laser is present on the screen. Fig. \ref{fig:laser} shows the algorithm used to render laser firing animation.
+Future changes of laser style could be made by changing laser.css file, which contains gradient property representing laser appearance. By changing parameters in laser.js file, the future developer could edit animations speed and time laser is present on the screen. Fig. \ref{fig:laser} shows the algorithm used to render laser firing animation.
 
 \subsection{Image rendering}
-Achieving parallax effect with background assets was crucial. To realize these two classes were made. “Image\textunderscore rendering.js” receives four parameters. Three of them are assets to produce the effect of randomly generating background. Fourth one is speed value. Background is divided into four main parts, all of them receive different speed, which creates depth for the user. 
+Achieving parallax effect with background assets was crucial. To realize these two classes were made. “Image\textunderscore rendering.js” receives four parameters. Three of them are assets to produce the effect of randomly generated background. Fourth one is speed value. Background is divided into four main parts, all of them receive different speed, which creates depth for the user. 
 
 \par
 “Image\textunderscore render.js” handles changing coordinates for the asset it contains. To simplify code in “Image\textunderscore rendering.js” it creates three entities of “Image\textunderscore render.js” and manages them.
 
 \par
-Player character, pickups and obstacles images are handles in theirs respective files. Each asset is characterized by a set of coordinates which is changed each frame. Some of them were used thanks to the free packages shared online \cite{Facade009} \cite{Kitbash}.
+Player character, pickups and obstacles images are handles in separate files. Each asset is characterized by a set of coordinates which changes each frame. Some of them were used thanks to the free packages shared online \cite{Facade009} \cite{Kitbash}.
 
 \subsection{CSS options}
 To keep files managing clear, each distinct CSS option is handled in a separate file. For editing style of specific element, developer would have to find respective file and change properties of main element. As inspiration for part of our designs, we used YouTube tutorials containing Cyberpunk themed creations \cite{CyberpunkCSS} \cite{GlitchCSS}.
@@ -179,7 +183,7 @@ Some animations use root variables, which are changed through JavaScript. They a
 Main computations and user experience is handled on client side. Our server is responsible for managing proper hosting and responding to Ajax requests which get or input players scores to our MySQL database.
 
 \par
-The Linux based server was chosen for its capabilities and availability of cron job scheduler. To avoid costs, the server is hosted on a virtual machine on a home computer. For future development of the game, hosting could be moved to external hosting with the same configuration.
+-----The Linux based server was chosen for its capabilities and availability of cron job scheduler. To avoid costs, the server is hosted on a virtual machine on a home computer. For future development of the game, hosting could be moved to external hosting with the same configuration.--------
 
 \begin{figure}[!htb]
 	\centering
@@ -188,12 +192,10 @@ The Linux based server was chosen for its capabilities and availability of cron 
 \end{figure}
 
 \par
-Due to our approach with handling top scores our database didn’t have to be complex. We avoided primary key as a deliberate choice, since only best five scores are shown. Fig. \ref{fig:database} represents table we created.
-
-
+We used database to handle only top scores of players. This meant that our database structure didn't have to be complex. Primary key was avoided as a deliberate choice, since only the best five scores are shown. Fig. \ref{fig:database} represents table we created.
 
 \section{Problems during development}
-During development, we encountered several problems. Firstly, we had to rewrite the physics system after implementing more complex images. This was caused by change in coordinates inputs for new functions and methods we used. Secondly, we had to optimize generating obstacles and use few tricks to make sure each resolution is served correctly. When using XAMPP as our temporary hosting on localhost, we had few issues with page not refreshing correctly after implementing changes. This forced us to remove cookies and fully restart page, which added some unwanted time in development.
+During development, we encountered several problems. Firstly, we had to rewrite the physics system after implementing more complex images. This was caused by change in coordinates inputs for new functions and methods we used. Secondly, we had to optimize generating obstacles and use few tricks to make sure each resolution is served correctly. When using XAMPP as our temporary hosting on localhost, we had few issues with page not refreshing correctly after implementing changes. This forced us to remove cookies and fully restart the page, which added some unwanted time in development.
 
 \chapter{Summary}
 We are very satisfied with the result of our work. The application fully meets our design expectations. Graphic and sound design combine well with the gameplay loop we created. Using version control proved to be very useful during debugging and optimization stage. Creating a proper README.md for our GitHub page was an additional task we didn’t foresee, however it allowed us to manage progress more clearly. To prove usage of version control system, we submit a link to our GitHub page:
@@ -206,7 +208,7 @@ We are very satisfied with the result of our work. The application fully meets o
 Possible future project expansions are: adding additional gameplay mechanics such as increasing obstacle speed based on players score, expanding leaderboard to contain separate tables for different configurations of customization options and changing global leaderboard from permanent top score to one being shown only for a specific amount of time.
 
 \par
-To summarize, during our project we gained valuable experience in handling multiple programming tools at the same time, which is sure to be useful in our future learning to aid in our career goals. We also experienced working as a team and improved our abilities to divide and manage tasks properly. 
+To summarize, during our project we gained valuable experience in handling multiple programming tools at the same time, which is sure to be useful in our future learning to aid in our career goals. We also experienced working as a team and improved our abilities to divide and manage tasks properly.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% BIBLIOGRAPHY.
@@ -224,7 +226,7 @@ To summarize, during our project we gained valuable experience in handling multi
 \phantomsection
 
 \appendix
-\chapter{Stages of development and graphic designs}
+\chapter{Early development and graphic designs}
 
 \begin{figure}[!htb]
 	\centering
