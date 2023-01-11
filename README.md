@@ -2,13 +2,18 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#built-with">Built wiath</a></li>
+    <li><a href="#link-to-the-game">Link to the game</a></li>
+    <li><a href="#built-with">Built with</a></li>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#to-do">To do</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
+
+<!-- LINK TO THE GAME -->
+## Link to the game
+http://cyberventure.cba.pl/
 
 <!-- BUILT WITH -->
 ## Built with
