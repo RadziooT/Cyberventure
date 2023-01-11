@@ -10,10 +10,9 @@ var score = 0;
 var laser;
 var obstacle_distance;
 var obstacle_amount;
-const pickup_intensity = 5;
-const laser_intensity = 10;
-const laser_timer = 666;
-const frames_per_obstacle = 160;
+const pickup_intensity = 10;
+const laser_intensity = 15;
+const laser_timer = 250;
 
 let loaded = 0;
 let loaded2 = false;
@@ -85,8 +84,8 @@ function setup() {
     var myCanvas = createCanvas(windowWidth, windowHeight);
     myCanvas.parent('canvas_sketch');
 
-    obstacle_distance = width / 5;
-    obstacle_amount = 8;
+    obstacle_distance = width / 3;
+    obstacle_amount = 10;
     frameRate(60);
 
     player = new Player;
