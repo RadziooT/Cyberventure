@@ -197,7 +197,7 @@ function draw_leaderboard(dbData) {
     }
 
     score_name_div.html('<br><span class="dbRecord" id="score">Current Score:<br>' + score + '<br></span>', true);
-    score_value_div.html('<br><span class="dbRecord" id="bestscore">Personal Best:<br>' + bestscore + '<br></span>', true);
+    score_value_div.html('<br><span class="dbRecord" id="bestscore">Session Best:<br>' + bestscore + '<br></span>', true);
 }
 
 function toggleSound() {
