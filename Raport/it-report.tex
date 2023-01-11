@@ -23,7 +23,7 @@
 \begin{document}
 
 % Use Roman numerals (i, ii, iii, etc.) for page numbers.
-\pagenumbering{roman}
+% \pagenumbering{roman}
 
 \input{it-report-frontmatter.tex}
 
@@ -34,71 +34,69 @@
 
 
 \chapter{Introduction}
-When Flappy bird came out in 2013 it brought a lot of attention. There were reports of people breaking their devices thanks to the rage caused by unfair mechanics. The game concept was simple. Try to avoid obstacles moving forward by pressing the screen to go up while gravity constantly pushes you down.
+When "Flappy Bird" came out in 2013, it has brought a lot of attention. There were reports of people breaking their devices, thanks to the rage caused by difficult gameplay. The game concept was simple. Try to avoid obstacles moving forward by tapping the screen to go up while gravity constantly pulls you down.
 
 \par
-We decided to create a new and improved version of this game. During our project we explored new fitting and interesting graphic designs. We used many languages and technologies we haven't used before, which was made possible thanks to the web developer bootcamp we took \cite{Bootcamp}. Our game contains features such as adding additional pickups, laser meant to be avoided and gravity switching. We aimed to create a feeling of fair gameplay with options that reminded us of flash games hosted on various websites. Gaining knowledge about which tools we have to use was vastly improved thanks to the
+We've decided to create a new and improved version of this game. During our project we've explored new fitting and interesting graphic designs. We've used many languages and technologies we haven't used before, which was made possible thanks to the web developer bootcamp we took \cite{Bootcamp}. Our game contains features such as adding additional pickups, laser meant to be avoided and gravity switching. We were aiming to create a feeling of fair gameplay with options that reminded us of flash games hosted on various websites and we think we've menaged to achieve that. Gaining knowledge about which tools we have to use was vastly improved thanks to the
 YouTube's tutorials \cite{CodingTrain} \cite{Phpcourse} \cite{ProgrammingwithMosh}.
 
-
 \par
-Our game consists of two distinct parts: client side website and server with MySQL database responsible for providing global leaderboard. A player can see top 5 scores of the best players, as well as the highest score from the current session and current score for the round he's playing. We used JavaScript's structure based on p5.js library responsible for handling rendering assets and preparing each frame. We needed jQuery library as well to communicate between client and server side. ---------The game is hosted on Linux virtual machine to avoid costs related to external hosting.--------
+Our game consists of two distinct parts: client side website and server with MySQL database responsible for providing global leaderboard. A player can see top 5 scores of the best players, as well as the highest score from the current session and current score for the round. A JavaScript structure based on p5.js library is responsible for handling rendering assets and preparing each frame. We needed jQuery library to communicate between client and server side. The game is hosted on free external hosting.
 
 
 \chapter{Aim and scope of the project}
 
-Although many versions of “Flappy Bird” were created, none of them seemed to change the concept enough. We aimed to create an experience that was unique thanks to the graphic design and challenging in a fair way without encouraging anger. We wanted to give players an additional sense of challenge by implementing a global leaderboard.
+Although many versions of "Flappy Bird" were created, none of them seemed to change the concept enough. We've created an experience that is unique thanks to the graphic design and challenging in a fair way without encouraging anger. We wanted to give players an additional sense of challenge by implementing a global leaderboard.
 
 \par
-We decided to use p5.js library as our main starting point. Furthermore, we made this decision knowing that this library contains powerful tools for creating looping graphics and rendering images on website correctly. A second library called jQuery was chosen for its event handling, animation and Ajax handling.
+We've decided to use p5.js library as our main starting point. Furthermore, we made this decision knowing that this library contains powerful tools for creating looping graphics and rendering images on website correctly. A second library called jQuery was chosen for its event handling, animation and Ajax handling.
 
 \par
------------------
-MySQL was chosen as our database system thanks to it being free and having easy to use Linux installation, which was helpful. To prevent overfilling of database we used job scheduler called cron which was available as our hosting system is Ubuntu server version 20.04.-------------
+MySQL was chosen as our database system thanks to it being free and having easy to use interface. To prevent overfilling the database we've used a job scheduler called cron.
 
 
 \chapter{Schedule}
 \section{Schedule approved at the beginning}
-\begin{enumerate}
-  \item Learning HTML and creating 1st version of homepage
-  \item Learning CSS and creating styles for the webpage
-  \item Learning JavaScript and creating first sketch of the game  \item Creating game physics (collision)
-  \item Learning PHP and creating simple communication between website and the database for storing high scores
-  \item Adding Leaderboard and accounts system
-  \item Adding collectibles/game speed mechanic
-  \item Implementing dynamic background (changed by earning more points, constantly moving behind player to give impression of speed)
-  \item Creating final graphics, sprites and finalizing project
-\end{enumerate}
+\begin{itemize}
+	\item Learning HTML and creating 1st version of homepage
+	\item Learning CSS and creating styles for the webpage
+	\item Learning JavaScript and creating first sketch of the game
+	\item Creating game physics (collision)
+	\item Learning PHP and creating simple communication between website and the database for storing high scores
+	\item Adding Leaderboard and accounts system
+	\item Adding collectibles/game speed mechanic
+	\item Implementing dynamic background (changed by earning more points, constantly moving behind player to give impression of speed)
+	\item Creating final graphics, sprites and finalizing project
+\end{itemize}
 
 \newpage
 
 \section{Schedule reflecting actual work}
-\begin{enumerate}
-  \item Learning HTML and creating 1st version of homepage 
-  \item Learning CSS and experimenting with styles (made temporary ones) 
-  \item Learning JavaScript and creating first sketch of the game 
-  \item Creating game physics (collision) and implementing temporary sprites
-  \item Reworking background rendering and collision to optimize code
-  \item Learning PHP and creating communication between website and the database for storing players scores. Adding user input after game is ended.
-  \item Implementing CSS animations for various elements. Finalizing buttons design. Reworking structure of CSS files. 
-  \item Major changes to background rendering system. Finalizing Leaderboard. Optimization of loading.
-  \item Finalizing graphics with use of Midjourney AI. Adding sounds. Finalizing code structure.
-\end{enumerate}
+\begin{itemize}
+	\item Learning HTML and creating 1st version of homepage
+	\item Learning CSS and experimenting with styles (made temporary ones)
+	\item Learning JavaScript and creating first sketch of the game
+	\item Creating game physics (collision) and implementing temporary sprites
+	\item Reworking background rendering and collision to optimize code
+	\item Learning PHP and creating communication between website and the database for storing players scores. Adding user input after game is ended.
+	\item Implementing CSS animations for various elements. Finalizing buttons design. Reworking structure of CSS files.
+	\item Major changes to background rendering system. Finalizing Leaderboard. Optimization of loading.
+	\item Finalizing graphics with use of Midjourney AI. Adding sounds. Finalizing code structure.
+\end{itemize}
 
 
 \chapter{Software implementation}
 
-We have managed to create a game, providing each user with semi unique background rendering and smooth gameplay. 
-Safeguards for overflowing database with empty or repeated user inputs were made.
-Our code structure dividing the game to different interactable windows allows us to expand this project easily.
+We have managed to create a game, providing each user with semi unique background rendering and smooth gameplay.
+Safeguards for overflowing database with empty or repeated user inputs were implemented.
+Our code structure is divided to different interactable windows, which allows us to expand this project easily, thanks to its compartmentalization.
 
 \par
-We decided to use an object-oriented programming approach and treat each gameplay element on the client side as a separate class.
-
+We've decided to use an object-oriented programming approach and treat each gameplay element on the client side as a separate class.
 
 \section{Client side}
 
-Upon loading the page, the client side receives all required files. Calculating correct coordinates of elements is handled on the users machine to get faster results and to reduce the load on the server.
+Upon loading the page, the client side receives all the required files. Calculating correct coordinates of elements is handled on the users machine to get faster results and to reduce the load on the server.
 
 \subsection{Main gameplay loop file}
 Game.js is a file responsible for handling correct loading of assets and keeping the game running. This file provides many functions to control gameplay elements and communicate with the database. After opening the page, this file waits for all the assets to load. After correct loading process, it provides a loop based on p5.js function in which all the other objects interact.
@@ -108,22 +106,22 @@ Game.js is a file responsible for handling correct loading of assets and keeping
 	\includegraphics[width=1.7in]{block_diagram.jpg}
 	\caption{Block diagram representing loading and servicing page.\label{fig:block_diagram}}
 \end{figure}
-	
-\par
-The block diagram presented in Fig. \ref{fig:block_diagram} shows the order of function calls. All three are based on p5.js library. Preload() is used to load assets and sounds used on the page. After all required images and soundtracks are loaded, a specific variable is changed to communicate with Draw() function. Setup() is called directly after preload and creates all the classes as well as sets frame rate and distance between obstacles.
 
 \par
-Draw() function waits for variable from preload and setup completion. After both conditions are met, it calls custom-made functions which handle gameplay and window changes.
+The block diagram presented in Fig.\ref{fig:block_diagram} shows the order of function calls. All three are based on p5.js library. Preload() is used to load assets used on the page. After all required files are loaded, a flag is raised to communicate with the Draw() function. Setup() is called directly after Preload() and initializes all the classes, as well as sets the frame rate and distance between obstacles.
+
+\par
+Draw() function waits for the flag from Preload() and Setup() completion. After both conditions are met, it calls custom-made functions which handle gameplay and window changes.
 
 \subsection{Collision Object}
 
-Collision object class handles obstacles represented in array. It consists of variables calculating current state and position of pylons and pickups if this option is turned on.
+Collision object class handles obstacles stored in an array. It consists of variables responsible for current state and position of pylons and pickups, if this option is turned on.
 
 \par
-This class provides methods for checking collision with player, as well as for moving and rendering an obstacle in the current frame. Those methods are called from Game.js for each object in the array, creating a way to keep many obstacles on screen at the same time.
+This class provides methods for checking collision with player, as well as for moving and rendering obstacles in the current frame. Those methods are called from Game.js for each object in the array, creating a way to keep many obstacles on screen at the same time. It is also responsible deleting objects which are outside the screen to prevent memory leaks.
 
 \par
-Height and position of passable part of obstacle is generated randomly with rand() function, however it is customized to have different range depending on the height of the user's screen.
+Height and position of passable part of an obstacle is generated randomly with rand() function, however it is customized to have different range depending on the size of the user's screen.
 
 \par
 Additional pickups are also handled by this class. A special boolean variable is used to determine if the object should contain bonus points. Collision and rendering is handled by methods described above.
@@ -133,12 +131,22 @@ Additional pickups are also handled by this class. A special boolean variable is
 	\includegraphics[width=2.3in]{obstacle_coords.jpg}
 	\caption{Representation of Collision object class coordinates.\label{fig:collision}}
 \end{figure}
-	
+
 \par
-Fig. \ref{fig:collision} represents variables which are used to render and move obstacles. Computations are based on three presented values and screen size to accommodate different window sizes. If the option responsible for additional points is turned on, then pickup is placed based on hole center value. Each object contains two boolean values responsible for giving points to the player and generating pickups.
+Fig.\ref{fig:collision} represents variables which are used to render and move obstacles. Computations are based on three presented values and screen size to accommodate different window sizes. If the option responsible for additional points is turned on, then a pickup is placed based on hole center value. Each object contains two boolean values responsible for giving points to the player and generating pickups.
 
 \subsection{Handling switching between options}
-To reduce usage of additional libraries, option handling was made with just JavaScript. Each window is represented by a div containing specific buttons, inputs and additional information. A file called div\textunderscore master.js manages the structure of those divs by changing the CSS property responsible for element visibility. After switching windows, a special function is called, hiding all divs which aren’t required. Values such as user input are reset as well.
+To reduce usage of additional libraries, option handling was made with just JavaScript. Each window is represented by a div containing specific buttons, inputs and additional information. A file called div\textunderscore master.js manages the structure of those divs by changing the CSS property responsible for element visibility and style. After switching windows, a special function is called, hiding all divs which aren't required. Values such as user input are reset as well.
+
+\par
+Expanding this structure to handle more divs requires a future developer to edit a function called div\textunderscore create\textunderscore all() and add a new one responsible for handling the newly created div. Creation of this new element should be handled in the same file as well. A representation of current div structure can be seen in Fig.\ref{fig:div_handling}.
+
+\par
+Controlling sound volume and gameplay customization options is handled by functions in div\textunderscore create\textunderscore all() as well. Sounds can have two states, muted (default) and unmuted. When a user mutes a soundtrack, the song isn't stopped, but silenced.
+
+\newpage
+
+\vspace*{0.5in}
 
 \begin{figure}
 	\centering
@@ -146,14 +154,10 @@ To reduce usage of additional libraries, option handling was made with just Java
 	\caption{Representation of divs connection.\label{fig:div_handling}}
 \end{figure}
 
-\par
-Expanding this structure to handle more divs requires a future developer to edit a function called div\textunderscore create\textunderscore all() and add a new one responsible for handling the newly created div. Creation of this new element should be handled in the same file as well. A representation of current div structure can be seen in Fig. \ref{fig:div_handling}.
-
-\par
-Controlling all sounds volumes and gameplay customization options is handled by functions in div\textunderscore create\textunderscore all() as well. Sounds can have two states, muted (checked on by default) and playing. When a user mutes a soundtrack, the song isn’t stopped, but silenced.
+\vspace*{0.5in}
 
 \subsection{Laser obstacle}
-The concept of laser element was overhauled few times during development. The final design decision was to make the laser remove one point for each frame the player touches it. The lowest score is capped at 0 to prevent negative values. Animation of firing is made based on font awesome icons and CSS “-webkit-mask-image” property to add overlay on the base laser.
+The concept of laser element was overhauled few times during development. The final design decision was to make the laser remove one point for each frame the player touches it. The lowest score is capped at 0 to prevent negative values. Animation of firing is made based on font awesome icons and CSS "-webkit-mask-image" property to add overlay on the base laser.
 
 \begin{figure}
 	\centering
@@ -162,28 +166,25 @@ The concept of laser element was overhauled few times during development. The fi
 \end{figure}
 
 \par
-Future changes of laser style could be made by changing laser.css file, which contains gradient property representing laser appearance. By changing parameters in laser.js file, the future developer could edit animations speed and time laser is present on the screen. Fig. \ref{fig:laser} shows the algorithm used to render laser firing animation.
+Future changes of laser style could be made by changing laser.css file, which contains gradient property describing laser appearance. By changing parameters in laser.js file, the future developer could edit animations speed and the time the laser is present on the screen. Fig.\ref{fig:laser} shows the algorithm used to render the laser firing animation.
 
 \subsection{Image rendering}
-Achieving parallax effect with background assets was crucial. To realize these two classes were made. “Image\textunderscore rendering.js” receives four parameters. Three of them are assets to produce the effect of randomly generated background. Fourth one is speed value. Background is divided into four main parts, all of them receive different speed, which creates depth for the user. 
+Achieving parallax effect with background assets was crucial. To achieve this, two classes were made. Image\textunderscore rendering.js receives four parameters. Three of them are assets to produce the effect of randomly generated background. Fourth one is speed value. Background is divided into four main parts, all of them have different speed, which creates the desired effect.
 
 \par
-“Image\textunderscore render.js” handles changing coordinates for the asset it contains. To simplify code in “Image\textunderscore rendering.js” it creates three entities of “Image\textunderscore render.js” and manages them.
+Image\textunderscore render.js handles changing coordinates for the asset it contains. To simplify code in Image\textunderscore rendering.js it creates three entities of Image\textunderscore render.js and manages them.
 
 \par
-Player character, pickups and obstacles images are handles in separate files. Each asset is characterized by a set of coordinates which changes each frame. Some of them were used thanks to the free packages shared online \cite{Facade009} \cite{Kitbash}.
+Player character, pickups and obstacles images are handles in separate files. Each asset is characterized by a set of coordinates which changes each frame. Some of them were created using free packages shared online \cite{Facade009} \cite{Kitbash}.
 
 \subsection{CSS options}
-To keep files managing clear, each distinct CSS option is handled in a separate file. For editing style of specific element, developer would have to find respective file and change properties of main element. As inspiration for part of our designs, we used YouTube tutorials containing Cyberpunk themed creations \cite{CyberpunkCSS} \cite{GlitchCSS}.
+To keep files managing clear, each distinct CSS option is handled in a separate file. For editing style of specific element, developer would have to find respective file and change properties of main element. As inspiration for part of our designs, we've used YouTube tutorials showcasing "Cyberpunk" themed creations \cite{CyberpunkCSS} \cite{GlitchCSS}.
 
 \par
 Some animations use root variables, which are changed through JavaScript. They are placed in a specific root.css file.
 
 \section{Server side}
-Main computations and user experience is handled on client side. Our server is responsible for managing proper hosting and responding to Ajax requests which get or input players scores to our MySQL database.
-
-\par
------The Linux based server was chosen for its capabilities and availability of cron job scheduler. To avoid costs, the server is hosted on a virtual machine on a home computer. For future development of the game, hosting could be moved to external hosting with the same configuration.--------
+Main computations and user experience are handled on the client side. Our server is responsible for managing proper hosting and communication by Ajax requests which control players' scores in our MySQL database.
 
 \begin{figure}[!htb]
 	\centering
@@ -192,23 +193,23 @@ Main computations and user experience is handled on client side. Our server is r
 \end{figure}
 
 \par
-We used database to handle only top scores of players. This meant that our database structure didn't have to be complex. Primary key was avoided as a deliberate choice, since only the best five scores are shown. Fig. \ref{fig:database} represents table we created.
+We use database to handle only top scores of players. This meant that our database structure didn't have to be complex. Primary key was avoided as a deliberate choice, since only the best five scores are shown. Fig. \ref{fig:database} represents table we've created.
 
 \section{Problems during development}
-During development, we encountered several problems. Firstly, we had to rewrite the physics system after implementing more complex images. This was caused by change in coordinates inputs for new functions and methods we used. Secondly, we had to optimize generating obstacles and use few tricks to make sure each resolution is served correctly. When using XAMPP as our temporary hosting on localhost, we had few issues with page not refreshing correctly after implementing changes. This forced us to remove cookies and fully restart the page, which added some unwanted time in development.
+During development, we've encountered several problems. Firstly, we've had to rewrite the physics system after implementing more complex images. This was caused by change in coordinates inputs for new functions and methods we use. Secondly, we've had to optimize generating obstacles and use few tricks to make sure each resolution is served correctly. When using XAMPP as our temporary hosting on localhost, we've had few issues with page not refreshing correctly after implementing changes. This forced us to remove cookies and fully restart the page, which added some unwanted time during development.
 
 \chapter{Summary}
-We are very satisfied with the result of our work. The application fully meets our design expectations. Graphic and sound design combine well with the gameplay loop we created. Using version control proved to be very useful during debugging and optimization stage. Creating a proper README.md for our GitHub page was an additional task we didn’t foresee, however it allowed us to manage progress more clearly. To prove usage of version control system, we submit a link to our GitHub page:
-
-\underline{\href{https://github.com/RadziooT/Cyberventure}{GitHub repository}.} 
-
-\hfill
+We are very satisfied with the result of our work. The application fully meets our design expectations. Graphic and sound design fits well with the gameplay loop we created. Using version control proved to be very useful during debugging and optimization stage. Creating a proper README.md for our GitHub page was an additional task we didn't foresee, however it allowed us to manage progress more clearly. To prove usage of version control system, we submit a link to our GitHub page, which can be found \underline{\href{https://github.com/RadziooT/Cyberventure}{here}.}
 
 \par
-Possible future project expansions are: adding additional gameplay mechanics such as increasing obstacle speed based on players score, expanding leaderboard to contain separate tables for different configurations of customization options and changing global leaderboard from permanent top score to one being shown only for a specific amount of time.
+Possible future project expansions are:
+\begin{itemize}
+	\item adding additional gameplay mechanics such as increasing obstacle speed based on players score
+	\item expanding leaderboard to contain separate tables for different configurations of customization options and changing global leaderboard from permanent top score to one being shown only for a specific amount of time
+\end{itemize}
 
 \par
-To summarize, during our project we gained valuable experience in handling multiple programming tools at the same time, which is sure to be useful in our future learning to aid in our career goals. We also experienced working as a team and improved our abilities to divide and manage tasks properly.
+To summarize, during our project we've gained valuable experience in handling multiple programming tools at the same time, which is sure to be useful in our future learning. It can also help us get a job as it is a valuable portfolio piece. We've also experienced working as a team and improved our abilities to divide and manage tasks properly.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% BIBLIOGRAPHY.

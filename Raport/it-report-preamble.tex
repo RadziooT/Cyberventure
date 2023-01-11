@@ -63,7 +63,7 @@
 
 \graphicspath{
 	{Figures/}
-	{./}
+		{./}
 }
 
 \newcommand{\todo}{\mbox{\color{red} TODO!}}
@@ -131,27 +131,27 @@
 \usepackage{fancyhdr}
 
 \fancypagestyle{empty}{%
-\fancyhf{}
-\fancyhead[L]{\parbox[b]{20mm}{}}
-\fancyhead[R]{\parbox[b]{48mm}{}}
-\renewcommand{\headrulewidth}{0.0pt}
-\renewcommand{\footrulewidth}{0.0pt}}
+	\fancyhf{}
+	\fancyhead[L]{\parbox[b]{20mm}{}}
+	\fancyhead[R]{\parbox[b]{48mm}{}}
+	\renewcommand{\headrulewidth}{0.0pt}
+	\renewcommand{\footrulewidth}{0.0pt}}
 
 \fancypagestyle{regular}{%
-\fancyhf{}
-\fancyfoot[C]{\thepage}
-\fancyhead[L]{\parbox[b]{20mm}{}}
-\fancyhead[R]{\parbox[b]{48mm}{}}
-\renewcommand{\headrulewidth}{0.0pt}
-\renewcommand{\footrulewidth}{0.0pt}}
+	\fancyhf{}
+	\fancyfoot[C]{\thepage}
+	\fancyhead[L]{\parbox[b]{20mm}{}}
+	\fancyhead[R]{\parbox[b]{48mm}{}}
+	\renewcommand{\headrulewidth}{0.0pt}
+	\renewcommand{\footrulewidth}{0.0pt}}
 
 \fancypagestyle{plain}{%
-\fancyhf{}
-\fancyhead[L]{\parbox[b]{20mm}{}}
-\fancyhead[R]{\parbox[b]{48mm}{}}
-\fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0.0pt}
-\renewcommand{\footrulewidth}{0.0pt}}
+	\fancyhf{}
+	\fancyhead[L]{\parbox[b]{20mm}{}}
+	\fancyhead[R]{\parbox[b]{48mm}{}}
+	\fancyfoot[C]{\thepage}
+	\renewcommand{\headrulewidth}{0.0pt}
+	\renewcommand{\footrulewidth}{0.0pt}}
 
 \pagestyle{regular}
 
@@ -161,12 +161,12 @@
 
 % Blank footnotes.
 \newcommand\BlankFootnote[1]{%
-\begingroup%
-\renewcommand{\thefootnote}{}%
-\footnotetext{#1}%
-\addtocounter{footnote}{-1}%
-\addtocounter{Hfootnote}{-1}%
-\endgroup}
+	\begingroup%
+	\renewcommand{\thefootnote}{}%
+	\footnotetext{#1}%
+	\addtocounter{footnote}{-1}%
+	\addtocounter{Hfootnote}{-1}%
+	\endgroup}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LISTS.
@@ -195,8 +195,8 @@
 
 % Definition items.
 \newcommand{\DefineItem}[1]{%
-\IndentBlock{1}#1\nopagebreak
-\par\IndentBlock{2}}
+	\IndentBlock{1}#1\nopagebreak
+	\par\IndentBlock{2}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -222,19 +222,19 @@
 \def\@figurestring{figure}
 \def\@tablestring{table}
 \def\@makecaption#1#2{%
-\CaptionFontSize
-\ifx\@captype\@figurestring
-\vskip1em
-\fi
-\sbox\@tempboxa{{\sffamily\bfseries{#1.}}\hspace{0.5em}#2}%
-\ifdim\wd\@tempboxa>\hsize
-{{\sffamily\bfseries{#1.}}\hspace{0.5em}#2}%
-\else
-\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
-\fi
-\ifx\@captype\@tablestring
-\vskip1em
-\fi
+	\CaptionFontSize
+	\ifx\@captype\@figurestring
+		\vskip1em
+	\fi
+	\sbox\@tempboxa{{\sffamily\bfseries{#1.}}\hspace{0.5em}#2}%
+	\ifdim\wd\@tempboxa>\hsize
+		{{\sffamily\bfseries{#1.}}\hspace{0.5em}#2}%
+	\else
+		\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+	\fi
+	\ifx\@captype\@tablestring
+		\vskip1em
+	\fi
 }
 \makeatother
 
@@ -273,11 +273,11 @@
 \newcommand{\DummyThree}[3]{}
 
 \newcommand{\DisableTOCUpdates}{%
-\let\tempaddcontentsline=\addcontentsline
-\let\addcontentsline=\DummyThree}
+	\let\tempaddcontentsline=\addcontentsline
+	\let\addcontentsline=\DummyThree}
 
 \newcommand{\EnableTOCUpdates}{%
-\let\addcontentsline=\tempaddcontentsline}
+	\let\addcontentsline=\tempaddcontentsline}
 
 
 \usepackage{lipsum} % For sample/blind text.
