@@ -140,13 +140,6 @@ function keyPressed() {
     }
 }
 
-function mouseClicked() {
-    if (gameRunning) {
-        jump_sound.stop();
-        jump_sound.play();
-        player.gainHeight();
-    }
-}
 //-----RESIZING WHOLE CANVAS AND RESETING BACKGROUND IMAGES POSITION TO DEFAULT
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
