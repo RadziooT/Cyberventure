@@ -37,7 +37,7 @@
 When "Flappy Bird" came out in 2013, it has brought a lot of attention. There were reports of people breaking their devices, thanks to the rage caused by difficult gameplay. The game concept was simple. Try to avoid obstacles moving forward by tapping the screen to go up while gravity constantly pulls you down.
 
 \par
-We've decided to create a new and improved version of this game. During our project we've explored new fitting and interesting graphic designs. We've used many languages and technologies we haven't used before, which was made possible thanks to the web developer bootcamp we took \cite{Bootcamp}. Our game contains features such as adding additional pickups, laser meant to be avoided and gravity switching. We were aiming to create a feeling of fair gameplay with options that reminded us of flash games hosted on various websites and we think we've menaged to achieve that. Gaining knowledge about which tools we have to use was vastly improved thanks to the
+We've decided to create a new and improved version of this game. During our project we've explored new fitting and interesting graphic designs. We've used many languages and technologies we haven't used before, which was made possible thanks to the web developer bootcamp we took \cite{Bootcamp}. Our game contains features such as adding additional pickups, laser meant to be avoided and gravity switching. We were aiming to create a feeling of fair gameplay with options that reminded us of flash games hosted on various websites, and we think we've managed to achieve that. Gaining knowledge about which tools we have to use was vastly improved thanks to the
 YouTube's tutorials \cite{CodingTrain} \cite{Phpcourse} \cite{ProgrammingwithMosh}.
 
 \par
@@ -96,7 +96,7 @@ We've decided to use an object-oriented programming approach and treat each game
 
 \section{Client side}
 
-Upon loading the page, the client side receives all the required files. Calculating correct coordinates of elements is handled on the users machine to get faster results and to reduce the load on the server.
+Upon loading the page, the client side receives all the required files. Calculating correct coordinates of elements is handled on the user's machine to get faster results and to reduce the load on the server.
 
 \subsection{Main gameplay loop file}
 Game.js is a file responsible for handling correct loading of assets and keeping the game running. This file provides many functions to control gameplay elements and communicate with the database. After opening the page, this file waits for all the assets to load. After correct loading process, it provides a loop based on p5.js function in which all the other objects interact.
@@ -115,13 +115,13 @@ Draw() function waits for the flag from Preload() and Setup() completion. After 
 
 \subsection{Collision Object}
 
-Collision object class handles obstacles stored in an array. It consists of variables responsible for current state and position of pylons and pickups, if this option is turned on.
+Collision object class handles obstacles stored in an array. It consists of variables responsible for current state and position of pylons and pickups if this option is turned on.
 
 \par
-This class provides methods for checking collision with player, as well as for moving and rendering obstacles in the current frame. Those methods are called from Game.js for each object in the array, creating a way to keep many obstacles on screen at the same time. It is also responsible deleting objects which are outside the screen to prevent memory leaks.
+This class provides methods for checking collision with player, as well as for moving and rendering obstacles in the current frame. Those methods are called from Game.js for each object in the array, creating a way to keep many obstacles on screen at the same time. It is also responsible for deleting objects which are outside the screen to prevent memory leaks.
 
 \par
-Height and position of passable part of an obstacle is generated randomly with rand() function, however it is customized to have different range depending on the size of the user's screen.
+Height and position of passable part of an obstacle are generated randomly with rand() function. It is customized to have a different range, depending on the size of the user's screen.
 
 \par
 Additional pickups are also handled by this class. A special boolean variable is used to determine if the object should contain bonus points. Collision and rendering is handled by methods described above.
@@ -193,10 +193,10 @@ Main computations and user experience are handled on the client side. Our server
 \end{figure}
 
 \par
-We use database to handle only top scores of players. This meant that our database structure didn't have to be complex. Primary key was avoided as a deliberate choice, since only the best five scores are shown. Fig. \ref{fig:database} represents table we've created.
+We use database to handle only top scores of players. This meant that our database structure didn't have to be complex. Primary key was avoided as a deliberate choice, since only the best five scores are shown. Fig. \ref{fig:database} represents the table we've created.
 
 \section{Problems during development}
-During development, we've encountered several problems. Firstly, we've had to rewrite the physics system after implementing more complex images. This was caused by change in coordinates inputs for new functions and methods we use. Secondly, we've had to optimize generating obstacles and use few tricks to make sure each resolution is served correctly. When using XAMPP as our temporary hosting on localhost, we've had few issues with page not refreshing correctly after implementing changes. This forced us to remove cookies and fully restart the page, which added some unwanted time during development.
+During development, we've encountered several problems. Firstly, we've had to rewrite the physics system after implementing more complex images. This was caused by change in coordinates inputs for new functions and methods we use. Secondly, we've had to optimize generating obstacles and use a few tricks to make sure each resolution is served correctly. When using XAMPP as our temporary hosting on localhost, we've had few issues with page not refreshing correctly after implementing changes. This forced us to remove cookies and fully restart the page, which added some unwanted time during development.
 
 \chapter{Summary}
 We are very satisfied with the result of our work. The application fully meets our design expectations. Graphic and sound design fits well with the gameplay loop we created. Using version control proved to be very useful during debugging and optimization stage. Creating a proper README.md for our GitHub page was an additional task we didn't foresee, however it allowed us to manage progress more clearly. To prove usage of version control system, we submit a link to our GitHub page, which can be found \underline{\href{https://github.com/RadziooT/Cyberventure}{here}.}
