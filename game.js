@@ -203,10 +203,10 @@ function spawn_obstacles(distance) {
 
 //-----SENDING SCORE TO DATABASE THROUGH AJAX REQUEST
 function send_score() {
-    const fd = new FormData();
+    // const fd = new FormData();
     player_name = document.getElementById('send_score_input').value;
-    fd.append("Name", player_name);
-    fd.append("Score", score);
+    // fd.append("Name", player_name);
+    // fd.append("Score", score);
 
     $.post("php/send_score.php",
         {
@@ -215,7 +215,6 @@ function send_score() {
         })
         .fail(function () {
             update_leaderboard_offline(dbData, score, player_name)
-            console.log("Hello");
         });
     get_top();
     end_screen_div.hide();
@@ -225,14 +224,14 @@ function send_score() {
 //-----GETTING TOP 5 PLAYER SCORES TO BE DISPLAYED ON THE SCREEN
 function get_top() {
     $.get("php/get_score.php", function (data) {
-        dbData = JSON.parse(data);
-
-        if (document.getElementById("all_scores") != null)
-            draw_leaderboard(dbData);
+        if (data.slice(0, 5) != "<?php") {
+            dbData = JSON.parse(data);
+            if (document.getElementById("all_scores") != null)
+                draw_leaderboard(dbData);
+        }
     })
-
         .fail(function () {
-            draw_leaderboard(dbData);
+            // draw_leaderboard(dbData);
             console.log("Failed to load");
         })
         ;
