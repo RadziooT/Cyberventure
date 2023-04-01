@@ -1,6 +1,8 @@
 if (sessionStorage.getItem('PersonalBest') == null)
     sessionStorage.setItem('PersonalBest', 0);
 
+var githubPagesBranch = true;
+
 var bestscore = sessionStorage.getItem('PersonalBest');
 var player;
 var counter = 0;
@@ -203,22 +205,30 @@ function spawn_obstacles(distance) {
 
 //-----SENDING SCORE TO DATABASE THROUGH AJAX REQUEST
 function send_score() {
-    // const fd = new FormData();
-    player_name = document.getElementById('send_score_input').value;
-    // fd.append("Name", player_name);
-    // fd.append("Score", score);
+    if (githubPagesBranch) {
+        player_name = document.getElementById('send_score_input').value;
+        update_leaderboard_offline(dbData, score, player_name)
+        get_top();
+        end_screen_div.hide();
+        start_menu_div.show();
+    } else {
+        const fd = new FormData();
+        player_name = document.getElementById('send_score_input').value;
+        fd.append("Name", player_name);
+        fd.append("Score", score);
 
-    $.post("php/send_score.php",
-        {
-            Name: player_name,
-            Score: score
-        })
-        .fail(function () {
-            update_leaderboard_offline(dbData, score, player_name)
-        });
-    get_top();
-    end_screen_div.hide();
-    start_menu_div.show();
+        $.post("php/send_score.php",
+            {
+                Name: player_name,
+                Score: score
+            })
+            .fail(function () {
+                update_leaderboard_offline(dbData, score, player_name)
+            });
+        get_top();
+        end_screen_div.hide();
+        start_menu_div.show();
+    }
 }
 
 //-----GETTING TOP 5 PLAYER SCORES TO BE DISPLAYED ON THE SCREEN
