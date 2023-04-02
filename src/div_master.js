@@ -200,31 +200,6 @@ function draw_leaderboard(dbData) {
     score_value_div.html('<br><span class="dbRecord" id="bestscore">Session Best:<br>' + bestscore + '<br></span>', true);
 }
 
-function update_leaderboard_offline(dbData, playerScore, playerName) {
-    for (i = 0; i < dbData.length; i++) {
-        if (playerScore > dbData[i]["Score"]) {
-            moveScores(dbData, i);
-            dbData[i] = {
-                "Name": playerName,
-                "Score": playerScore
-            };
-        }
-    }
-}
-
-function moveScores(dbData, index) {
-    for (index; index < dbData.length - 1; i++) {
-        let temp = {
-            "Name": dbData[index + 1]["Name"],
-            "Score": dbData[index + 1]["Score"]
-        }
-        dbData[i] = {
-            "Name": temp["Name"],
-            "Score": temp["Score"]
-        };
-    }
-}
-
 function toggleSound() {
     never_played = 0;
     if (never_played == 0)

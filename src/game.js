@@ -177,7 +177,6 @@ function game_end() {
     if (score > sessionStorage.getItem('PersonalBest')) {
         sessionStorage.setItem('PersonalBest', score)
         bestscore = score;
-        draw_leaderboard(dbData);
     }
     end_screen_update();
     end_sound.stop();
@@ -207,15 +206,10 @@ function send_score() {
     player_name = document.getElementById('send_score_input').value;
     fd.append("Name", player_name);
     fd.append("Score", score);
-
     $.post("php/send_score.php",
         {
             Name: player_name,
             Score: score
-        })
-        .fail(function () {
-            update_leaderboard_offline(dbData, score, player_name)
-            console.log("Hello");
         });
     get_top();
     end_screen_div.hide();
@@ -229,13 +223,7 @@ function get_top() {
 
         if (document.getElementById("all_scores") != null)
             draw_leaderboard(dbData);
-    })
-
-        .fail(function () {
-            draw_leaderboard(dbData);
-            console.log("Failed to load");
-        })
-        ;
+    });
 }
 
 //-----MOVING ALL IMAGES RESPONSIBLE FOR BACKGROUND
