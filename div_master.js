@@ -203,25 +203,20 @@ function draw_leaderboard(dbData) {
 function update_leaderboard_offline(dbData, playerScore, playerName) {
     for (i = 0; i < dbData.length; i++) {
         if (playerScore > dbData[i]["Score"]) {
-            moveScores(dbData, i);
+            moveScores(dbData, i + 1);
             dbData[i] = {
                 "Name": playerName,
                 "Score": playerScore
             };
+            break;
         }
     }
 }
 
 function moveScores(dbData, index) {
-    for (index; index < dbData.length - 1; i++) {
-        let temp = {
-            "Name": dbData[index + 1]["Name"],
-            "Score": dbData[index + 1]["Score"]
-        }
-        dbData[i] = {
-            "Name": temp["Name"],
-            "Score": temp["Score"]
-        };
+    tempdbData = Object.assign({}, dbData)
+    for (index; index < dbData.length; index++) {
+        dbData[index] = tempdbData[index - 1];
     }
 }
 

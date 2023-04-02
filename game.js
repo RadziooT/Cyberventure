@@ -233,18 +233,22 @@ function send_score() {
 
 //-----GETTING TOP 5 PLAYER SCORES TO BE DISPLAYED ON THE SCREEN
 function get_top() {
-    $.get("php/get_score.php", function (data) {
-        if (data.slice(0, 5) != "<?php") {
-            dbData = JSON.parse(data);
-            if (document.getElementById("all_scores") != null)
-                draw_leaderboard(dbData);
-        }
-    })
-        .fail(function () {
-            // draw_leaderboard(dbData);
-            console.log("Failed to load");
+    if (githubPagesBranch) {
+        if (document.getElementById("all_scores") != null)
+            draw_leaderboard(dbData);
+    } else {
+
+        $.get("php/get_score.php", function (data) {
+            if (data.slice(0, 5) != "<?php") {
+                dbData = JSON.parse(data);
+                if (document.getElementById("all_scores") != null)
+                    draw_leaderboard(dbData);
+            }
         })
-        ;
+            .fail(function () {
+                draw_leaderboard(dbData);
+            });
+    }
 }
 
 //-----MOVING ALL IMAGES RESPONSIBLE FOR BACKGROUND
