@@ -15,6 +15,7 @@
 ## Link to the game
 http://cyberventure.cba.pl/
 
+Our hosting website has expired. If you want to check out the game use github-pages which uses a workaround to simulate local database for best scores.
 <!-- BUILT WITH -->
 ## Built with
 [![p5][p5js]][p5-url] [![fa][fa]][fa-url]
@@ -23,7 +24,11 @@ http://cyberventure.cba.pl/
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-Online Flappy Bird type game with global leaderboard. In this type of game you play as a bird trying to dodge obstacles. The further you go, the more points you get. Try to survive as long as possible.
+We present our group project for our Internet Technologies course.
+
+What can you expect when playing the game?
+
+New approach to Online Flappy Bird type game with global leaderboard. You'll experience interesting music and graphics with customizable challenges. The further you go, the more points you get. Try to survive as long as possible.
 
 <!-- ROADMAP -->
 ## Roadmap
